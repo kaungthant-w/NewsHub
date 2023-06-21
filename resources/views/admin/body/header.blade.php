@@ -32,6 +32,7 @@
                     <div class="pull-left">
                       <img src="{{ asset("backend/assets/dist/img/user1-128x128.jpg") }}" class="img-circle" alt="User Image">
                     </div>
+
                     <h4>
                       Developers
                       <small><i class="fa fa-clock-o"></i> Today</small>
@@ -57,15 +58,29 @@
             <li class="footer"><a href="#">View all</a></li>
           </ul>
         </li>
+        @php
+            $id = Auth::user()->id;
+            $adminData = App\Models\User::find($id);
+        @endphp
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="{{ asset("backend/assets/dist/img/user1-128x128.jpg") }}" class="user-image" alt="User Image">
-            <span class="hidden-xs">U Mya Kyaw</span>
+            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="user-image" alt="User Image">
+            <span class="hidden-xs">{{ (!empty($adminData->name)) ? $adminData->name : 'unknown' }}</span>
           </a>
           <ul class="dropdown-menu">
             <li class="user-footer">
-              <div class="pull-right">
-                <a href="{{ route("admin#logout") }}" class="btn btn-default btn-flat">Logout</a>
+                <div class="">
+                  <a href="{{ route("admin#profile") }}" class="" style="color:white !important;"><i class="fa-regular fa-user"></i> Profile</a>
+                </div>
+            </li>
+            <li class="user-footer">
+                <div class="">
+                  <a href="{{ route("admin#profile") }}" class="" style="color:white !important;"><i class="fa-solid fa-lock"></i> Change Password</a>
+                </div>
+            </li>
+            <li class="user-footer">
+              <div class="">
+                <a href="{{ route("admin#logout") }}" class="" style="color:white !important;"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
               </div>
             </li>
           </ul>

@@ -15,7 +15,7 @@
                                 </div>
                             @endif
                         </div>
-                        <input type="submit" class="btn btn-info" style="margin-top: 6px" value="Create">
+                        <button type="submit" class="btn btn-info" style="margin-top: 6px"><i class="fa-regular fa-floppy-disk"></i> Create</button>
                     </form>
             </div>
             <div class="col-md-8 col-xs-12">
@@ -47,10 +47,10 @@
                                         <div class="d-flex overflow-scroll">
                                             <form class="inline" action="{{ route('delete#category', $category->id) }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</button>
                                             </form>
 
-                                            <a class="btn btn-primary" class="text-dark text-decoration-none" href="#editCategoryId" data-toggle="modal" data-category-id="{{ $category->id }}">Edit</a>
+                                            <a class="btn btn-primary" class="text-dark text-decoration-none" href="#editCategoryId" data-toggle="modal" data-category-id="{{ $category->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
                                         </div>
                                     </td>
                                 </tr>

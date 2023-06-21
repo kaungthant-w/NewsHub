@@ -45,7 +45,7 @@
                                 <th>Subcategory</th>
                                 <th>Subcategory Slug</th>
                                 <th>Date</th>
-                                <th>Actions</th>
+                                <th style="width: 180px">Actions</th>
                             </tr>
                             @foreach ($subcategories as $key => $subcategory)
                                 <tr>
@@ -64,12 +64,12 @@
                                         <div class="d-flex overflow-scroll">
                                             <form class="inline" action="{{ route('delete#subcategory', $subcategory->id) }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</button>
                                             </form>
 
                                             <a class="btn btn-primary text-dark text-decoration-none edit-button"
                                             href="#editSubcategoryId" data-toggle="modal"
-                                            data-subcategory-id="{{ $subcategory->id }}">Edit</a>
+                                            data-subcategory-id="{{ $subcategory->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
                                         </div>
                                     </td>
                                 </tr>

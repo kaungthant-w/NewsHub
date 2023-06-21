@@ -18,3 +18,25 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('darkMode', isDarkMode);
     });
 });
+
+
+// when click img,show full width img
+function showFullSize() {
+    var overlay = document.querySelector('.image-overlay');
+    overlay.classList.add('open');
+  }
+
+  function closeFullSize() {
+    var overlay = document.querySelector('.image-overlay');
+    overlay.classList.remove('open');
+  }
+
+
+  $('#image').change(function(e){
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        $('#showImage').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(e.target.files['0']);
+  })

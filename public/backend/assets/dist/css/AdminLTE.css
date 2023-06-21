@@ -950,7 +950,7 @@ a:focus {
 .navbar-nav > .notifications-menu > .dropdown-menu,
 .navbar-nav > .messages-menu > .dropdown-menu,
 .navbar-nav > .tasks-menu > .dropdown-menu {
-  width: 280px;
+  width: 320px;
   padding: 0 0 0 0;
   margin: 0;
   top: 100%;
@@ -1033,7 +1033,7 @@ a:focus {
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .glyphicon,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .fa,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .ion {
-  width: 20px;
+  width: 90px;
 }
 .navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a {
   margin: 0;
@@ -1097,7 +1097,7 @@ a:focus {
   border-top-left-radius: 0;
   padding: 1px 0 0 0;
   border-top-width: 0;
-  width: 280px;
+  width: 40px;
 }
 .navbar-nav > .user-menu > .dropdown-menu,
 .navbar-nav > .user-menu > .dropdown-menu > .user-body {
@@ -1111,8 +1111,8 @@ a:focus {
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
   z-index: 5;
-  height: 90px;
-  width: 90px;
+  height: 200px;
+  width: 200px;
   border: 3px solid;
   border-color: transparent;
   border-color: rgba(255, 255, 255, 0.2);
@@ -1159,8 +1159,9 @@ a:focus {
   }
 }
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer {
-  background-color: #f9f9f9;
-  padding: 10px;
+  background-color: rgba(60, 141, 188, 0.8);
+  padding: 5px;
+  font-size: 12px;
 }
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer:before,
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer:after {

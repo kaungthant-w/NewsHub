@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
     <link rel="stylesheet" href="{{ asset('frontend/assets/custom/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
 </head>
 <body class="container-fluid m-0 p-0">
     <nav class="navbar navbar-expand-lg navbar-light opacity-75 shadow-sm" id="navHeader">
@@ -25,7 +27,7 @@
                 <form action="#">
                     <div class="input-group">
                         <input type="text" name="post" class="form-control" placeholder="Enter your post title">
-                        <button class="btn btn-danger ml-0 ml-md-3">Search</button>
+                        <button class="btn btn-danger ml-0 ml-md-3"><i class="fa-solid fa-magnifying-glass"></i> </button>
                     </div>
                 </form>
             </div>
@@ -34,7 +36,7 @@
 
                 @guest
                     <li class="nav-item me-md-2"><a class="nav-link text-white text-decoration-none px-3" href="#loginId" data-bs-toggle="modal">Login</a> </li>
-                    <li class="nav-item"><a class="nav-link text-white text-decoration-none px-3"  href="#registerId" data-bs-toggle="modal">Register</a> </li>
+                    <li class="nav-item"><a class="nav-link text-white text-decoration-none px-3"  href="#registerId" data-bs-toggle="modal"></i>Register</a> </li>
                 @endguest
 
                 @auth
@@ -166,8 +168,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-outline-danger">Login</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Close</button>
+                <button type="submit" class="btn btn-outline-danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Login</button>
             </div>
         </form>
       </div>
@@ -203,8 +205,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-outline-danger">Register</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Close</button>
+                    <button type="submit" class="btn btn-outline-danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Register</button>
                 </div>
             </form>
           </div>
@@ -212,7 +214,36 @@
       </div>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
       <script src="{{ asset('frontend/assets/custom/js/script.js') }}"></script>
+      <!-- jQuery 3 -->
+    <script src={{ asset("backend/assets/bower_components/jquery/dist/jquery.min.js" )}}></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+      <script>
+            @if(Session::has('message'))
+                var type = "{{ Session::get('alert-type','info') }}"
+                switch(type){
+                case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+                break;
+
+                case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+                break;
+
+                case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+                break;
+
+                case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break;
+                }
+            @endif
+
+       </script>
 </body>
 </html>

@@ -26,8 +26,10 @@ class AuthenticatedSessionController extends Controller
         $url = '';
         if($request->user()->role === 'admin') {
             $url = 'admin/dashboard';
+            $this->redirectToAdmin('admin Login successfully', 'success');
         } elseif($request->user()->role === 'user') {
             $url = '/';
+            $this->redirectToAdmin('user Login successfully', 'success');
         }
 
         return redirect()->intended($url);
@@ -44,7 +46,15 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-
+        $this->redirectToAdmin('User Logout successfully', 'success');
         return redirect('/');
+    }
+
+    private function redirectToAdmin($message, $alertType) {
+        $notification = array(
+            'message' => $message,
+            'alert-type' => $alertType,
+        );
+        return redirect()->back()->with($notification);
     }
 }

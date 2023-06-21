@@ -13,7 +13,8 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href={{ asset("backend/assets/bower_components/Ionicons/css/ionicons.min.css") }}>
   <!-- Theme style -->
-  <link rel="stylesheet" href={{ asset("backend/assets/dist/css/AdminLTE.min.css") }}>
+  {{-- <link rel="stylesheet" href={{ asset("backend/assets/dist/css/AdminLTE.min.css") }}> --}}
+  <link rel="stylesheet" href={{ asset("backend/assets/dist/css/AdminLTE.css") }}>
   <!-- AdminLTE Skins-->
   <link rel="stylesheet" href={{ asset("backend/assets/dist/css/skins/_all-skins.min.css") }}>
   <!-- Morris chart -->

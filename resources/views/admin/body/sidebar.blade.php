@@ -1,12 +1,24 @@
 <aside class="main-sidebar">
     <section class="sidebar">
       <div class="user-panel">
+        @php
+            $id = Auth::user()->id;
+            $adminData = App\Models\User::find($id);
+        @endphp
+
         <div class="pull-left image">
-          <img src="{{ asset("backend/assets/dist/img/user1-128x128.jpg") }}" class="img-circle" alt="User Image">
+            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="img-circle img-bordered-sm full-opacity-hover" onclick="showFullSize()" alt="User Image">
         </div>
+
+        <div class="image-overlay">
+            <span class="close-btn" onclick="closeFullSize()">&times;</span>
+            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" alt="Image" class="clickable-img" style="width: 80%;height:80%">
+        </div>
+
+
         <div class="pull-left info">
-          <p>U Mya Kyaw</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p>{{ (!empty($adminData -> name)) ? $adminData -> name:"unknoun"}}</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> {{ (!empty($adminData -> status)) ? $adminData -> status:"unknown"}}</a>
         </div>
       </div>
       <!-- search form -->
@@ -44,7 +56,7 @@
             <ul class="treeview-menu">
               <li class="active"><a href="{{ route("subcategory#list") }}"><i class="fa fa-circle-o"></i> All Subcategory</a></li>
             </ul>
-          </li>
+        </li>
 
 
         <li class="treeview">
