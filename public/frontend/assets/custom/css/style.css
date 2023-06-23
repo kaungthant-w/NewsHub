@@ -91,12 +91,12 @@ nav#navHeader{
     font-style: italic;
 }
 
-.image-overlay {
+.image-frontendoverlay{
     position: relative;
     overflow: hidden;
 }
 
-.image-overlay .overlay {
+.image-frontendoverlay .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -105,14 +105,14 @@ nav#navHeader{
     background-color: rgba(0, 0, 0, 0.5); /* Adjust the overlay color and opacity as needed */
 }
 
-.image-overlay .image-caption {
+.image-frontendoverlay .image-caption {
     position: absolute;
     bottom: 10px;
     left: 10px;
     color: #fff;
 }
 
-.image-overlay .image-caption p {
+.image-frontendoverlay .image-caption p {
     margin: 0;
     font-size: 14px;
 }
@@ -147,4 +147,9 @@ nav#navHeader{
   .clickable-img {
     cursor: pointer;
     object-fit:contain;
+  }
+
+
+  .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background: #222 !important;
   }

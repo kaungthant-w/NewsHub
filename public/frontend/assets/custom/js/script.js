@@ -40,3 +40,21 @@ function showFullSize() {
 
     reader.readAsDataURL(e.target.files['0']);
   })
+
+//show / hide password
+const togglePasswords = document.querySelectorAll('.toggle-password');
+
+togglePasswords.forEach(function (togglePassword) {
+    togglePassword.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('data-target');
+        const password = document.querySelector(targetId);
+
+        // Toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        // Toggle the eye slash icon
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+});

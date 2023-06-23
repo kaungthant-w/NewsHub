@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewspostController;
+use App\Http\Controllers\User\UserController;
 
 require __DIR__.'/auth.php';
 
@@ -13,7 +14,8 @@ Route::fallback(function () {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('frontend/frontend');
 });
 
 // Route::get('/dashboard', function () {
@@ -55,5 +57,17 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     //manage role and news post settings
     Route::get('admin/list', [AdminController::class, 'adminList'])->name("admin#list");
     Route::post('admin/profile/store', [AdminController::class, 'adminProfileStore'])->name("admin#profile#store");
+    Route::get('admin/change/password', [AdminController::class, 'adminChangePassword'])->name("admin#change#password");
+    Route::post('admin/update/password', [AdminController::class, 'adminUpdatePassword'])->name("admin#update#password");
+
+});
+
+
+
+Route::middleware(['auth', 'role:user'])->group(function() {
+
+    // permission user or admin
+    Route::get('/user/frontend/dashboard', [UserController::class, 'UserFrontendDashboard'])->name('user#frontend#dashboard');
+    Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])->name('user#profile#store');
 
 });

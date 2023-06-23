@@ -1,18 +1,13 @@
-<aside class="main-sidebar">
+<aside class="text-white main-sidebar" style="background: #263238;">
     <section class="sidebar">
-      <div class="user-panel">
+      <div class="user-panel" style="background: #1A2226">
         @php
             $id = Auth::user()->id;
             $adminData = App\Models\User::find($id);
         @endphp
 
         <div class="pull-left image">
-            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="img-circle img-bordered-sm full-opacity-hover" onclick="showFullSize()" alt="User Image">
-        </div>
-
-        <div class="image-overlay">
-            <span class="close-btn" onclick="closeFullSize()">&times;</span>
-            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" alt="Image" class="clickable-img" style="width: 80%;height:80%">
+            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="img-circle img-bordered-sm" style="margin-left: " alt="{{ $adminData->photo }}">
         </div>
 
 
@@ -22,17 +17,17 @@
         </div>
       </div>
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
+      <form action="#" method="get" class="my-6 ml-3 sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
-              </span>
+            </span>
         </div>
       </form>
       <!-- sidebar menu-->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="text-white sidebar-menu" data-widget="tree" style="background-color: #1A2226;">
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
           <a href="#">

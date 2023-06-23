@@ -1,54 +1,32 @@
-<header class="main-header">
+<header class="main-header" style=" #3C3D8B">
   <!-- Logo -->
   <a href="{{ route("admin#dashboard") }}" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><i class="fa-solid fa-house"></i></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><i class="fa-solid fa-house"></i> Home </span>
+    <span class="text-white logo-lg"><i class="fa-solid fa-house"></i> Home </span>
   </a>
-  <nav class="navbar navbar-static-top">
+  <nav class="navbar navbar-static-top d-flex" style="background: #337AB7">
     <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
       <span class="sr-only">Toggle navigation</span>
     </a>
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <li class="messages-menu" id="dark-mode-toggle">
+        <li class="messages-menu" title="dark theme" id="dark-mode-toggle">
             <a href="#">
-                <i class="fa-solid fa-moon mt-4 text-black"></i>
+                <i class="mt-1 text-black fa-solid fa-moon"></i>
             </a>
         </li>
-        <li class="dropdown messages-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-envelope-o"></i>
-            <span class="label label-success">4</span>
-          </a>
-          <ul class="dropdown-menu">
-            <li class="header">You have 4 messages</li>
-            <li>
-              <ul class="menu">
-                <li>
-                  <a href="#">
-                    <div class="pull-left">
-                      <img src="{{ asset("backend/assets/dist/img/user1-128x128.jpg") }}" class="img-circle" alt="User Image">
-                    </div>
+        <li class="messages-menu">
+            <a href="{{ url('/') }}" title="User View">
+                <i class="text-white fa-solid fa-newspaper"></i>
+            </a>
+        </li>
 
-                    <h4>
-                      Developers
-                      <small><i class="fa fa-clock-o"></i> Today</small>
-                    </h4>
-                    <p>Why not buy a new awesome theme?</p>
-                  </a>
-                </li>
-                </li>
-              </ul>
-        </li>
-            <li class="footer"><a href="#">See All Messages</a></li>
-      </ul>
-        </li>
-        <li class="dropdown notifications-menu">
+        <li class="dropdown notifications-menu hover:text-black">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-bell-o"></i>
+            <i class="text-white fa fa-bell-o hover:text-black "title="notifications"></i>
             <span class="label label-warning">10</span>
           </a>
           <ul class="dropdown-menu">
@@ -62,20 +40,20 @@
             $id = Auth::user()->id;
             $adminData = App\Models\User::find($id);
         @endphp
-        <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="user-image" alt="User Image">
-            <span class="hidden-xs">{{ (!empty($adminData->name)) ? $adminData->name : 'unknown' }}</span>
+        <li class="text-white dropdown user user-menu">
+          <a href="#" class="dropdown-toggle hover:text-black" data-toggle="dropdown" title="Profile view">
+            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="user-image img-bordered-sm" alt="User Image">
+            <span class="text-white hidden-xs hover:text-black">{{ (!empty($adminData->name)) ? $adminData->name : 'unknown' }}</span>
           </a>
           <ul class="dropdown-menu">
             <li class="user-footer">
                 <div class="">
-                  <a href="{{ route("admin#profile") }}" class="" style="color:white !important;"><i class="fa-regular fa-user"></i> Profile</a>
+                  <a href="{{ route("admin#profile") }}" class="" style="color:white !important;"><i class="text-white fa-regular fa-user hover:text-black"></i> Profile</a>
                 </div>
             </li>
             <li class="user-footer">
                 <div class="">
-                  <a href="{{ route("admin#profile") }}" class="" style="color:white !important;"><i class="fa-solid fa-lock"></i> Change Password</a>
+                  <a href="{{ route("admin#change#password") }}" class="" style="color:white !important;"><i class="fa-solid fa-lock"></i> Change Password</a>
                 </div>
             </li>
             <li class="user-footer">
