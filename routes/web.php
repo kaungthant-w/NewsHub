@@ -69,5 +69,7 @@ Route::middleware(['auth', 'role:user'])->group(function() {
     // permission user or admin
     Route::get('/user/frontend/dashboard', [UserController::class, 'UserFrontendDashboard'])->name('user#frontend#dashboard');
     Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])->name('user#profile#store');
+    Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user#change#password');
+    Route::post('/user/update/password', [UserController::class, 'UserUpdatePassword'])->name('user#update#password');
 
 });

@@ -15,6 +15,22 @@
         @apply px-6 py-1 font-bold text-white bg-blue-300 rounded-bl-3xl rounded-tr-3xl;
     }
 
+    .image-block {
+        @apply w-[40px] h-[40px] overflow-hidden rounded-full;
+    }
+
+    .image {
+        @apply object-cover w-full h-full;
+    }
+
+    .user {
+        @apply block text-lg font-semibold text-black capitalize;
+    }
+
+    .email {
+        @apply block text-sm font-medium text-gray-500;
+    }
+
     .icon-eye {
         @apply -m-12 hover:cursor-pointer hover:text-blue-500;
     }
@@ -26,6 +42,45 @@
 
     .custom-image {
         @apply object-cover w-full h-48 md:h-64;
+    }
+
+    .status {
+        @apply inline-block px-3 py-1.5 text-sm rounded-3xl font-medium capitalize ;
+    }
+
+    .btnTW {
+        @apply inline-block px-5 py-2 text-xl font-medium text-white capitalize border-0 cursor-pointer;
+    }
+
+    .btnTW-primary {
+        @apply bg-blue-500;
+    }
+
+    .btnTW-danger {
+        @apply bg-red-500;
+    }
+    .btnTW-success {
+        @apply bg-green-600;
+    }
+
+    .btnTW-secondary {
+        @apply bg-gray-600;
+    }
+
+    .btnTW-info {
+        @apply bg-sky-600;
+    }
+
+    .thTW {
+        @apply px-2.5 py-4 text-lg font-bold text-left text-gray-600 uppercase;
+    }
+
+    .tbodyTW-tr {
+        @apply odd:bg-gray-100;
+    }
+
+    .td {
+        @apply p-4 text-lg text-gray-600;
     }
 
 /* } */

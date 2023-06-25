@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -47,6 +48,33 @@ class UserController extends Controller
         $data->save();
         return $this->redirectToUserProfile('user Updated successfully', 'success');
     }
+
+
+    public function UserChangePassword() {
+        $id = Auth::user()->id;
+        $userData = User::find($id);
+        return view('frontend.profile.password', compact("userData"));
+    }
+
+    public function UserUpdatePassword(Request $request) {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed'
+        ]);
+
+        if (!Hash::check($request->old_password, auth()->user()->password)) {
+            $this->redirectToUserProfile("Old Password doesn't match!", 'error');
+            return back();
+        }
+
+        User::whereId(auth()->user()->id) -> update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        $this->redirectToUserProfile("Password changed successfully", 'success');
+        return back();
+    }
+
     // private function
     private function userProfileValidationCheck($request) {
         $validationRules =  [

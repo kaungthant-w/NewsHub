@@ -4,8 +4,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>News Web Application</title>
-  {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
-
   @vite('resources/css/app.css')
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -95,6 +93,7 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{ asset('frontend/assets/custom/js/script.js') }}"></script>
 {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <script>

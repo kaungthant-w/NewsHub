@@ -7,58 +7,58 @@
                     <form action="{{ route('store#category') }}" method="POST">
                         @csrf
                         <div class="form-floating">
-                            <input type="text" name="category_name" id="floatingCategory" class="form-control @error('category_name') is-invalid @enderror" placeholder="Enter your category" value=" {{old('category_name')}} ">
-                            <label for="floatingCategory">Enter your category</label>
+                            <input type="text" name="category_name" id="floatingCategory" class="form-control @error('category_name') is-invalid @enderror" placeholder="Enter your category">
                             @error('category_name')
                                 <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
                                     {{$message}}
                                 </div>
                             @endif
                         </div>
-                        <button type="submit" class="btn btn-info" style="margin-top: 6px"><i class="fa-regular fa-floppy-disk"></i> Create</button>
+                        <button type="submit" class="rounded btnTW btnTW-info" style="margin-top: 6px"><i class="fa-regular fa-floppy-disk"></i> Create</button>
                     </form>
             </div>
             <div class="col-md-8 col-xs-12">
-                <h1 class="h3">All Category  <span class="badge badge-info">{{ count($categories) }}</span></h1>
-                <div class="box">
-                    <div class="box-body">
-                        <table id="example1" class="table table-bordered">
+                <h1 class="h3">All Category  <span class="text-white bg-blue-900 status">{{ count($categories) }}</span></h1>
+
+                <div class="max-w-screen-xl px-5 mx-auto">
+                    <div class="my-20 overflow-x-auto border rounded-lg ">
+                        <table class="w-full">
                         <tbody>
-                            <tr>
-                                <th>No</th>
-                                <th>Category</th>
-                                <th>Category Slug</th>
-                                <th>Date</th>
-                                <th>Actions</th>
+                            <tr class="bg-gray-50">
+                                <th class="thTW">No</th>
+                                <th class="thTW">Category</th>
+                                <th class="thTW">Category Slug</th>
+                                <th class="thTW">Date</th>
+                                <th class="thTW">Actions</th>
                             </tr>
                             @foreach ($categories as $key=>$category)
-                                <tr>
-                                    <td>{{ $key+1 }}</td>
-                                    <td>{{ $category->category_name }}</td>
-                                    <td>{{ $category->category_slug }}</td>
-                                    <td>
+                                <tr class="tbodyTW-tr">
+                                    <td class="td">{{ $key+1 }}</td>
+                                    <td class="td">{{ $category->category_name }}</td>
+                                    <td class="td">{{ $category->category_slug }}</td>
+                                    <td class="td">
                                         @if ($category->created_at == NULL)
                                             No Date
                                         @else
                                         {{ $category->created_at->diffForHumans() }}
                                         @endif
                                     </td>
-                                    <td>
-                                        <div class="d-flex overflow-scroll">
+                                    <td class="td">
+                                        <div class="flex w-[180px]">
                                             <form class="inline" action="{{ route('delete#category', $category->id) }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</button>
+                                                <button type="submit" class="rounded btnTW btnTW-success"><i class="fa-solid fa-trash"></i> Delete</button>
                                             </form>
 
-                                            <a class="btn btn-primary" class="text-dark text-decoration-none" href="#editCategoryId" data-toggle="modal" data-category-id="{{ $category->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                            <a class="ml-4 rounded btnTW btnTW-danger text-decoration-none edit-button" href="#editCategoryId" data-toggle="modal" data-category-id="{{ $category->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
                                         </div>
                                     </td>
                                 </tr>
                             @endforeach
 
-                            {{ $categories->links() }}
                         </tbody>
-                        </table>
+                    </table>
+                    {{ $categories->links() }}
                     </div>
                 </div>
             </div>
@@ -76,14 +76,14 @@
                 <form id="editCategoryForm" action="{{ route('update#category', ['id' => '__id__']) }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <div class="form-floating mb-3">
+                        <div class="mb-3 form-floating">
                             <label for="floatingInput">Category</label>
                             <input type="text" name="category_name" id="category_name" class="form-control" id="floatingInput">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="button" class="rounded btnTW btnTW-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="rounded btnTW btnTW-primary">Update</button>
                     </div>
                 </form>
             </div>

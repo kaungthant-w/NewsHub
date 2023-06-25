@@ -13,6 +13,7 @@
 
 </head>
 <body class="p-0 m-0 container-fluid">
+
     @include("frontend.body.navbar")
 
     @include("frontend.body.banner")
@@ -27,31 +28,33 @@
 
     <script src={{ asset("backend/assets/bower_components/jquery/dist/jquery.min.js" )}}></script>
     <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
     <script src="{{ asset('frontend/assets/custom/js/script.js') }}"></script>
 
     <script>
-            @if(Session::has('message'))
-                var type = "{{ Session::get('alert-type','info') }}"
-                switch(type){
+        @if(Session::has('message'))
+            var type = "{{ Session::get('alert-type','success') }}";
+            var positionClass = 'toast-top-custom'; // Define a custom position class
+            toastr.options.positionClass = positionClass; // Set the position class
+
+            switch(type){
                 case 'info':
-                toastr.info(" {{ Session::get('message') }} ");
-                break;
+                    toastr.info("{{ Session::get('message') }}");
+                    break;
 
                 case 'success':
-                toastr.success(" {{ Session::get('message') }} ");
-                break;
+                    toastr.success("{{ Session::get('message') }}");
+                    break;
 
                 case 'warning':
-                toastr.warning(" {{ Session::get('message') }} ");
-                break;
+                    toastr.warning("{{ Session::get('message') }}");
+                    break;
 
                 case 'error':
-                toastr.error(" {{ Session::get('message') }} ");
-                break;
-                }
-            @endif
-
-       </script>
+                    toastr.error("{{ Session::get('message') }}");
+                    break;
+            }
+        @endif
+    </script>
 </body>
 </html>

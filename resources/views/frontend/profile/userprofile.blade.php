@@ -4,26 +4,26 @@
         <div class="text-center col-12 col-md-4">
             <h3 class="my-3">User Profile</h3>
             <div class="flex items-center justify-center">
-                <img src="{{ (!empty($userData->photo)) ? url('forntend/assets/images/userprofile/'.$userData->photo):url('frontend/assets/images/userprofile/no_image.jpg') }}" class="mb-2 rounded-circle profile-img" style="width: 84px;height:84px" onclick="showFullSize()" alt="">
+                <img src="{{ (!empty($userData->photo)) ? url('frontend/assets/images/userprofile/'.$userData->photo):url('frontend/assets/images/userprofile/no_image.jpg') }}" class="mb-2 rounded-circle profile-img" style="width: 84px;height:84px" onclick="showFullSize()" alt="">
             </div>
 
             <div class="image-overlay">
                 <span class="close-btn" onclick="closeFullSize()">&times;</span>
-                <img src="{{ (!empty($userData->photo)) ? url('forntend/assets/images/userprofile/'.$userData->photo):url('frontend/assets/images/userprofile/no_image.jpg') }}" alt="Image" class="clickable-img" style="width: 80%;height:80%">
+                <img src="{{ (!empty($userData->photo)) ? url('frontend/assets/images/userprofile/'.$userData->photo):url('frontend/assets/images/userprofile/no_image.jpg') }}" alt="Image" class="clickable-img" style="width: 80%;height:80%">
             </div>
 
             <h5>{{ $userData->name }}</h5>
             <p class="text-muted">@ {{ $userData->username }}</p>
             <ul class="text-md-start ms-md-5">
                 {{-- <li class="list-unstyled">Your Profile</li> --}}
-                <li class="list-unstyled">Change Password</li>
+                <li class="list-unstyled"><a href="{{ route('user#change#password') }}" class="text-black text-decoration-none">Change Password</a></li>
                 <li class="list-unstyled">Read Later List</li>
                 <li class="list-unstyled">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <x-dropdown-link :href="route('logout')"
                                 onclick="event.preventDefault();
-                                            this.closest('form').submit();" class="text-danger">
+                                            this.closest('form').submit();" class="text-danger text-decoration-none">
                             {{ __('Log Out') }}
                         </x-dropdown-link>
                     </form>
@@ -31,7 +31,7 @@
             </ul>
         </div>
         <div class="p-3 col-12 col-md-6 col-lg-offset-4">
-            <h3>User Account</h3>
+            <h3>Change Account</h3>
             <form action="{{ route("user#profile#store") }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3 form-group">
@@ -78,12 +78,12 @@
                     <div class="col-8">
                         <div class="mb-3 form-group">
                             <label for="">Your Photo:</label>
-                            <input type="file" class="form-control" id="image">
+                            <input type="file" name="photo" class="form-control" id="image">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="">
-                            <img src="{{ (!empty($userData->photo)) ? url('forntend/assets/dist/images/userprofile/'.$userData->photo):url('frontend/assets/images/userprofile/no_image.jpg') }}" class="mb-2 cursor-pointer rounded-circle profile-img" style="width: 84px;height:84px" onclick="showFullSize()" id="showImage" alt="">
+                            <img src="{{ (!empty($userData->photo)) ? url('frontend/assets/images/userprofile/'.$userData->photo):url('frontend/assets/images/userprofile/no_image.jpg') }}" class="mb-2 cursor-pointer rounded-circle profile-img" style="width: 84px;height:84px" onclick="showFullSize()" id="showImage" alt="">
                         </div>
                     </div>
                 </div>

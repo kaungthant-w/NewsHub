@@ -18,8 +18,8 @@
                         <p>{{ (!empty($adminPassword->name)) ? $adminPassword->name: "unknown" }}</p>
                         <p><a href="#">@ {{ (!empty($adminPassword->username)) ? $adminPassword->username: "unknown" }}</a></p>
                         <div class="mx-12 my-10 button">
-                            <div class="btn btn-success">Contact</div>
-                            <div class="btn btn-danger">Admin</div>
+                            <div class="rounded btnTW btnTW-success">Contact</div>
+                            <div class="rounded btnTW btnTW-danger">Admin</div>
                         </div>
                     </div>
 
@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="text-white ">
-                                <button type="submit" class="mt-5 bg-blue-400 btn"><i class="fa-regular fa-floppy-disk"></i> Save</button>
+                                <button type="submit" class="mt-5 rounded btnTW btnTW-primary"><i class="fa-regular fa-floppy-disk"></i> Save</button>
                             </div>
                         </div>
                     </form>

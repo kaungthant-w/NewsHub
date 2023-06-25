@@ -1,4 +1,4 @@
-<section>
+<section class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-6" style="height: 300px">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">

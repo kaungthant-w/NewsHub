@@ -18,8 +18,8 @@
                         <p>{{ (!empty($adminData->name)) ? $adminData->name: "unknown" }}</p>
                         <p><a href="#">@ {{ (!empty($adminData->username)) ? $adminData->username: "unknown" }}</a></p>
                         <div class="mx-12 my-10 button">
-                            <div class="btn btn-success">Contact</div>
-                            <div class="btn btn-danger">Admin</div>
+                            <div class="rounded btnTW btnTW-success">Contact</div>
+                            <div class="rounded btnTW btnTW-danger">Admin</div>
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" class="text-white bg-blue-600 btn"><i class="fa-regular fa-floppy-disk"></i> Save</button>
+                                <button type="submit" class="rounded btnTW btnTW-primary"><i class="fa-regular fa-floppy-disk"></i> Save</button>
                             </div>
                         </div>
                     </form>
