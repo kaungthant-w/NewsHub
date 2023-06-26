@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -45,11 +49,7 @@ class AdminController extends Controller
     {
         $id = Auth::user()->id;
         $data = User::find($id);
-        $data->username = $request->username;
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->phone = $request->phone;
-        $data->address = $request->address;
+        $this->getAdminData($request, $data);
 
         if ($request->file('photo')) {
             $file = $request->file("photo");
@@ -93,6 +93,108 @@ class AdminController extends Controller
 
         $this->redirectToAdmin("Password changed successfully", 'success');
         return back();
+    }
+
+    public function adminAdd() {
+        return view('admin.account.index');
+    }
+
+    public function adminStore(Request $request) {
+        $this->admintValidationCheck($request);
+        // dd("add admin account");
+        $data = new User();
+        $this->getAdminData($request, $data);
+        $data->password = Hash::make($request->password);
+        $data->role = 'admin';
+        $data->status = 'inactive';
+        $data->save();
+
+        $this->redirectToAdmin("Admin Account add successfully.", 'success');
+        return redirect()->route('admin#list');
+    }
+
+    public function adminEdit($id) {
+        $data = User::findOrFail($id);
+        return view('admin.account.edit', compact('data'));
+    }
+
+    public function adminUpdate(Request $request) {
+        $adminId = $request->id;
+        $this->admintValidationCheck($request);
+        // dd("check input");
+        $data = User::findOrFail($adminId);
+        $this->getAdminData($request, $data);
+        $file = $request->file("photo");
+        $data->password = Hash::make($request->password);
+        $data->role = 'admin';
+        $data->status = 'inactive';
+        // dd($request->hasFile('photo'));
+        if ($request->hasFile('photo')) {
+            $oldImage = User::where('id', $adminId)->first();
+            // dd($oldImage);
+            $oldImage = $oldImage->photo;
+            $photoPath = "backend/assets/dist/img/admin_profile/";
+
+            if($oldImage != null) {
+                Storage::delete($photoPath.$oldImage);
+            }
+
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move($photoPath, $filename);
+            $data->photo = $filename;
+        }
+
+
+
+        $data->save();
+
+        $this->redirectToAdmin("Account Update successfully.", 'success');
+        return redirect()->route('admin#list');
+    }
+
+
+    public function adminDelete($id) {
+        $data = User::find($id);
+        $oldPhoto = $data->photo;
+        // dd($oldPhoto);
+        unlink("backend/assets/dist/img/admin_profile/".$oldPhoto);
+        $data->delete();
+        $this->redirectToAdmin("Account Delete successfully.", 'warning');
+        return redirect()->route('admin#list');
+    }
+
+    // private function
+    private function admintValidationCheck($request) {
+        $validationRules =  [
+            'username' => 'required|max:50'.$request -> userId,
+            'name' => 'required',
+            'email' => 'required|unique:users,email',
+            'phone' => 'required',
+            'address' => 'required',
+            'password' => 'required',
+        ];
+
+        $validationMessage = [
+            'name.required' => 'Fill name',
+            'username.required' => 'Fill username',
+            'email.required' => 'Fill email',
+            'email.email' => 'Invalid email format',
+            'phone.required' => 'Fill phone',
+            'address.required' => 'Fill address',
+            'password.required' => 'Fill password'
+        ];
+
+        Validator::make($request->all(),$validationRules, $validationMessage)->validate();
+    }
+
+    private function getAdminData($request, $data) {
+        $data->username = $request->username;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->address = $request->address;
+        $data->created_at = Carbon::now();
+        $data->updated_at = Carbon::now();
     }
 
     private function redirectToAdmin($message, $alertType) {

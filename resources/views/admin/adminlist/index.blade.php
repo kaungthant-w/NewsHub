@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-11 ">
             <h1 class="h3">All Admin List <span class="text-white status bg-sky-600 ">{{ count($alladmin) }}</span></h1>
-            <a href="#" class="mt-5 rounded btnTW btnTW-info">Add Admin</a>
+            <a href="{{ route('admin#add') }}" class="mt-5 rounded btnTW btnTW-info">Add Admin</a>
             <div class="max-w-screen-xl px-5 mx-auto">
                 <div class="my-12 overflow-x-auto border rounded-lg ">
                     <table class="w-full">
@@ -23,7 +23,7 @@
                         </thead>
                         @foreach ($alladmin as $key => $admin)
                             <tbody>
-                                <tr class="tbodyTW-tr">
+                                <tr>
                                     <td class="td">{{ $key+1 }}</td>
                                     <td class="td">
                                         @if ($admin->username == NULL)
@@ -34,7 +34,7 @@
                                     </td>
                                     <td class="flex td">
                                         <div class="image-block">
-                                            <img src="{{ (!empty($admin->photo)) ? url('backend/assets/dist/img/admin_profile/'.$admin->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="image" onclick="showFullSize()" alt="">
+                                            <img src="{{ (!empty($admin->photo)) ? url('backend/assets/dist/img/admin_profile/'.$admin->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="image" onclick="showFullSize()" alt="{{ $admin->photo }}">
                                         </div>
                                         <div class="ml-2.5">
                                             <span class="user">{{ $admin->name }}</span>
@@ -63,12 +63,15 @@
                                     </td>
                                     <td class="td">
                                         <div class="flex w-[180px]">
-                                            <form class="inline" action="" method="POST">
-                                                @csrf
-                                                <button type="submit" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</button>
-                                            </form>
+                                            @if (Auth::user()->id == $admin->id)
+                                                <p class="text-3xl text-gray-300 ">Your Account</p>
+                                            @else
+                                                <a href="{{ route("admin#delete",$admin->id) }}" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</a>
 
-                                            <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="#"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                                <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="{{ route("admin#edit", $admin->id) }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                            @endif
+
+
                                         </div>
                                     </td>
                                 </tr>

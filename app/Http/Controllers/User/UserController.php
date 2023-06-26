@@ -71,6 +71,7 @@ class UserController extends Controller
             'password' => Hash::make($request->new_password)
         ]);
 
+        Auth::logout();
         $this->redirectToUserProfile("Password changed successfully", 'success');
         return back();
     }

@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,22 +12,22 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
 </head>
-<body class="container-fluid m-0 p-0">
-    <nav class="navbar navbar-expand-lg navbar-light opacity-75 shadow-sm" id="navHeader">
+<body class="p-0 m-0 container-fluid">
+    <nav class="shadow-sm opacity-75 navbar navbar-expand-lg navbar-light" id="navHeader">
         <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-around ms-2 ms-md-0" id="navbarSupportedContent">
-            <ul class="d-flex mt-4 mt-md-2">
-                <li class="list-unstyled"> <a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="facebook"><i class="fa-brands fa-facebook text-white"></i> </a> </li>
-                <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="twitter"><i class="fa-brands fa-twitter text-white"></i></a> </li>
-                <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="instagram"><i class="fa-brands fa-instagram text-white"></i></a> </li>
+            <ul class="mt-4 d-flex mt-md-2">
+                <li class="list-unstyled"> <a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="facebook"><i class="text-white fa-brands fa-facebook"></i> </a> </li>
+                <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="twitter"><i class="text-white fa-brands fa-twitter"></i></a> </li>
+                <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="instagram"><i class="text-white fa-brands fa-instagram"></i></a> </li>
             </ul>
             <div class="nav-item col-8 col-md-3 ms-3 ms-md-0">
                 <form action="#">
                     <div class="input-group">
                         <input type="text" name="post" class="form-control" placeholder="Enter your post title">
-                        <button class="btn btn-danger ml-0 ml-md-3"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                        <button class="ml-0 btn btn-danger ml-md-3"><i class="fa-solid fa-magnifying-glass"></i> </button>
                     </div>
                 </form>
             </div>
@@ -35,12 +35,12 @@
                 <li class="nav-item ms-3 ms-md-0 me-md-2"><a href="#" id="dark-mode-toggle" class="nav-link text-dark text-decoration-none" > <i class="fa-solid fa-moon fw-bold"></i> </a> </li>
 
                 @guest
-                    <li class="nav-item me-md-2"><a class="nav-link text-white text-decoration-none px-3" href="#loginId" data-bs-toggle="modal">Login</a> </li>
-                    <li class="nav-item"><a class="nav-link text-white text-decoration-none px-3"  href="#registerId" data-bs-toggle="modal"></i>Register</a> </li>
+                    <li class="nav-item me-md-2"><a class="px-3 text-white nav-link text-decoration-none" href="#loginId" data-bs-toggle="modal">Login</a> </li>
+                    <li class="nav-item"><a class="px-3 text-white nav-link text-decoration-none"  href="#registerId" data-bs-toggle="modal"></i>Register</a> </li>
                 @endguest
 
                 @auth
-                    <li class="nav-item"><a href="#" class="nav-link text-white text-decoration-none fw-bold" >{{ Auth::user()->name }}</a> </li>
+                    <li class="nav-item"><a href="#" class="text-white nav-link text-decoration-none fw-bold" >{{ Auth::user()->name }}</a> </li>
 
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}" class="nav-item fw-bold">
@@ -59,7 +59,7 @@
         </div>
     </nav>
 
-    <div class="shadow-sm mt-4 py-3">
+    <div class="py-3 mt-4 shadow-sm">
         <div class="container row">
             <div class="col-12 col-md-6">
                 <img src="https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_large/v1/editorial/story/hero_image/1.2023-Tesla-Roadster-1001-565.jpg" class=" object-fit-cover" alt="banner"  style="height: 200px;width:100%;">
@@ -71,7 +71,7 @@
         </div>
     </div>
 
-    <nav class="nav overflow-x-scroll flex-nowrap my-3">
+    <nav class="my-3 overflow-x-scroll nav flex-nowrap">
         <li class="nav-item"><a href="#" class="nav-link text-nowrap">Home</a></li>
         <li class="nav-item"><a href="#" class="nav-link text-nowrap">Football News</a></li>
         <li class="nav-item"><a href="#" class="nav-link text-nowrap">International News</a></li>
@@ -117,7 +117,7 @@
                     </button>
                 </div>
             </div>
-            <div class="col-12 col-md-6 my-3 my-md-0">
+            <div class="my-3 col-12 col-md-6 my-md-0">
                 <div class="row g-1">
                     <div class="col-12 position-relative">
                         <div class="image-overlay">
@@ -130,14 +130,14 @@
                     </div>
 
                         <div class="col-12 col-md-6">
-                            <div class=" text-center"><img src="https://i.pinimg.com/550x/ae/14/54/ae1454162ce792592050146a55858238.jpg" class="object-fit-cover w-100"  alt=""></div>
+                            <div class="text-center "><img src="https://i.pinimg.com/550x/ae/14/54/ae1454162ce792592050146a55858238.jpg" class="object-fit-cover w-100"  alt=""></div>
                             <div class="ms-0 ms-md-3">
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus porro </p>
                             </div>
                         </div>
 
                         <div class="col-12 col-md-6">
-                            <div class=" text-center"><img src="https://i.ytimg.com/vi/1xAerI7fXio/maxresdefault.jpg" class="object-fit-cover w-100"  alt=""></div>
+                            <div class="text-center "><img src="https://i.ytimg.com/vi/1xAerI7fXio/maxresdefault.jpg" class="object-fit-cover w-100"  alt=""></div>
                             <div class="ms-2 ms-md-0">
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus porro </p>
                             </div>
@@ -158,7 +158,7 @@
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="modal-body">
-                <div class="form-floating mb-3">
+                <div class="mb-3 form-floating">
                     <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Enter your email">
                     <label for="floatingInput">Email address</label>
                 </div>
@@ -187,19 +187,19 @@
             <form action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <div class="form-floating mb-3">
+                    <div class="mb-3 form-floating">
                         <input type="name" name="name" class="form-control" id="floatingname" placeholder="Enter your email">
                         <label for="floatingname">Name</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="mb-3 form-floating">
                         <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Enter your email">
                         <label for="floatingInput">Email address</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="mb-3 form-floating">
                         <input type="password" name="password" autocomplete="new-password" class="form-control" id="floatingPassword" placeholder="Enter your password">
                         <label for="floatingPassword">Password</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="mb-3 form-floating">
                         <input type="password" name="password_confirmation" autocomplete="new-password" class="form-control" id="floatingConfirmPassword" placeholder="Enter your confirm password">
                         <label for="floatingConfirmPassword">Confirm Password</label>
                     </div>
@@ -246,4 +246,4 @@
 
        </script>
 </body>
-</html> --}}
+</html>

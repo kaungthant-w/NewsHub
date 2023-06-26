@@ -7,7 +7,7 @@
         @endphp
 
         <div class="pull-left image">
-            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="img-circle img-bordered-sm" style="margin-left: " alt="{{ $adminData->photo }}">
+            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="img-circle object-fit-cover img-bordered-sm" style="margin-left: " alt="{{ $adminData->photo }}">
         </div>
 
 
@@ -147,7 +147,7 @@
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="{{ route('admin#list') }}"><i class="fa fa-circle-o"></i> All Setting Admin</a></li>
-            <li class=""><a href="#"><i class="fa fa-circle-o"></i> Add Setting Admin</a></li>
+            <li class=""><a href="{{ route('admin#add') }}"><i class="fa fa-circle-o"></i> Add Setting Admin</a></li>
           </ul>
         </li>
 

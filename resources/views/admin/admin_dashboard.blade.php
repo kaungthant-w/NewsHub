@@ -73,7 +73,7 @@
 <!-- datepicker -->
 <script src="{{ asset('backend/assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="{{ asset('backend/assets/') }}plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+{{-- <script src="{{ asset('backend/assets/') }}plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script> --}}
 <!-- Slimscroll -->
 <script src="{{ asset('backend/assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
@@ -81,7 +81,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('backend/assets/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('backend/assets/dist/js/pages/dashboard.js') }}"></script>
+{{-- <script src="{{ asset('backend/assets/dist/js/pages/dashboard.js') }}"></script> --}}
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('backend/assets/dist/js/demo.js') }}"></script>
 
@@ -91,23 +91,22 @@
 {{-- <script src="{{ asset('backend/assets/dist/js/code.js') }}"></script> --}}
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="{{ asset('frontend/assets/custom/js/script.js') }}"></script>
-{{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('frontend/assets/custom/js/script.js') }}"></script>
 
 
 <script>
-    $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
-        'paging'      : true,
-        'lengthChange': false,
-        'searching'   : false,
-        'ordering'    : true,
-        'info'        : true,
-        'autoWidth'   : false
-        })
-    })
+    // $(function () {
+    //     $('#example1').DataTable()
+    //     $('#example2').DataTable({
+    //     'paging'      : true,
+    //     'lengthChange': false,
+    //     'searching'   : false,
+    //     'ordering'    : true,
+    //     'info'        : true,
+    //     'autoWidth'   : false
+    //     })
+    // })
 
     @if(Session::has('message'))
         var type = "{{ Session::get('alert-type','info') }}"

@@ -7,7 +7,7 @@
                 <div class="justify-center col-span-6 text-center align-middle md:col-span-2 ">
                     <div class="p-3 my-3 head">
                         <div class="flex items-center justify-center">
-                            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="profile-img" onclick="showFullSize()" alt="">
+                            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="profile-img" onclick="showFullSize()" id="showImage" alt="">
                         </div>
 
                         <div class="image-overlay">
@@ -48,15 +48,15 @@
                                 <input type="text" name="phone" class="TWform-control" value="{{ (!empty($adminData->phone)) ? $adminData->phone: "unknown" }}" placeholder="Enter your phone">
                             </div>
                             <div class="mb-5">
-                                <input type="text" name="address" class="TWfrom-control" value="{{ (!empty($adminData->address)) ? $adminData->address: "unknown" }}" placeholder="Enter your address">
+                                <input type="text" name="address" class="TWform-control" value="{{ (!empty($adminData->address)) ? $adminData->address: "unknown" }}" placeholder="Enter your address">
                             </div>
 
                             <div class="grid grid-cols-4 mt-10 mb-3">
                                 <div class="col-span-4 md:col-span-2 ">
-                                    <input type="file" name="photo" id="image" class="block w-full py-2 pr-3 bg-white border rounded-md shadow-sm placeholder:italic placeholder:text-slate-400 border-slate-300 pl-9 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1">
+                                    <input type="file" name="photo" id="image" class="TWform-file">
                                 </div>
                                 <div class="col-span-4 mt-12 mb-6 md:col-span-2 md:mb-0 md:mt-0">
-                                    <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="ml-5 -mt-5 profile-img col-12" onclick="showFullSize()" alt="">
+                                    <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="ml-5 -mt-5 profile-img col-12" onclick="showFullSize()" id="showImage" alt="">
                                 </div>
                             </div>
                             <div>

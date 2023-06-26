@@ -36,9 +36,19 @@
     }
 
     .TWform-control {
-        @apply block w-full py-2 pr-3 bg-white border rounded-md shadow-sm placeholder:italic placeholder:text-slate-400 border-slate-300 pl-9 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1
+        @apply block w-full py-2 pr-3 border rounded-md shadow-sm placeholder:italic placeholder:text-slate-400 border-slate-300 pl-9 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1;
+    }
+    .TWform-file {
+        @apply block w-full py-2 pr-3 border rounded-md shadow-sm placeholder:italic placeholder:text-slate-400 border-slate-300 pl-9 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1;
     }
 
+    .TWlabel {
+        @apply block mb-2 text-gray-500 capitalize;
+    }
+
+    .TWalert {
+        @apply text-lg text-red-600;
+    }
 
     .custom-image {
         @apply object-cover w-full h-48 md:h-64;
@@ -75,12 +85,12 @@
         @apply px-2.5 py-4 text-lg font-bold text-left text-gray-600 uppercase;
     }
 
-    .tbodyTW-tr {
-        @apply odd:bg-gray-100;
-    }
-
     .td {
         @apply p-4 text-lg text-gray-600;
+    }
+
+    .form-heading {
+        @apply mt-4 text-lg underline uppercase decoration-sky-500 decoration-wavy underline-offset-4;
     }
 
 /* } */
