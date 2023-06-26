@@ -1,3 +1,11 @@
+@php
+
+    $id = Auth::user()->id;
+    $userid = App\Models\User::find($id);
+    $status = $userid->status;
+
+@endphp
+
 @extends("admin.admin_dashboard")
 @section("admin")
 <section class="content-header">
@@ -10,6 +18,16 @@
       <li class="active">Dashboard</li>
     </ol>
   </section>
+
+  <div class="TWcontent">
+    @if ($status == 'active')
+        <h4>Admin Account is <span class="TWtext-success">Active</span> </h4>
+    @else
+    <h4>Admin Account is <span class="TWtext-danger">Inactive</span> </h4>
+    <p class="TWtext-danger">Please Wait..</p>
+    <p class="TWtext-danger">Admin will check soon.</p>
+    @endif
+  </div>
 
   <!-- Main content -->
   <section class="content">

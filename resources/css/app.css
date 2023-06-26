@@ -35,6 +35,10 @@
         @apply -m-12 hover:cursor-pointer hover:text-blue-500;
     }
 
+    .TWcontent {
+        @apply my-6 ml-12;
+    }
+
     .TWform-control {
         @apply block w-full py-2 pr-3 border rounded-md shadow-sm placeholder:italic placeholder:text-slate-400 border-slate-300 pl-9 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1;
     }
@@ -91,6 +95,14 @@
 
     .form-heading {
         @apply mt-4 text-lg underline uppercase decoration-sky-500 decoration-wavy underline-offset-4;
+    }
+
+    .TWtext-danger {
+        @apply text-red-500;
+    }
+
+    .TWtext-success {
+        @apply text-green-500;
     }
 
 /* } */

@@ -51,6 +51,11 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::post('delete/subcategory/{id}', [CategoryController::class, 'destroySubcategory'])->name("delete#subcategory");
 
 
+    //active or inactive
+    Route::get('admin/active/{id}', [AdminController::class, 'adminActive'])->name('admin#active');
+    Route::get('admin/inactive/{id}', [AdminController::class, 'adminInactive'])->name('admin#inactive');
+
+
     //news post
     Route::get('newspost/list', [NewspostController::class, 'newspostList'])->name("newspost#list");
 

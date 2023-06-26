@@ -163,6 +163,21 @@ class AdminController extends Controller
         return redirect()->route('admin#list');
     }
 
+    public function adminActive($id) {
+        // dd("active");
+        User::findOrFail($id)->update(['status'=>'active']);
+        $this->redirectToAdmin("Active Account successfully.", 'success');
+        return redirect()->back();
+    }
+
+    public function adminInactive($id) {
+        // dd('inactive');
+        User::findOrFail($id)->update(['status'=>'inactive']);
+        $this->redirectToAdmin("Inactive Account successfully.", 'warning');
+        return redirect()->back();
+
+    }
+
     // private function
     private function admintValidationCheck($request) {
         $validationRules =  [

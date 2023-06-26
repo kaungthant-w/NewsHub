@@ -49,9 +49,13 @@
                                     </td>
                                     <td class="td">
                                         @if ($admin->status == 'active')
-                                            <span class="text-green-900 bg-green-100 status">{{ $admin->status}}</span>
+                                            <a href="{{ route('admin#inactive', $admin->id) }}">
+                                                <span class="text-green-900 bg-green-300 cursor-pointer status">{{ $admin->status}}</span>
+                                            </a>
                                             @elseif ($admin->status == 'inactive')
-                                            <span class="text-red-900 bg-red-100 status">{{$admin->status}}</span>
+                                            <a href="{{ route('admin#active', $admin->id) }}">
+                                                <span class="text-red-900 bg-red-300 cursor-pointer status">{{$admin->status}}</span>
+                                            </a>
                                         @endif
                                     </td>
                                     <td class="td">
