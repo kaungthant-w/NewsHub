@@ -58,6 +58,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
     //news post
     Route::get('newspost/list', [NewspostController::class, 'newspostList'])->name("newspost#list");
+    Route::get('newspost/add', [NewspostController::class, 'newspostAdd'])->name("newspost#add");
 
     //manage role and news post settings
     Route::get('admin/list', [AdminController::class, 'adminList'])->name("admin#list");

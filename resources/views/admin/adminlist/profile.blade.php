@@ -57,6 +57,11 @@
                                 </div>
                                 <div class="col-span-4 mt-12 mb-6 md:col-span-2 md:mb-0 md:mt-0">
                                     <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="ml-5 -mt-5 profile-img col-12" onclick="showFullSize()" id="showImage" alt="">
+
+                                    <div class="image-overlay">
+                                        <span class="close-btn" onclick="closeFullSize()">&times;</span>
+                                        <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" alt="Image" class="clickable-img" style="width: 80%;height:80%">
+                                    </div>
                                 </div>
                             </div>
                             <div>

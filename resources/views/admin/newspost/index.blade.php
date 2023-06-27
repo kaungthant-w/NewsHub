@@ -1,10 +1,71 @@
 @extends("admin.admin_dashboard")
 @section("admin")
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-xs-12">
-                <h1 class="h3">Add News Post</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-11 ">
+            <h1 class="h3">All post List <span class="text-white status bg-sky-600 ">{{ count($allNewsPost) }}</span></h1>
+            <a href="{{ route('newspost#add') }}" class="mt-5 rounded btnTW btnTW-info">Add news Post</a>
+            <div class="max-w-screen-xl px-5 mx-auto">
+                <div class="my-12 overflow-x-auto border rounded-lg ">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="thTW">No</th>
+                                <th class="thTW">Image</th>
+                                <th class="thTW">Title</th>
+                                <th class="thTW">Category</th>
+                                <th class="thTW">User</th>
+                                <th class="thTW">Date</th>
+                                <th class="thTW">Status</th>
+                                <th style="thTW">Actions</th>
+                            </tr>
+                        </thead>
+                        @foreach ($allNewsPost as $key => $newspost)
+                            <tbody>
+                                <tr>
+                                    <td class="td">{{ $key+1 }}</td>
+                                    <td class="flex td">
+                                        <div class="image-block">
+                                            <img src="{{ (!empty($newspost->photo)) ? url('backend/assets/dist/img/newspost_profile/'.$newspost->photo):url('backend/assets/dist/img/newspost_profile/no_image.jpg') }}" class="image" onclick="showFullSize()" alt="{{ $newspost->photo }}">
+                                        </div>
+                                    </td>
+                                    <td class=""> {{ $newspost->news_title }}</td>
+                                    <td class="td">{{ $newspost->category_id }}</td>
+                                    <td class="td">{{ $newspost->user_id }}</td>
+                                    <td class="td">
+                                        @if ($newspost->created_at == NULL)
+                                            No Date
+                                        @else
+                                            <span class="text-sm">{{ $newspost->created_at->diffForHumans() }}</span>
+                                        @endif
+                                    </td>
+                                    <td class="td">
+                                        @if ($newspost->status == 'active')
+                                            <a href="{{ route('newspost#inactive', $newspost->id) }}">
+                                                <span class="text-green-900 bg-green-300 cursor-pointer status">{{ $newspost->status}}</span>
+                                            </a>
+                                            @elseif ($newspost->status == 'inactive')
+                                            <a href="{{ route('newspost#active', $newspost->id) }}">
+                                                <span class="text-red-900 bg-red-300 cursor-pointer status">{{$newspost->status}}</span>
+                                            </a>
+                                        @endif
+                                    </td>
+                                        <td class="td">
+                                        <div class="flex w-[180px]">
+                                            <a href="{{ route("newspost#delete",$newspost->id) }}" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</a>
+
+                                            <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="{{ route("newspost#edit", $newspost->id) }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        @endforeach
+
+                    </table>
+                </div>
+                {{-- {{ $allNewsPost -> links() }} --}}
             </div>
         </div>
     </div>
+</div>
 @endsection

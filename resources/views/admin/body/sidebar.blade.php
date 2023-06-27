@@ -22,7 +22,13 @@
 
         <div class="pull-left info">
           <p>{{ (!empty($adminData -> name)) ? $adminData -> name:"unknoun"}}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> {{ (!empty($adminData -> status)) ? $adminData -> status:"unknown"}}</a>
+          <a href="#">
+            @if ($status == 'active')
+                <i class="fa fa-circle text-success"></i>
+            @elseif ($status == 'inactive')
+                <i class="fa fa-circle text-danger"></i>
+            @endif
+            {{ (!empty($adminData -> status)) ? $adminData -> status:"unknown"}}</a>
         </div>
       </div>
       <!-- search form -->
@@ -74,7 +80,8 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li class="active"><a href="{{ route("newspost#list") }}"><i class="fa fa-circle-o"></i> Add News Post Setting</a></li>
+                <li class="active"><a href="{{ route("newspost#list") }}"><i class="fa fa-circle-o"></i> News Post List Setting</a></li>
+                <li class=""><a href="{{ route("newspost#add") }}"><i class="fa fa-circle-o"></i> Add News Post Setting</a></li>
             </ul>
             </li>
 

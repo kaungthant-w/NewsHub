@@ -25,7 +25,7 @@
     @else
     <h4>Admin Account is <span class="TWtext-danger">Inactive</span> </h4>
     <p class="TWtext-danger">Please Wait..</p>
-    <p class="TWtext-danger">Admin will check soon.</p>
+    <p class="TWtext-danger">Please Call. Admin will check soon.</p>
     @endif
   </div>
 

@@ -31,6 +31,12 @@
   <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
   {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 
+  <!-- Plugins css -->
+  <link href="{{ asset("backend/assets/libs/mohithg-switchery/switchery.min.css") }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset("backend/assets/libs/multiselect/css/multi-select.css") }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset("backend/assets/libs/select2/css/select2.min.css") }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset("backend/assets/libs/selectize/css/selectize.bootstrap3.css") }}" rel="stylesheet" type="text/css" />
+
   <link rel="stylesheet" href="{{ asset("frontend/assets/custom/css/style.css") }}">
 
 </head>
@@ -93,6 +99,18 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('frontend/assets/custom/js/script.js') }}"></script>
+
+
+<script src="{{ asset('backend/assets/libs/selectize/js/standalone/selectize.min.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/mohithg-switchery/switchery.min.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/multiselect/js/jquery.multi-select.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/jquery-mockjax/jquery.mockjax.min.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/devbridge-autocomplete/jquery.autocomplete.min.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+
+<script src="{{ asset('backend/assets/js/pages/form-advanced.init.js') }}"></script>
 
 
 <script>
