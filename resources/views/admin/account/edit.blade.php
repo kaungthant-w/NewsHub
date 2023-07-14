@@ -70,7 +70,8 @@
                         </div>
 
                         <div class="mt-3">
-                            <button class="rounded btnTW btnTW-info">Update Account</button>
+                            <button type="submit" class="rounded btnTW btnTW-info">Update Account</button>
+                            <a href="{{ route("admin#list") }}" class="rounded btnTW btnTW-secondary">Back</a>
                         </div>
                     </form>
                 </div>

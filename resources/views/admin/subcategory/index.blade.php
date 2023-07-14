@@ -48,35 +48,39 @@
                                     <th class="thTW">Actions</th>
                                 </tr>
                             </thead>
-                            @foreach ($subcategories as $key => $subcategory)
-                                <tbody>
-                                    <tr class="tbodyTW-tr">
-                                        <td class="td">{{ $key+1 }}</td>
-                                        <td class="td">{{ $subcategory['category']['category_name'] }}</td>
-                                        <td class="td">{{ $subcategory->subcategory_name }}</td>
-                                        <td class="td">{{ $subcategory->subcategory_slug }}</td>
-                                        <td class="td">
-                                            @if ($subcategory->created_at == NULL)
-                                                No Date
-                                            @else
-                                                {{ $subcategory->created_at->diffForHumans() }}
-                                            @endif
-                                        </td>
-                                        <td class="td">
-                                            <div class="flex w-[180px]">
-                                                <form class="inline" action="{{ route('delete#subcategory', $subcategory->id) }}" method="POST">
-                                                    @csrf
-                                                    <button type="submit" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</button>
-                                                </form>
+                            @if ($subcategories)
+                                @foreach ($subcategories as $key => $subcategory)
+                                    <tbody>
+                                        <tr class="tbodyTW-tr">
+                                            <td class="td">{{ $key+1 }}</td>
+                                            <td class="td">{{ $subcategory['category']['category_name'] }}</td>
+                                            <td class="td">{{ $subcategory->subcategory_name }}</td>
+                                            <td class="td">{{ $subcategory->subcategory_slug }}</td>
+                                            <td class="td">
+                                                @if ($subcategory->created_at == NULL)
+                                                    No Date
+                                                @else
+                                                    {{ $subcategory->created_at->diffForHumans() }}
+                                                @endif
+                                            </td>
+                                            <td class="td">
+                                                <div class="flex w-[180px]">
+                                                    <form class="inline" action="{{ route('delete#subcategory', $subcategory->id) }}" method="POST">
+                                                        @csrf
+                                                        <button type="submit" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</button>
+                                                    </form>
 
-                                                <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button"
-                                                href="#editSubcategoryId" data-toggle="modal"
-                                                data-subcategory-id="{{ $subcategory->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            @endforeach
+                                                    <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button"
+                                                    href="#editSubcategoryId" data-toggle="modal"
+                                                    data-subcategory-id="{{ $subcategory->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                @endforeach
+                            @else
+                                There is no data.
+                            @endif
                         </tbody>
                     </table>
                     {{ $subcategories -> links() }}

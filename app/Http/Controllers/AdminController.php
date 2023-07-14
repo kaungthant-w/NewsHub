@@ -120,14 +120,14 @@ class AdminController extends Controller
 
     public function adminUpdate(Request $request) {
         $adminId = $request->id;
-        $this->admintValidationCheck($request);
+        // $this->admintValidationCheck($request);
         // dd("check input");
         $data = User::findOrFail($adminId);
         $this->getAdminData($request, $data);
         $file = $request->file("photo");
         $data->password = Hash::make($request->password);
         $data->role = 'admin';
-        $data->status = 'inactive';
+        $data->status = 'active';
         // dd($request->hasFile('photo'));
         if ($request->hasFile('photo')) {
             $oldImage = User::where('id', $adminId)->first();
@@ -143,8 +143,6 @@ class AdminController extends Controller
             $file->move($photoPath, $filename);
             $data->photo = $filename;
         }
-
-
 
         $data->save();
 

@@ -18,16 +18,6 @@ Route::get('/', function () {
     return view('frontend/frontend');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('/');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-    // Route::middleware('auth')->group(function () {
-    //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // });
-
 Route::middleware(['auth', 'role:admin'])->group(function() {
 
     // permission user or admin
@@ -39,8 +29,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('allcategories', [CategoryController::class, 'index'])->name('all#categories');
     Route::post('store/categories', [CategoryController::class, 'storeCategory'])->name("store#category");
     Route::post('delete/category/{id}', [CategoryController::class, 'destroy'])->name("delete#category");
-
-    Route::get('/category/{id}', [CategoryController::class, 'getCategory']);
+    // Route::get('/category/{id}', [CategoryController::class, 'getCategory']);
     Route::post('update/category/{id}', [CategoryController::class, 'updateCategory'])->name("update#category");
 
     // subcategories
@@ -49,16 +38,22 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::post('update/subcategory/{id}', [CategoryController::class, 'updateSubcategory'])->name("update#subcategory");
 
     Route::post('delete/subcategory/{id}', [CategoryController::class, 'destroySubcategory'])->name("delete#subcategory");
-
+    Route::get('/subcategory/ajax/{category_id}',[CategoryController::class], 'GetSubCategory');
 
     //active or inactive
     Route::get('admin/active/{id}', [AdminController::class, 'adminActive'])->name('admin#active');
     Route::get('admin/inactive/{id}', [AdminController::class, 'adminInactive'])->name('admin#inactive');
 
-
     //news post
     Route::get('newspost/list', [NewspostController::class, 'newspostList'])->name("newspost#list");
     Route::get('newspost/add', [NewspostController::class, 'newspostAdd'])->name("newspost#add");
+    Route::post('newspost/store', [NewspostController::class, 'newspostStore'])->name("admin#news#store");
+    // Route::post('newspost/delete', [NewspostController::class, 'newspostDelete'])->name("newspost#delete");
+    Route::get('newspost/edit/{id}', [NewspostController::class, 'newspostEdit'])->name('newspost#edit');
+    Route::post('newspost/update', [NewspostController::class, 'newspostUpdate'])->name('newspost#update');
+    Route::get('newspost/delete/{id}', [NewspostController::class, 'newspostDelete'])->name('newspost#delete');
+    Route::get('newspost/inactive/{id}', [NewspostController::class, 'newspostInactive'])->name('newspost#inactive');
+    Route::get('newspost/active/{id}', [NewspostController::class, 'newspostActive'])->name('newspost#active');
 
     //manage role and news post settings
     Route::get('admin/list', [AdminController::class, 'adminList'])->name("admin#list");
@@ -71,6 +66,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('admin/edit/{id}', [AdminController::class, 'adminEdit'])->name("admin#edit");
     Route::post('admin/update', [AdminController::class, 'adminUpdate'])->name("admin#update");
     Route::get("admin/delete/{id}", [AdminController::class, 'adminDelete'])->name("admin#delete");
+
 
 });
 

@@ -34,7 +34,7 @@
                                     </td>
                                     <td class="flex td">
                                         <div class="image-block">
-                                            <img src="{{ (!empty($admin->photo)) ? url('backend/assets/dist/img/admin_profile/'.$admin->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="image" onclick="showFullSize()" alt="{{ $admin->photo }}">
+                                            <img src="{{ (!empty($admin->photo)) ? url('backend/assets/dist/img/admin_profile/'.$admin->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class="image" alt="{{ $admin->photo }}">
                                         </div>
                                         <div class="ml-2.5">
                                             <span class="user">{{ $admin->name }}</span>

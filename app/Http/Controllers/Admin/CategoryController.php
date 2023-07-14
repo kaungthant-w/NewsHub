@@ -158,6 +158,10 @@ class CategoryController extends Controller
         return $this->redirectToSubcategories('Subcategory deleted successfully', 'warning');
     }
 
+    public function GetSubCategory($category_id) {
+        $subcat = Subcategory::where('category_id', $category_id)->orderBy('subcategory_name', "ASC")->get();
+        return json_encode($subcat);
+    }
 
     // private function
     private function postSubValidationCheck($request) {

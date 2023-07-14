@@ -13,6 +13,7 @@
                                 <th class="thTW">No</th>
                                 <th class="thTW">Image</th>
                                 <th class="thTW">Title</th>
+                                <th class="thTW">Details</th>
                                 <th class="thTW">Category</th>
                                 <th class="thTW">User</th>
                                 <th class="thTW">Date</th>
@@ -26,12 +27,18 @@
                                     <td class="td">{{ $key+1 }}</td>
                                     <td class="flex td">
                                         <div class="image-block">
-                                            <img src="{{ (!empty($newspost->photo)) ? url('backend/assets/dist/img/newspost_profile/'.$newspost->photo):url('backend/assets/dist/img/newspost_profile/no_image.jpg') }}" class="image" onclick="showFullSize()" alt="{{ $newspost->photo }}">
+                                            <img src="{{ (!empty(asset($newspost->image))) ? asset($newspost->image):url('backend/assets/dist/img/newspost/news_img/no_image.jpg') }}" class="image" >
                                         </div>
+                                        {{-- <div class="image-block">
+                                            <img src="public/backend/assets/dist/img/newspost/news_img/background.jpg" alt="">
+                                        </div> --}}
                                     </td>
-                                    <td class=""> {{ $newspost->news_title }}</td>
-                                    <td class="td">{{ $newspost->category_id }}</td>
-                                    <td class="td">{{ $newspost->user_id }}</td>
+                                    <td class=""> {{ Str::limit($newspost->news_title, 10) }}</td>
+                                    <td class=""> {{ Str::limit($newspost->news_details, 20) }}</td>
+                                    {{-- <td class="td">{{ $newspost->category_id }}</td> --}}
+                                    {{-- <td class="td">{{ $newspost->user_id }}</td> --}}
+                                    <td class="td">{{ $newspost['category']['category_name'] }}</td>
+                                    <td class="td">{{ $newspost['user']['name'] }}</td>
                                     <td class="td">
                                         @if ($newspost->created_at == NULL)
                                             No Date
@@ -40,21 +47,30 @@
                                         @endif
                                     </td>
                                     <td class="td">
-                                        @if ($newspost->status == 'active')
+                                        @if ($newspost->status == 1)
                                             <a href="{{ route('newspost#inactive', $newspost->id) }}">
-                                                <span class="text-green-900 bg-green-300 cursor-pointer status">{{ $newspost->status}}</span>
+                                                <span class="text-green-900 bg-green-300 cursor-pointer status">Active</span>
                                             </a>
-                                            @elseif ($newspost->status == 'inactive')
+                                            {{-- <a href="#">
+                                                <span class="text-green-900 bg-green-300 cursor-pointer status">Active</span>
+                                            </a> --}}
+                                            @elseif ($newspost->status == 0)
                                             <a href="{{ route('newspost#active', $newspost->id) }}">
-                                                <span class="text-red-900 bg-red-300 cursor-pointer status">{{$newspost->status}}</span>
+                                                <span class="text-red-900 bg-red-300 cursor-pointer status">inactive</span>
                                             </a>
+
+                                            {{-- <a href="#">
+                                                <span class="text-red-900 bg-red-300 cursor-pointer status">inactive</span>
+                                            </a> --}}
                                         @endif
                                     </td>
                                         <td class="td">
                                         <div class="flex w-[180px]">
                                             <a href="{{ route("newspost#delete",$newspost->id) }}" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</a>
+                                            {{-- <a href="#" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</a> --}}
 
                                             <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="{{ route("newspost#edit", $newspost->id) }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                            {{-- <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="#"><i class="fa-regular fa-pen-to-square"></i> Edit</a> --}}
                                         </div>
                                     </td>
                                 </tr>

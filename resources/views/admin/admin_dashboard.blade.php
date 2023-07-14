@@ -55,6 +55,8 @@
 
 <!-- jQuery 3 -->
 <script src="{{ asset('backend/assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('backend/assets/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -79,7 +81,7 @@
 <!-- datepicker -->
 <script src="{{ asset('backend/assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
 <!-- Bootstrap WYSIHTML5 -->
-{{-- <script src="{{ asset('backend/assets/') }}plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script> --}}
+<script src="{{ asset('backend/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
 <!-- Slimscroll -->
 <script src="{{ asset('backend/assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
