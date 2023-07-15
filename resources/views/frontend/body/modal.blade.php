@@ -10,8 +10,8 @@
             @csrf
             <div class="modal-body">
                 <div class="mb-3 form-floating">
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="floatingInput" placeholder="Enter your email">
-                    <label for="floatingInput">Email address</label>
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="floatInput" placeholder="Enter your email">
+                    <label for="floatInput">Email address</label>
 
                     @error('email')
                         <div class="invalid-feedback">
@@ -21,8 +21,8 @@
                 </div>
 
                 <div class="form-floating">
-                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="floatingPassword" placeholder="Enter your password">
-                    <label for="floatingPassword">Password</label>
+                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="floatPassword" placeholder="Enter your password">
+                    <label for="floatPassword">Password</label>
 
                     @error('password')
                         <div class="invalid-feedback">

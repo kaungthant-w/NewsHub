@@ -18,7 +18,6 @@ class NewspostController extends Controller
 {
     public function newspostList() {
         $allNewsPost = Newspost::latest()->get();
-
         return view('admin.newspost.index', compact('allNewsPost'));
     }
 

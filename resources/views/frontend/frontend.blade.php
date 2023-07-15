@@ -27,7 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src={{ asset("backend/assets/bower_components/jquery/dist/jquery.min.js" )}}></script>
-    <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script>
+    {{-- <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script> --}}
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
     <script src="{{ asset('frontend/assets/custom/js/script.js') }}"></script>
 

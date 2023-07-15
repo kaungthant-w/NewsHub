@@ -125,9 +125,14 @@ class AdminController extends Controller
         $data = User::findOrFail($adminId);
         $this->getAdminData($request, $data);
         $file = $request->file("photo");
-        $data->password = Hash::make($request->password);
+
         $data->role = 'admin';
         $data->status = 'active';
+
+        if($request->password) {
+            $data->password = Hash::make($request->password);
+        }
+
         // dd($request->hasFile('photo'));
         if ($request->hasFile('photo')) {
             $oldImage = User::where('id', $adminId)->first();

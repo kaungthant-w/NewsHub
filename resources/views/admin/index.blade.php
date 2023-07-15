@@ -2,6 +2,9 @@
 
     $id = Auth::user()->id;
     $userid = App\Models\User::find($id);
+    $user = App\Models\User::where('role', 'user')->get();
+    $admin = App\Models\User::where('role', 'admin')->get();
+    $newspost = App\Models\Admin\Newspost::get();
     $status = $userid->status;
 
 @endphp
@@ -35,39 +38,39 @@
       <div class="col-lg-3 col-xs-6">
         <div class="small-box bg-aqua">
           <div class="inner">
-            <h3>150</h3>
-            <p>News</p>
+            <h3>{{ count($newspost) }} </h3>
+            <p>posts</p>
           </div>
           <div class="icon">
             <i class="ion ion-bag"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ route('admin#list') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <div class="col-lg-3 col-xs-6">
         <div class="small-box bg-green">
           <div class="inner">
-            <h3>53<sup style="font-size: 20px">%</sup></h3>
+            <h3>{{ count($admin) }} </h3>
 
-            <p>Admin</p>
+            <p>Admin Accounts</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ route('admin#list') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <div class="col-lg-3 col-xs-6">
         <div class="small-box bg-yellow">
           <div class="inner">
-            <h3>44</h3>
+            <h3>{{ count($user) }}</h3>
 
-            <p>User Registrations</p>
+            <p>User Accounts</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ route('admin#list') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <div class="col-lg-3 col-xs-6">

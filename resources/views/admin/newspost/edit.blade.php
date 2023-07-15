@@ -62,7 +62,6 @@
                                     <input type="text" name="news_title" value="{{ $newspost->news_title }}" class="TWform-control"  placeholder="Enter News Title">
                                 </div>
 
-
                                 <div class="my-5 lg:w-6/12">
                                     <textarea name="news_details" class="TWform-control" id="" cols="30" rows="5" placeholder="Enter News details">{{ $newspost->news_details }}</textarea>
                                 </div>
