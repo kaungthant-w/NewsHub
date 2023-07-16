@@ -21,6 +21,7 @@
     @include("frontend.body.menu")
 
     @include("frontend.body.features")
+    @include("frontend.body.latest")
 
     @include("frontend.body.modal")
 
