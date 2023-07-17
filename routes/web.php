@@ -55,6 +55,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('newspost/inactive/{id}', [NewspostController::class, 'newspostInactive'])->name('newspost#inactive');
     Route::get('newspost/active/{id}', [NewspostController::class, 'newspostActive'])->name('newspost#active');
 
+
     //manage role and news post settings
     Route::get('admin/list', [AdminController::class, 'adminList'])->name("admin#list");
     Route::post('admin/profile/store', [AdminController::class, 'adminProfileStore'])->name("admin#profile#store");
@@ -81,3 +82,7 @@ Route::middleware(['auth', 'role:user'])->group(function() {
     Route::post('/user/update/password', [UserController::class, 'UserUpdatePassword'])->name('user#update#password');
 
 });
+
+
+//public user or no account user
+Route::get('newspost/details/{id}/{slug}', [NewspostController::class, 'newspostDetails'])->name('newspost#details');

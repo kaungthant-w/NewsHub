@@ -105,4 +105,8 @@
         @apply text-green-500;
     }
 
+    .TWtext {
+        @apply text-sm text-gray-100;
+    }
+
 /* } */

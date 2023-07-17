@@ -1,3 +1,54 @@
+@php
+    $categories = App\Models\Admin\Category::inRandomOrder()->take(6)->get();
+    $subcategories = App\Models\Admin\Subcategory::inRandomOrder()->take(6)->get();
+    $newsList = App\Models\Admin\Newspost::inRandomOrder()->take(6)->get();
+    // $categorySport = App\Models\Admin\Category::where('category_name', 'SPORTS')->get();
+    $categoryEntertament = App\Models\Admin\Category::where('category_name', 'ENTERTAINMENT')->get();
+@endphp
+<div class="container pt-4 my-5 border-spacing-8 border-top">
+    <div class="row">
+        <div class="mt-4 col-6 col-md-4">
+            <h1 class="h4">Categories</h1>
+            <ul class="navbar-nav">
+                @foreach ($categories as $category)
+                <li class="nav-item">
+                    <a href="" class="nav-link border-bottom">{{ $category -> category_name }}</a>
+                </li>
+                @endforeach
+
+            </ul>
+        </div>
+        <div class="mt-4 col-6 col-md-4">
+            <h1 class="h4">Subcategories</h1>
+            <ul class="navbar-nav">
+                @foreach ($subcategories as $subcategory)
+                <li class="nav-item">
+                    <a href="" class="nav-link border-bottom">{{ $subcategory -> subcategory_name }}</a>
+                </li>
+                @endforeach
+
+            </ul>
+        </div>
+        <div class="mt-4 col-6 col-md-4">
+        <h1 class="h4">News</h1>
+            <ul class="navbar-nav">
+                @foreach ($newsList as $news)
+                <li class="nav-item">
+                    <a href="{{ url('newspost/details/'.$news->id."/".$news->news_title_slug) }}" class=" nav-link border-bottom">{{ $news->news_title }}</a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
+    <p class="my-3 text-center text-bule-600">&copy
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Created By <a href="http://www.kyawmyothant.com" class="text-decoration-none" target="_blank">Kyaw Myo Thant</a> | All Rights Reserved
+    </p>
+</div>
+
 <script src={{ asset("backend/assets/bower_components/jquery/dist/jquery.min.js" )}}></script>
     <!-- jQuery UI 1.11.4 -->
     <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script>

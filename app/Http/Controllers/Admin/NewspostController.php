@@ -9,6 +9,7 @@ use App\Models\Admin\Newspost;
 use App\Models\Admin\Subcategory;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
 use Psy\Readline\Hoa\Console;
 
@@ -48,6 +49,8 @@ class NewspostController extends Controller
             'first_section_eight' => $request->first_section_eight,
             'post_date' => date('d-m-Y'),
             'post_month' => date('F'),
+            'status' => '0',
+            'view_count' => '0',
             'image' => $save_url,
             'created_at' => Carbon::now(),
         ]);
@@ -135,6 +138,27 @@ class NewspostController extends Controller
         Newspost::findOrFail($id)->update(['status' => 1]);
         $this->redirectTonewspost("News Post Active successfully.", 'success');
         return redirect()->route("newspost#list");
+    }
+
+    public function newspostDetails($id, $slug, Request $request) {
+        $news = Newspost::findOrFail($id);
+        $tags = $news->tags;
+        $tagsall = explode(',', $tags);
+        $category_id = $news->category_id;
+
+        $newsKey = $news->id;
+        $userIp = $request->ip();
+
+        if (!Session::has($newsKey . '_' . $userIp)) {
+            $news->increment('view_count');
+            Session::put($newsKey . '_' . $userIp, 1);
+        }
+
+        $relativeNews = Newspost::where('status', '1')->where('category_id', $category_id)->where('id', '!=', $id)->inRandomOrder()->orderBy('id', 'desc')->limit(6)->get();
+        $latestNews = Newspost::where('status', '1')->latest('created_at')->limit(5)->get();
+
+
+        return view('frontend.body.details', compact('news', 'tagsall', 'relativeNews', 'latestNews'));
     }
 
     private function redirectTonewspost($message, $alertType) {

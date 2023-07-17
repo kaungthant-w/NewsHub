@@ -1,10 +1,11 @@
 @php
     use Illuminate\Support\Str;
 
-    $newsTopSliders = App\Models\Admin\Newspost::where("top_slider", '1')->get();
-    $breakingNewsTop = App\Models\Admin\Newspost::where("breaking_news", '1')->inRandomOrder()->first();
-    $breakingNewsList = App\Models\Admin\Newspost::where("breaking_news", '1')->inRandomOrder()->skip(1)->take(2)->get();
-    $newsThreePosts = App\Models\Admin\Newspost::where("first_section_three", '1')->get();
+    $newsTopSliders = App\Models\Admin\Newspost::where('status', '1')->where("top_slider", '1')->get();
+    $breakingNewsTop = App\Models\Admin\Newspost::where('status', '1')->where("breaking_news", '1')->inRandomOrder()->first();
+    $breakingNewsList = App\Models\Admin\Newspost::where('status', '1')->where("breaking_news", '1')->inRandomOrder()->skip(1)->take(2)->get();
+    $newsThreePosts = App\Models\Admin\Newspost::where('status', '1')->where("first_section_three", '1')->get();
+
 @endphp
 
 <section class="mb-3 container-fluid">
@@ -12,15 +13,15 @@
         <div class="col-12 col-md-6" style="height: 300px">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    @foreach ( $newsTopSliders as $newslist)
-                        <div class="carousel-item active">
-                            <img src="{{ $newslist->image }}" alt="Image 1">
+                    @foreach ( $newsTopSliders as $newsList)
+                        <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="carousel-item active">
+                            <img src="{{ $newsList->image }}" alt="Image 1">
                             <div class="carousel-caption">
-                                <h5>{{ $newslist -> news_title }}</h5>
-                                <p>{{ Str::limit($newslist->news_details, 80) }}</p>
-                                <small>{{ $newslist -> created_at->diffForHumans() }}</small>
+                                <h5>{{ $newsList -> news_title }}</h5>
+                                <p>{{ Str::limit($newsList->news_details, 80) }}</p>
+                                <small>{{ $newsList -> created_at->diffForHumans() }}</small>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -36,23 +37,26 @@
 
         <div class="my-3 col-12 col-md-6 my-md-0">
             <div class="row g-1">
-                <div class="col-12 position-relative" style="height:150px">
+                <a href="{{ url('newspost/details/'.$breakingNewsTop->id."/".$breakingNewsTop->news_title_slug) }}" class="mb-4 mb-md-0 col-12 position-relative" style="height:150px">
                     <div class="image-frontendoverlay">
                         <img src="{{ $breakingNewsTop->image }}" class="object-fit-cover w-100" style="height: 150px" alt="">
                         <div class="overlay"></div>
                         <div class="image-caption">
-                            <p>{{ Str::limit($breakingNewsTop->news_details, 80) }}</p>
+                            <p class="mt-2 mt-md-1">{{ Str::limit($breakingNewsTop->news_details, 80) }}</p>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 @foreach ($breakingNewsList as $newsThreePost )
-                <div class="col-12 col-md-6" style="height: 150px">
-                    <div class="text-center "><img src="{{ $newsThreePost -> image }}" class="object-fit-cover w-100" style="height:150px;"  alt=""></div>
-                    <div class="text-sm ms-0" style="font-size: 13px">
-                        <p>{{ Str::limit($newsThreePost->news_details, 40) }} </p>
+                <a href="{{ url('newspost/details/'.$newsThreePost->id."/".$newsThreePost->news_title_slug) }}" class="mb-5 mb-md-0 col-12 col-md-6 position-relative" style="height: 150px">
+                    <div class="text-center image-frontendoverlay">
+                        <img src="{{ $newsThreePost -> image }}" class="object-fit-cover w-100" style="height:150px;"  alt="">
+                        <div class="overlay"></div>
+                        <div class="image-caption">
+                            <p class="mt-2 mt-md-1">{{ Str::limit($newsThreePost->news_details, 60) }}</p>
+                        </div>
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>

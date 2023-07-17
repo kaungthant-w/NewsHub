@@ -1,14 +1,13 @@
-@php
+{{-- @php
     use Illuminate\Support\Str;
     $newsThreePosts = App\Models\Admin\Newspost::where("first_section_three", '1')->inRandomOrder()->get();
-    $latestNews = App\Models\Admin\Newspost::latest('created_at')->limit(5)->get();
-@endphp
+@endphp --}}
 <div class="container-fluid">
     <div class="row">
         <div class="gap-1 p-2 col-12 col-md-9">
-            <h1 class="h3">Latest News</h1>
             <div class="row">
-                @foreach ($newsThreePosts as $newsList )
+                <h1 class="h3">Relative News</h1>
+                @foreach ($relativeNews as $newsList )
                     <div class="my-3 col-12 col-md-4">
                         <div class="card">
                             <img class="card-img-top" src="{{asset($newsList->image)}}" alt="Card image cap">
@@ -22,7 +21,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="p-2 pt-3 mt-5 col-12 col-md-3">
+        <div class="p-2 mt-3 col-12 col-md-3">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Popular</button>
