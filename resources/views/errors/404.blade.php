@@ -8,33 +8,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
-<body class="container-fluid m-0 p-0">
-    <nav class="navbar navbar-expand-lg navbar-light opacity-75 shadow-sm" style="background: rgba(62, 119, 206,0.7)">
+<body class="p-0 m-0 container-fluid">
+    <nav class="shadow-sm opacity-75 navbar navbar-expand-lg navbar-light" style="background: rgba(62, 119, 206,0.7)">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-around ms-3 ms-md-0" id="navbarSupportedContent">
-            <ul class="d-flex mt-2">
-                <li class="list-unstyled"> <a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="facebook"><i class="fa-brands fa-facebook text-white"></i> </a> </li>
-                <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="twitter"><i class="fa-brands fa-twitter text-white"></i></a> </li>
-                <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="twitter"><i class="fa-brands fa-instagram text-white"></i></a> </li>
+            <ul class="mt-2 d-flex">
+                <li class="list-unstyled"> <a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="facebook"><i class="text-white fa-brands fa-facebook"></i> </a> </li>
+                <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="twitter"><i class="text-white fa-brands fa-twitter"></i></a> </li>
+                <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="twitter"><i class="text-white fa-brands fa-instagram"></i></a> </li>
             </ul>
             <div class="nav-item">
                 <form action="#">
                     <div class="input-group">
                         <input type="text" name="post" class="form-control" placeholder="Enter your post title">
-                        <button class="btn btn-danger ml-3">Search</button>
+                        <button class="ml-0 btn btn-danger ml-md-3"><i class="fa-solid fa-magnifying-glass"></i> </button>
                     </div>
                 </form>
             </div>
             <ul class="navbar-nav">
                 @guest
-                    <li class="nav-item"><a class="nav-link text-white text-decoration-none" href="#loginId" data-bs-toggle="modal">Login</a> </li>
-                    <li class="nav-item"><a class="nav-link text-white text-decoration-none"  href="#registerId" data-bs-toggle="modal">Register</a> </li>
+                    <li class="nav-item"><a class="text-white nav-link text-decoration-none" href="#loginId" data-bs-toggle="modal">Login</a> </li>
+                    <li class="nav-item"><a class="text-white nav-link text-decoration-none"  href="#registerId" data-bs-toggle="modal">Register</a> </li>
                 @endguest
 
                 @auth
-                    <li class="nav-item"><a href="#" class="nav-link text-white text-decoration-none fw-bold" >{{ Auth::user()->name }}</a> </li>
+                    <li class="nav-item"><a href="#" class="text-white nav-link text-decoration-none fw-bold" >{{ Auth::user()->name }}</a> </li>
 
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}" class="nav-item fw-bold">
@@ -59,7 +59,7 @@
         <a href="{{ url('/') }}" class="btn btn-primary">Go Back to Homepage</a>
         <div class="mt-2">
             <a href="{{ url('/') }}">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkbDDJBrBDBU828znc53td3LzKK21HOdApqKnCeDACq2ElTzMiJD6j8N_zL3Dz1gRbo70&usqp=CAU" alt="404 Error" class="img-fluid rounded opacity-75">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkbDDJBrBDBU828znc53td3LzKK21HOdApqKnCeDACq2ElTzMiJD6j8N_zL3Dz1gRbo70&usqp=CAU" alt="404 Error" class="rounded opacity-75 img-fluid">
             </a>
         </div>
     </div>
@@ -75,7 +75,7 @@
             <form action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <div class="form-floating mb-3">
+                    <div class="mb-3 form-floating">
                         <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Enter your email">
                         <label for="floatingInput">Email address</label>
                     </div>
@@ -104,11 +104,11 @@
                 <form action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="modal-body">
-                        <div class="form-floating mb-3">
+                        <div class="mb-3 form-floating">
                             <input type="name" name="name" class="form-control" id="floatingname" placeholder="Enter your email">
                             <label for="floatingname">Name</label>
                         </div>
-                        <div class="form-floating mb-3">
+                        <div class="mb-3 form-floating">
                             <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Enter your email">
                             <label for="floatingInput">Email address</label>
                         </div>

@@ -12,7 +12,9 @@
             <ul class="navbar-nav">
                 @foreach ($categories as $category)
                 <li class="nav-item">
-                    <a href="" class="nav-link border-bottom">{{ $category -> category_name }}</a>
+                    <a href="{{ url('newspost/category/'.$category->id."/".$category->category_slug) }}" class="nav-link border-bottom">
+                        {{ $category->category_name }}
+                    </a>
                 </li>
                 @endforeach
 
@@ -23,7 +25,7 @@
             <ul class="navbar-nav">
                 @foreach ($subcategories as $subcategory)
                 <li class="nav-item">
-                    <a href="" class="nav-link border-bottom">{{ $subcategory -> subcategory_name }}</a>
+                    <a href="{{ url('newspost/subcategory/'.$subcategory->id."/".$subcategory->subcategory_slug) }}" class="nav-link border-bottom">{{ $subcategory -> subcategory_name }}</a>
                 </li>
                 @endforeach
 
@@ -50,6 +52,7 @@
 </div>
 
 <script src={{ asset("backend/assets/bower_components/jquery/dist/jquery.min.js" )}}></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

@@ -1,6 +1,6 @@
 @php
     use Illuminate\Support\Str;
-    $newsThreePosts = App\Models\Admin\Newspost::where("first_section_three", '1')->inRandomOrder()->get();
+    $popularNews = App\Models\Admin\Newspost::orderBy('view_count', 'desc')->limit(5)->get();
     $latestNews = App\Models\Admin\Newspost::latest('created_at')->limit(5)->get();
 @endphp
 <div class="container-fluid">
@@ -8,12 +8,12 @@
         <div class="gap-1 p-2 col-12 col-md-9">
             <h1 class="h3">Latest News</h1>
             <div class="row">
-                @foreach ($newsThreePosts as $newsList )
+                @foreach ($latestNews as $newsList )
                     <div class="my-3 col-12 col-md-4">
                         <div class="card">
                             <img class="card-img-top" src="{{asset($newsList->image)}}" alt="Card image cap">
                             <div class="card-body">
-                                <p class="card-text ">{{ Str::limit($newsList->news_details, 80) }}</p>
+                                <p class="card-text ">{{ Str::limit($newsList->news_details, 16) }}</p>
                                 <p>{{ $newsList->created_at->diffForHumans()}}</p>
                                 <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">ReadMore</a>
                             </div>
@@ -32,7 +32,7 @@
             <div class="mt-3 tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home">
                     <ul class="nav-item">
-                        @foreach ($newsThreePosts as $newsList)
+                        @foreach ($popularNews as $newsList)
                             <li class="mb-2 nav-link">
                                 <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="d-flex text-decoration-none">
                                     <img src="{{asset($newsList->image)}}" alt="" class="img-thubnail rounded-circle" style="width:40px;height:40px;">

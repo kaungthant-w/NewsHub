@@ -142,6 +142,8 @@ class NewspostController extends Controller
 
     public function newspostDetails($id, $slug, Request $request) {
         $news = Newspost::findOrFail($id);
+        // $categories = Category::where('id', $id)->get();
+        // $subcategories = Subcategory::where('id', $id)->get();
         $tags = $news->tags;
         $tagsall = explode(',', $tags);
         $category_id = $news->category_id;
@@ -157,8 +159,29 @@ class NewspostController extends Controller
         $relativeNews = Newspost::where('status', '1')->where('category_id', $category_id)->where('id', '!=', $id)->inRandomOrder()->orderBy('id', 'desc')->limit(6)->get();
         $latestNews = Newspost::where('status', '1')->latest('created_at')->limit(5)->get();
 
-
         return view('frontend.body.details', compact('news', 'tagsall', 'relativeNews', 'latestNews'));
+    }
+
+    // category view
+    public function newspostCategory($id, $slug) {
+        $news = Newspost::where('status', 1)->where('category_id', $id)->orderBy('id', 'DESC')->get();
+        $categories = Category::where('id', $id)->get();
+        $popularNews = Newspost::orderBy('view_count', 'desc')->limit(5)->get();
+        $latestNews = Newspost::latest('created_at')->limit(5)->get();
+
+        return view('frontend.body.category', compact('news', 'categories', 'popularNews', 'latestNews'));
+    }
+
+    // category view
+    public function newspostSubcategory($id, $slug) {
+        $news = Newspost::where('status', 1)->where('subcategory_id', $id)->orderBy('id', 'DESC')->get();
+        $categories = Category::where('id', $id)->get();
+        $subcategories = Subcategory::where('id', $id)->get();
+        $popularNews = Newspost::orderBy('view_count', 'desc')->limit(5)->get();
+        $latestNews = Newspost::latest('created_at')->limit(5)->get();
+
+        return view('frontend.body.subcategory', compact('news', 'categories', 'subcategories', 'popularNews', 'latestNews'));
+        return view('front');
     }
 
     private function redirectTonewspost($message, $alertType) {

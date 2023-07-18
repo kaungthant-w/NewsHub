@@ -84,5 +84,7 @@ Route::middleware(['auth', 'role:user'])->group(function() {
 });
 
 
-//public user or no account user
+//normal user or no account user
 Route::get('newspost/details/{id}/{slug}', [NewspostController::class, 'newspostDetails'])->name('newspost#details');
+Route::get('newspost/category/{id}/{slug}', [NewspostController::class, 'newspostCategory'])->name('newspost#category');
+Route::get('newspost/subcategory/{id}/{slug}', [NewspostController::class, 'newspostSubcategory'])->name('newspost#subcategory');

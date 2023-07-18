@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>News Application</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
-    <link rel="stylesheet" href="{{ asset('frontend/assets/custom/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-
-</head>
+@include("frontend.body.header")
 <body class="p-0 m-0 container-fluid">
 
     @include("frontend.body.navbar")
@@ -28,7 +15,7 @@
     @endphp
     <div class="container-fluid">
         <div class="row">
-            <div class="gap-1 p-2 col-12 col-md-9">
+            <div class="gap-1 p-2 col-12 col-md-8 col-lg-9">
                 <div class="row">
                     <div class="my-3 col-12">
                         <div class="position-relative">
@@ -44,23 +31,41 @@
                             <p class="card-text" style="color:gray">{!! $news->news_details !!}</p>
 
                             <div class="mt-3">
-                                <span class="me-3">Category: <a href="#" class="badge brounded-pill bg-secondary text-decoration-none">{{ $news['category']['category_name'] }}</a></span>
-                                @if ($news->subcategory_id === NULL)
+                                <div class="row">
+                                    <div class="col-12 col-md-3">
+                                        <span class="me-3">Category:
+                                            <a href="" class="badge brounded-pill bg-secondary text-decoration-none">{{ $news['category']['category_name'] }}</a>
+                                        </span>
 
-                                @else
-                                    <span class="me-3">Subcategory: <a href="#" class="badge rounded-pill bg-secondary text-decoration-none">{{ $news['subcategory']['subcategory_name'] }}</a></span>
-                                @endif
-                                <span>
-                                    Tags:
-                                    @foreach ($tagsall as $tag)
-                                        <a href="#" class="text-decoration-none badge rounded-pill bg-secondary">{{ ucwords($tag) }}</a>
-                                    @endforeach
-                                </span>
+                                        {{-- @foreach ($categories as $category)
+                                        <li class="nav-item">
+                                            <a href="{{ url('newspost/category/'.$category->id."/".$category->category_slug) }}" class="nav-link border-bottom">
+                                                {{ $category->category_name }}
+                                            </a>
+                                        </li>
+                                        @endforeach --}}
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        @if ($news->subcategory_id === NULL)
+
+                                        @else
+                                            <span class="me-3">Subcategory: <a href="#" class="badge rounded-pill bg-secondary text-decoration-none">{{ $news['subcategory']['subcategory_name'] }}</a></span>
+                                        @endif
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <span>
+                                            Tags:
+                                            @foreach ($tagsall as $tag)
+                                                <a href="#" class="text-decoration-none badge rounded-pill bg-secondary">{{ ucwords($tag) }}</a>
+                                            @endforeach
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mt-5">
                                 <h1 class="h3">Comments</h1>
                                 <form action="" method="POST">
-                                    <textarea name="comment" id="" cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
                                     <button type="submit" class="mt-3 btn btn-info">Send <i class="fa-solid fa-paper-plane"></i> </button>
                                 </form>
                             </div>
@@ -68,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-2 pt-0 col-md-3 d-none d-md-block ">
+            <div class="p-2 pt-0 mt-5 col-md-12 mt-lg-0 col-lg-3">
                 <div class="container-fluid row">
                     <div class="col-12">
                         <img src="https://i.redd.it/36f0hw6io9m21.gif" class=" object-fit-cover" alt="banner"  style="height: 200px;width:100%;">
@@ -89,38 +94,3 @@
     @include("frontend.body.footer")
 
     @include("frontend.body.modal")
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src={{ asset("backend/assets/bower_components/jquery/dist/jquery.min.js" )}}></script>
-    {{-- <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
-    <script src="{{ asset('frontend/assets/custom/js/script.js') }}"></script>
-
-    <script>
-        @if(Session::has('message'))
-            var type = "{{ Session::get('alert-type','success') }}";
-            var positionClass = 'toast-top-custom'; // Define a custom position class
-            toastr.options.positionClass = positionClass; // Set the position class
-
-            switch(type){
-                case 'info':
-                    toastr.info("{{ Session::get('message') }}");
-                    break;
-
-                case 'success':
-                    toastr.success("{{ Session::get('message') }}");
-                    break;
-
-                case 'warning':
-                    toastr.warning("{{ Session::get('message') }}");
-                    break;
-
-                case 'error':
-                    toastr.error("{{ Session::get('message') }}");
-                    break;
-            }
-        @endif
-    </script>
-</body>
-</html>

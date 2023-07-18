@@ -17,7 +17,7 @@
                         <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="carousel-item active">
                             <img src="{{ $newsList->image }}" alt="Image 1">
                             <div class="carousel-caption">
-                                <h5>{{ $newsList -> news_title }}</h5>
+                                <h5>{{ Str::limit($newsList -> news_title, 20) }}</h5>
                                 <p>{{ Str::limit($newsList->news_details, 80) }}</p>
                                 <small>{{ $newsList -> created_at->diffForHumans() }}</small>
                             </div>

@@ -56,6 +56,11 @@ body.dark-mode .dropdown-menu {
     color: #817f7f;
 }
 
+body.dark-mode #comment {
+    background-color: #333;
+    color: #817f7f;
+}
+
 
 /* body.dark-mode table tr {
     background-color: #222;
