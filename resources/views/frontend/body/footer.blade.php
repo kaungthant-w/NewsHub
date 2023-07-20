@@ -57,6 +57,7 @@
     <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+      <script src="{{ asset("frontend/assets/custom/js/script.js") }}"></script>
 
       <script>
             @if(Session::has('message'))

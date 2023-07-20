@@ -12,7 +12,7 @@
 
                         <div class="image-overlay">
                             <span class="close-btn" onclick="closeFullSize()">&times;</span>
-                            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" alt="Image" class="clickable-img" style="width: 80%;height:80%">
+                            <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" alt="Image" class="clickable-img " style="width: 80%;height:80%">
                         </div>
 
                         <p>{{ (!empty($adminData->name)) ? $adminData->name: "unknown" }}</p>

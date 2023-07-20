@@ -33,8 +33,6 @@
 
             @auth
                 <li class="nav-item dropdown">
-                    {{-- <a href="{{ route('user#frontend#dashboard') }}" class="text-white nav-link text-decoration-none fw-bold" > --}}
-
                     @if($adminData)
                         <a href="#" class="text-white nav-link text-decoration-none fw-bold"    id="dropdownMenuButton" data-bs-toggle="dropdown">
                             <img src="{{ (!empty($adminData->photo)) ? url('backend/assets/dist/img/admin_profile/'.$adminData->photo):url('backend/assets/dist/img/admin_profile/no_image.jpg') }}" class=" rounded-circle profile-img" style="width: 25px;height:25px" alt="$adminData->photo">

@@ -12,7 +12,7 @@
     <div class="mb-5 row">
         <div class="col-12 col-md-6" style="height: 300px">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner" data-bs-interval="3000">
                     @foreach ( $newsTopSliders as $newsList)
                         <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="carousel-item active">
                             <img src="{{ $newsList->image }}" alt="Image 1">

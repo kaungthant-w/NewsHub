@@ -13,7 +13,7 @@
                         <div class="card">
                             <img class="card-img-top" src="{{asset($newsList->image)}}" alt="Card image cap">
                             <div class="card-body">
-                                <p class="card-text ">{{ Str::limit($newsList->news_details, 16) }}</p>
+                                <p class="card-text ">{{ Str::limit($newsList->news_details, 60) }}</p>
                                 <p>{{ $newsList->created_at->diffForHumans()}}</p>
                                 <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">ReadMore</a>
                             </div>
