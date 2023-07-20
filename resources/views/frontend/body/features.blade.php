@@ -11,28 +11,32 @@
 <section class="mb-3 container-fluid">
     <div class="mb-5 row">
         <div class="col-12 col-md-6" style="height: 300px">
-            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner" data-bs-interval="3000">
-                    @foreach ( $newsTopSliders as $newsList)
-                        <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="carousel-item active">
-                            <img src="{{ $newsList->image }}" alt="Image 1">
-                            <div class="carousel-caption">
-                                <h5>{{ Str::limit($newsList -> news_title, 20) }}</h5>
-                                <p>{{ Str::limit($newsList->news_details, 80) }}</p>
-                                <small>{{ $newsList -> created_at->diffForHumans() }}</small>
-                            </div>
-                        </a>
-                    @endforeach
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+            @php $active = true; @endphp
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($newsTopSliders as $newsList)
+                <a href="{{ url('newspost/details/'.$newsList->id.'/'.$newsList->news_title_slug) }}"
+                    class="carousel-item @if($active) active @endif" data-bs-interval="5000">
+                    <img src="{{ $newsList->image }}" alt="Image 1">
+                    <div class="carousel-caption">
+                        <h5>{{ Str::limit($newsList->news_title, 20) }}</h5>
+                        <p>{!! Str::limit($newsList->news_details, 80) !!}</p>
+                        <small>{{ $newsList->created_at->diffForHumans() }}</small>
+                    </div>
+                </a>
+                @php $active = false; @endphp
+            @endforeach
+        </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
         </div>
 
         <div class="my-3 col-12 col-md-6 my-md-0">
@@ -42,7 +46,7 @@
                         <img src="{{ $breakingNewsTop->image }}" class="object-fit-cover w-100" style="height: 150px" alt="">
                         <div class="overlay"></div>
                         <div class="image-caption">
-                            <p class="mt-2 mt-md-1">{{ Str::limit($breakingNewsTop->news_details, 80) }}</p>
+                            <p class="mt-2 mt-md-1">{!! Str::limit($breakingNewsTop->news_details, 80) !!}</p>
                         </div>
                     </div>
                 </a>
@@ -53,7 +57,7 @@
                         <img src="{{ $newsThreePost -> image }}" class="object-fit-cover w-100" style="height:150px;"  alt="">
                         <div class="overlay"></div>
                         <div class="image-caption">
-                            <p class="mt-2 mt-md-1">{{ Str::limit($newsThreePost->news_details, 60) }}</p>
+                            <p class="mt-2 mt-md-1">{!! Str::limit($newsThreePost->news_details, 60) !!}</p>
                         </div>
                     </div>
                 </a>

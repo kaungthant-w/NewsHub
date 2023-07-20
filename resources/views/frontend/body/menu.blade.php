@@ -11,13 +11,13 @@
 
         @if ($subcategories->count() > 0)
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link text-nowrap" data-bs-toggle="dropdown">
+                <a href="#" class="nav-link text-nowrap dropdown-toggle text-primary" data-bs-toggle="dropdown">
                     {{ $category->category_name }}
                 </a>
                 <ul class="dropdown-menu">
                     @foreach ($subcategories as $subcategory)
                         <li>
-                            <a class="dropdown-item" href="{{ url('newspost/subcategory/'.$subcategory->id."/".$subcategory->subcategory_slug) }}">
+                            <a class="dropdown-item text-primary" href="{{ url('newspost/subcategory/'.$subcategory->id."/".$subcategory->subcategory_slug) }}">
                                 {{ $subcategory->subcategory_name }}
                             </a>
                         </li>
@@ -26,7 +26,7 @@
             </li>
         @else
             <li class="nav-item">
-                <a href="{{ url('newspost/category/'.$category->id."/".$category->category_slug) }}" class="nav-link text-nowrap">
+                <a href="{{ url('newspost/category/'.$category->id."/".$category->category_slug) }}" class="nav-link text-nowrap text-primary">
                     {{ $category->category_name }}
                 </a>
             </li>

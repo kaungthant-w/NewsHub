@@ -12,7 +12,7 @@
                         <div class="card">
                             <img class="card-img-top" src="{{asset($newsList->image)}}" alt="Card image cap">
                             <div class="card-body">
-                                <p class="card-text ">{{ Str::limit($newsList->news_details, 80) }}</p>
+                                <p class="card-text ">{!! Str::limit($newsList->news_details, 80) !!}</p>
                                 <p>{{ $newsList->created_at->diffForHumans()}}</p>
                                 <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">ReadMore</a>
                             </div>
@@ -35,7 +35,7 @@
                             <li class="mb-2 nav-link">
                                 <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="d-flex text-decoration-none">
                                     <img src="{{asset($newsList->image)}}" alt="" class="img-thubnail rounded-circle" style="width:40px;height:40px;">
-                                    <p class="ms-2" style="font-size: 12px;">{{ Str::limit($newsList->news_details, 40) }}</p>
+                                    <p class="ms-2" style="font-size: 12px;">{!! Str::limit($newsList->news_details, 40) !!}</p>
                                 </a>
                             </li>
                         @endforeach
@@ -47,7 +47,8 @@
                             <li class="mb-3 nav-link">
                                 <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="d-flex text-decoration-none">
                                     <img src="{{asset($newsList->image)}}" alt="" class="img-thubnail rounded-circle" style="width:40px;height:40px;">
-                                    <p class="ms-2" style="font-size: 12px;">{{ Str::limit($newsList->news_details, 40) }}</p>
+                                    <p class="ms-2" style="font-size: 12px;">{!! Str::limit($newsList->news_details, 40) !!}</p>
+
                                 </a>
                             </li>
                         @endforeach

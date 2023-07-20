@@ -30,7 +30,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-5 lg:w-6/12">
+                                <div class="mb-5 lg:w-10/12">
                                     <select name="category_id" id="category_id" class="TWform-control">
                                         <option value="">Select Category</option>
                                         @foreach ($categories as $category)
@@ -39,7 +39,7 @@
                                     </select>
                                 </div>
 
-                                <div class="mb-5 lg:w-6/12">
+                                <div class="mb-5 lg:w-10/12">
                                     <select name="subcategory_id" id="" class="TWform-control">
                                         <option value="">Select Subcategory</option>
                                         @foreach ($subcategories as $subcategory )
@@ -48,7 +48,7 @@
                                     </select>
                                 </div>
 
-                                <div class="mb-5 lg:w-6/12 ">
+                                <div class="mb-5 lg:w-10/12 ">
                                     <select name="user_id" id="" class="TWform-control">
                                         @foreach ($adminuser as $writer )
                                             <option value="{{ $writer->id }}">{{ $writer-> name }}
@@ -58,15 +58,15 @@
                                 </div>
 
 
-                                <div class="my-5 lg:w-6/12">
+                                <div class="my-5 lg:w-10/12">
                                     <input type="text" name="news_title" value="{{ $newspost->news_title }}" class="TWform-control"  placeholder="Enter News Title">
                                 </div>
 
-                                <div class="my-5 lg:w-6/12">
+                                <div class="my-5 lg:w-10/12">
                                     <textarea name="news_details" class="TWform-control" id="" cols="30" rows="5" placeholder="Enter News details">{{ $newspost->news_details }}</textarea>
                                 </div>
 
-                                <div class="my-8 lg:w-6/12">
+                                <div class="my-8 lg:w-10/12">
                                     <input type="text" name="tags" class="selectize-close-btn TWform-control" value=" {{ $newspost->tags }} " placeholder="Add Tags">
                                 </div>
 

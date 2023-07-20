@@ -12,6 +12,7 @@
         $newsThreePosts = App\Models\Admin\Newspost::where('status', '1')->where("first_section_three", '1')->inRandomOrder()->get();
         $travelNewsTop = App\Models\Admin\Newspost::where('status', '1')->where('status', '1')->where("category_id", '78')->inRandomOrder()->first();
         $travelNewsList = App\Models\Admin\Newspost::where('status', '1')->where("category_id", '78')->inRandomOrder()->skip(1)->take(3)->get();
+        $bannerlist = App\Models\Admin\Banner::findOrFail(1);
     @endphp
     <div class="container-fluid">
         <div class="row">
@@ -75,27 +76,26 @@
             </div>
             <div class="p-2 pt-0 mt-5 col-md-12 mt-lg-0 col-lg-3">
                 <div class="container-fluid row">
-                    {{-- <div class="col-12">
-                        <img src="https://i.redd.it/36f0hw6io9m21.gif" class=" object-fit-cover" alt="banner"  style="height: 200px;width:100%;">
-                    </div> --}}
                     <div class="mt-4 col-12" style="height: 200px">
                         <div id="bannerSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
                             <div class="carousel-inner">
                               <div class="carousel-item active" data-bs-interval="3000">
-                                <img src="https://prod-upp-image-read.ft.com/75e8de86-49b1-11ea-aeb3-955839e06441" class="object-fit-cover" style="height: 200px;width:100%;" alt="https://prod-upp-image-read.ft.com/75e8de86-49b1-11ea-aeb3-955839e06441">
+                                <img src="{{ asset($bannerlist->slide_one) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_one }}">
                               </div>
                               <div class="carousel-item" data-bs-interval="2000">
-                                <img src="https://www.teslarati.com/wp-content/uploads/2019/06/tesla-model-3-supercharger.jpg" class="object-fit-cover" style="height: 200px;width:100%;" alt="...">
+                                <img src="{{ asset($bannerlist->slide_two) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_two }}">
                               </div>
-                              <div class="carousel-item">
-                                <img src="https://www.usatoday.com/gcdn/-mm-/f4c4c3d8d99ab9a0fd37e8d3d494112eb6c0c801/c=0-0-580-326/local/-/media/2017/10/24/USATODAY/usatsports/tsla-q3-earnings_large.png" class="object-fit-cover" style="height: 200px;width:100%;" alt="...">
+                              <div class="carousel-item" data-bs-interval="3000">
+                                <img src="{{ asset($bannerlist->slide_three) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_three }}">
+                              </div>
+                              <div class="carousel-item" data-bs-interval="3000">
+                                <img src="{{ asset($bannerlist->slide_four) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_four }}">
                               </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
                     <div class="mt-2 col-12" style="font-size: 14px;">
-                        <p>Tesla, founded by Elon Musk in 2003, is a leading electric vehicle (EV) and clean energy company. It has revolutionized the automotive industry with its innovative electric cars, pushing the boundaries of technology and sustainability.</p>
-                        <p>Tesla's Model S, Model 3, Model X, and Model Y are popular electric vehicles known for their impressive range, acceleration, and advanced Autopilot features.</p>
+                        <p>{!! $bannerlist->description !!}</p>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -55,6 +56,9 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('newspost/inactive/{id}', [NewspostController::class, 'newspostInactive'])->name('newspost#inactive');
     Route::get('newspost/active/{id}', [NewspostController::class, 'newspostActive'])->name('newspost#active');
 
+    //banner
+    Route::get('banners/list', [BannerController::class, 'bannerlist'])->name('banners#list');
+    Route::post('banners/update', [BannerController::class, 'bannerUpdate'])->name('banner#update');
 
     //manage role and news post settings
     Route::get('admin/list', [AdminController::class, 'adminList'])->name("admin#list");
@@ -68,9 +72,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::post('admin/update', [AdminController::class, 'adminUpdate'])->name("admin#update");
     Route::get("admin/delete/{id}", [AdminController::class, 'adminDelete'])->name("admin#delete");
 
-
 });
-
 
 
 Route::middleware(['auth', 'role:user'])->group(function() {

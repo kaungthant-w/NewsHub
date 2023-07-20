@@ -106,7 +106,6 @@ class CategoryController extends Controller
 
     }
 
-
     // edit data subcategory
     public function editSubcategory($id)
     {

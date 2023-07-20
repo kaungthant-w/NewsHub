@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
     // Check if dark mode preference is stored in localStorage
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
 
@@ -19,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
 // when click img,show full width img
 function showFullSize() {
     var overlay = document.querySelector('.image-overlay');
@@ -31,13 +31,43 @@ function showFullSize() {
     overlay.classList.remove('open');
   }
 
-
   $('#image').change(function(e){
     var reader = new FileReader();
     reader.onload = function(e) {
         $('#showImage').attr('src', e.target.result);
     }
+    reader.readAsDataURL(e.target.files['0']);
+  })
 
+  $('#bannerSlide1').change(function(e){
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        $('#showBannerSlide1').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files['0']);
+  })
+
+  $('#bannerSlide2').change(function(e){
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        $('#showBannerSlide2').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files['0']);
+  })
+
+  $('#bannerSlide3').change(function(e){
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        $('#showBannerSlide3').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files['0']);
+  })
+
+  $('#bannerSlide4').change(function(e){
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        $('#showBannerSlide4').attr('src', e.target.result);
+    }
     reader.readAsDataURL(e.target.files['0']);
   })
 

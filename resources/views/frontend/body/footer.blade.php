@@ -7,7 +7,7 @@
 @endphp
 <div class="container pt-4 my-5 border-spacing-8 border-top">
     <div class="row">
-        <div class="mt-4 col-6 col-md-4">
+        <div class="mt-4 col-12 col-md-4">
             <h1 class="h4">Categories</h1>
             <ul class="navbar-nav">
                 @foreach ($categories as $category)
@@ -20,7 +20,7 @@
 
             </ul>
         </div>
-        <div class="mt-4 col-6 col-md-4">
+        <div class="mt-4 col-12 col-md-4">
             <h1 class="h4">Subcategories</h1>
             <ul class="navbar-nav">
                 @foreach ($subcategories as $subcategory)
@@ -31,7 +31,7 @@
 
             </ul>
         </div>
-        <div class="mt-4 col-6 col-md-4">
+        <div class="mt-4 col-12 col-md-4">
         <h1 class="h4">News</h1>
             <ul class="navbar-nav">
                 @foreach ($newsList as $news)
@@ -43,11 +43,11 @@
         </div>
     </div>
 
-    <p class="my-3 text-center text-bule-600">&copy
+    <p class="my-3 text-center">&copy
         <script>
           document.write(new Date().getFullYear());
         </script>
-        Created By <a href="http://www.kyawmyothant.com" class="text-decoration-none" target="_blank">Kyaw Myo Thant</a> | All Rights Reserved
+        Created By <a href="https://www.kyawmyothant.com" class="text-decoration-none" target="_blank">Kyaw Myo Thant</a> | All Rights Reserved
     </p>
 </div>
 
