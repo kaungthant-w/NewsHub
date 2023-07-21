@@ -15,7 +15,7 @@ class CategoryController extends Controller
     //retrieve data dashboard
     public function index()
     {
-        $categories = Category::latest()->paginate(3);
+        $categories = Category::latest()->paginate(6);
         return view('admin.category.all', compact('categories'));
     }
 
@@ -86,12 +86,11 @@ class CategoryController extends Controller
     }
 
 
-
     /// subcategory
 
     // read data from table
     public function subcategoryList() {
-        $subcategories = Subcategory::latest()->paginate(3);
+        $subcategories = Subcategory::latest()->paginate(6);
         $categories = Category::latest()->get();
         return view('admin.subcategory.index', compact('subcategories', 'categories'));
     }

@@ -51,36 +51,77 @@
     </p>
 </div>
 
-<script src={{ asset("backend/assets/bower_components/jquery/dist/jquery.min.js" )}}></script>
+{{-- <script src={{ asset("backend/assets/bower_components/jquery/dist/jquery.min.js" )}}></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.slim.min.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
-    <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-      <script src="{{ asset("frontend/assets/custom/js/script.js") }}"></script>
+{{-- <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script> --}}
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="{{ asset("frontend/assets/custom/js/script.js") }}"></script>
+{{-- <script src="{{ asset('frontend/assets/js/index.js ') }}" id="contact-form-7-js"></script> --}}
+{{-- <script src="{{asset('frontend/assets/js/jquery-3.5.1.min.js')}}" id="newsflash-jquery-js"></script> --}}
+{{-- <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}" id="newsflash-bootstrap-js"></script> --}}
+{{-- <script src="{{asset('frontend/assets/js/bootstrap.bundle.min.js')}}" id="newsflash-bootstrapbundle-js"></script> --}}
+{{-- <script src="{{asset('frontend/assets/js/stellarnav.min.js')}}" id="newsflash-stellarnav-js"></script>
+<script src="{{asset('frontend/assets/js/owl.carousel.min.js')}}" id="newsflash-carousel-js"></script>
+<script src="{{asset('frontend/assets/js/jquery.magnific-popup.min.js')}}" id="newsflash-magnific-js"></script>
+<script src="{{asset('frontend/assets/js/jquery-ui.js')}}" id="newsflash-jqueryui-js"></script>
+<script src="{{asset('frontend/assets/js/lazyload.min.js')}}" id="newsflash-lazyload-js"></script> --}}
+{{-- <script src="{{asset('frontend/assets/js/main.js')}}" id="newsflash-main-js"></script> --}}
+{{-- <script src="{{asset('frontend/assets/js/bootstrap.bundle.min.js')}}" id="newsflash-main-js"></script> --}}
 
-      <script>
-            @if(Session::has('message'))
-                var type = "{{ Session::get('alert-type','info') }}"
-                switch(type){
-                case 'info':
-                toastr.info(" {{ Session::get('message') }} ");
-                break;
+{{-- for fotorama effect --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script> --}}
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --}}
+{{-- <script src="{{asset('frontend/assets/js/jquery.lbt-lightbox.min.js')}}"></script> --}}
+<script src="{{asset('frontend/assets/js/jquery.lightbox.js')}}"></script>
 
-                case 'success':
-                toastr.success(" {{ Session::get('message') }} ");
-                break;
+<script>
 
-                case 'warning':
-                toastr.warning(" {{ Session::get('message') }} ");
-                break;
+// $(document).ready(function() {
+//     $instance = $('#gallery').lbtLightBox({
+//         db:true,
+//     });
+//     $instance.update();
+// });
 
-                case 'error':
-                toastr.error(" {{ Session::get('message') }} ");
-                break;
-                }
-            @endif
+    (function($){
+        $(document).ready(function(){
+        var galLink = $("a.gal_link");
+        galLink.lightbox();
 
-       </script>
+    });
+
+    })(jQuery);
+
+</script>
+
+
+<script>
+    @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type','info') }}"
+        switch(type){
+        case 'info':
+        toastr.info(" {{ Session::get('message') }} ");
+        break;
+
+        case 'success':
+        toastr.success(" {{ Session::get('message') }} ");
+        break;
+
+        case 'warning':
+        toastr.warning(" {{ Session::get('message') }} ");
+        break;
+
+        case 'error':
+        toastr.error(" {{ Session::get('message') }} ");
+        break;
+        }
+    @endif
+
+
+</script>
 </body>
 </html>

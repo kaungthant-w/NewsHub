@@ -4,8 +4,12 @@
     <div class="row">
         <div class="col-md-11 ">
             <h1 class="h3">All post List <span class="text-white status bg-sky-600 ">{{ count($allNewsPost) }}</span></h1>
-            <a href="{{ route('newspost#add') }}" class="mt-5 rounded btnTW btnTW-info">Add news Post</a>
+            <div class="md:justify-between md:flex">
+                <a href="{{ route('newspost#add') }}" class="h-12 mt-5 rounded btnTW btnTW-info">Add news Post</a>
+                {{ $allNewsPost -> links() }}
+            </div>
             <div class="max-w-screen-xl px-5 mx-auto">
+
                 <div class="my-12 overflow-x-auto border rounded-lg ">
                     <table class="w-full">
                         <thead>
@@ -16,6 +20,7 @@
                                 <th class="thTW">Details</th>
                                 <th class="thTW">Category</th>
                                 <th class="thTW">User</th>
+                                <th class="thTW">Viewers</th>
                                 <th class="thTW">Date</th>
                                 <th class="thTW">Status</th>
                                 <th style="thTW">Actions</th>
@@ -39,6 +44,7 @@
                                     {{-- <td class="td">{{ $newspost->user_id }}</td> --}}
                                     <td class="td">{{ $newspost['category']['category_name'] }}</td>
                                     <td class="td">{{ $newspost['user']['name'] }}</td>
+                                    <td class="td">{{ $newspost['view_count'] }} <i class="fa-solid fa-eye"></i></td>
                                     <td class="td">
                                         @if ($newspost->created_at == NULL)
                                             No Date
@@ -79,7 +85,6 @@
 
                     </table>
                 </div>
-                {{-- {{ $allNewsPost -> links() }} --}}
             </div>
         </div>
     </div>

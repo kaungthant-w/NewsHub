@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 </head>
-<body class="container d-flex justify-content-center align-items-center mt-5">
+<body class="container mt-5 d-flex justify-content-center align-items-center">
 <div class="">
   <div class="my-3">
     <a href="#" class="text-decoration-none text-primary"><span class="fw-1 fs-3">News</span> Application</a>
@@ -25,10 +25,10 @@
   <div class="mb-5">
     <form method="POST" action="{{ route('login') }}">
         @csrf
-      <div class="form-floating mb-3">
+      <div class="mb-3 form-floating">
         <input type="email" name="email" class="form-control" placeholder="Enter Email">
       </div>
-      <div class="form-floating mb-3">
+      <div class="mb-3 form-floating">
         <input type="password" name="password" class="form-control" placeholder="Enter Password">
       </div>
       <div class="row">

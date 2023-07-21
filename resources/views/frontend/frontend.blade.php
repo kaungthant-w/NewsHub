@@ -10,6 +10,7 @@
     @include("frontend.body.features")
     @include("frontend.body.latest")
     @include("frontend.body.travel")
+    @include("frontend.body.gallery")
     @include("frontend.body.footer")
 
     @include("frontend.body.modal")

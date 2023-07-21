@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewspostController;
+use App\Http\Controllers\Admin\photoGalleryController;
 use App\Http\Controllers\User\UserController;
 
 require __DIR__.'/auth.php';
@@ -59,6 +60,14 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     //banner
     Route::get('banners/list', [BannerController::class, 'bannerlist'])->name('banners#list');
     Route::post('banners/update', [BannerController::class, 'bannerUpdate'])->name('banner#update');
+
+    //photo gallery
+    Route::get('gallery/list', [photoGalleryController::class, 'gallerylist'])->name('gallery#list');
+    Route::get('gallery/add', [photoGalleryController::class, 'galleryAdd'])->name('gallery#add');
+    Route::post('gallery/save', [photoGalleryController::class, 'gallerySave'])->name('gallery#save');
+    Route::get('gallery/edit/{id}', [photoGalleryController::class, 'galleryEdit'])->name('gallery#edit');
+    Route::post('gallery/update', [photoGalleryController::class, 'galleryUpdate'])->name('gallery#update');
+    Route::post('gallery/delete/{id}', [photoGalleryController::class, 'galleryDelete'])->name('gallery#delete');
 
     //manage role and news post settings
     Route::get('admin/list', [AdminController::class, 'adminList'])->name("admin#list");

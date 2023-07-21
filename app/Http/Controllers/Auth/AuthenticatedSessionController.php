@@ -14,7 +14,7 @@ class AuthenticatedSessionController extends Controller
 {
     public function create(): View
     {
-        return view('welcome');
+        return view('frontend/frontend');
     }
 
     public function store(LoginRequest $request): RedirectResponse

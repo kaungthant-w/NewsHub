@@ -2,23 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Psy\Readline\Hoa\Console;
 use App\Models\Admin\Category;
 use App\Models\Admin\Newspost;
 use App\Models\Admin\Subcategory;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
-use Psy\Readline\Hoa\Console;
+use Illuminate\Support\Facades\Session;
 
 // use Intervention\Image\ImageManagerStatic as Image;
 
 class NewspostController extends Controller
 {
     public function newspostList() {
-        $allNewsPost = Newspost::latest()->get();
+        // $allNewsPost = Newspost::latest()->get();
+        $allNewsPost = Newspost::latest()->paginate(6);
         return view('admin.newspost.index', compact('allNewsPost'));
     }
 
@@ -70,11 +72,19 @@ class NewspostController extends Controller
 
     public function newspostUpdate(Request $request) {
         $newspost_id = $request->id;
+        $newspost_edit = Newspost::findOrFail($newspost_id);
+        $img = $newspost_edit->image;
+        // dd($img);
         if($request->file('image')) {
+
+            if (File::exists(public_path($img))) {
+                File::delete(public_path($img));
+            }
+
             $image = $request->file('image');
-        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-       Image::make($image)->resize(621, 300)->save('backend/assets/dist/img/newspost/news_img/' . $name_gen);
-       $save_url = 'backend/assets/dist/img/newspost/news_img/' . $name_gen;
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(621, 300)->save('backend/assets/dist/img/newspost/news_img/' . $name_gen);
+            $save_url = 'backend/assets/dist/img/newspost/news_img/' . $name_gen;
 
         Newspost::findOrFail($newspost_id)->update([
             'category_id' => $request->category_id,

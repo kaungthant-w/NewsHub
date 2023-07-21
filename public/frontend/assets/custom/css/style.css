@@ -175,3 +175,26 @@ nav#navHeader{
   .toast-top-custom {
     top: 250px !important;
 }
+
+
+/* .gallery {
+
+} */
+
+.gallery_img a img {
+    width: 33%;
+    margin: 0;
+    padding: 5px;
+}
+
+@media (max-width: 799px) {
+    .gallery_img a img {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery_img a img {
+        width: 100%;
+    }
+}

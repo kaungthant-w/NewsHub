@@ -75,27 +75,29 @@
                 </div>
             </div>
             <div class="p-2 pt-0 mt-5 col-md-12 mt-lg-0 col-lg-3">
-                <div class="container-fluid row">
-                    <div class="mt-4 col-12" style="height: 200px">
-                        <div id="bannerSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                              <div class="carousel-item active" data-bs-interval="3000">
-                                <img src="{{ asset($bannerlist->slide_one) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_one }}">
-                              </div>
-                              <div class="carousel-item" data-bs-interval="2000">
-                                <img src="{{ asset($bannerlist->slide_two) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_two }}">
-                              </div>
-                              <div class="carousel-item" data-bs-interval="3000">
-                                <img src="{{ asset($bannerlist->slide_three) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_three }}">
-                              </div>
-                              <div class="carousel-item" data-bs-interval="3000">
-                                <img src="{{ asset($bannerlist->slide_four) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_four }}">
-                              </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="my-4 col-12" style="height: 200px">
+                            <div id="bannerSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active" data-bs-interval="3000">
+                                    <img src="{{ asset($bannerlist->slide_one) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_one }}">
+                                  </div>
+                                  <div class="carousel-item" data-bs-interval="2000">
+                                    <img src="{{ asset($bannerlist->slide_two) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_two }}">
+                                  </div>
+                                  <div class="carousel-item" data-bs-interval="3000">
+                                    <img src="{{ asset($bannerlist->slide_three) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_three }}">
+                                  </div>
+                                  <div class="carousel-item" data-bs-interval="3000">
+                                    <img src="{{ asset($bannerlist->slide_four) }}" class="d-block w-100" style="height: 200px;" alt="{{ $bannerlist->slide_four }}">
+                                  </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mt-2 col-12" style="font-size: 14px;">
-                        <p>{!! $bannerlist->description !!}</p>
+                        <div class="col-12 d-none d-md-block" style="font-size: 14px;">
+                            <p>{!! $bannerlist->description !!}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,6 +107,7 @@
     @include("frontend.body.relative_news")
 
     @include("frontend.body.travel")
+    @include("frontend.body.gallery")
 
     @include("frontend.body.footer")
 

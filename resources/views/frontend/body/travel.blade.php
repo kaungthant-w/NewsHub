@@ -16,7 +16,7 @@
                 @foreach ($travelNewsList as $newsList)
                     <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="mb-3 d-flex text-decoration-none">
                         <img src="{{ asset($newsList->image) }}" class="img-thumbnail" style="height:7rem;width:10rem" alt="">
-                        <p class="ms-3 text-secondary">{!! Str::limit($newsList->news_details, 120) !!}</p>
+                        <p class="ms-3 text-secondary">{!! Str::limit($newsList->news_details, 100) !!}</p>
                     </a>
                 @endforeach
             </div>

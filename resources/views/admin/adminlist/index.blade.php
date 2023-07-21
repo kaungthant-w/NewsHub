@@ -48,15 +48,20 @@
 
                                     </td>
                                     <td class="td">
+                                        @if (Auth::user()->id == $admin->id)
+                                        
+                                        @else
                                         @if ($admin->status == 'active')
                                             <a href="{{ route('admin#inactive', $admin->id) }}">
                                                 <span class="text-green-900 bg-green-300 cursor-pointer status">{{ $admin->status}}</span>
                                             </a>
-                                            @elseif ($admin->status == 'inactive')
+                                        @elseif ($admin->status == 'inactive')
                                             <a href="{{ route('admin#active', $admin->id) }}">
                                                 <span class="text-red-900 bg-red-300 cursor-pointer status">{{$admin->status}}</span>
                                             </a>
                                         @endif
+                                        @endif
+
                                     </td>
                                     <td class="td">
                                         @if ($admin->created_at == NULL)
