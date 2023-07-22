@@ -34,8 +34,8 @@ class NewspostController extends Controller
     public function newspostStore(Request $request) {
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-       Image::make($image)->resize(621, 300)->save('backend/assets/dist/img/newspost/news_img/' . $name_gen);
-       $save_url = 'backend/assets/dist/img/newspost/news_img/' . $name_gen;
+        Image::make($image)->resize(621, 300)->save('backend/assets/dist/img/newspost/news_img/' . $name_gen);
+        $save_url = 'backend/assets/dist/img/newspost/news_img/' . $name_gen;
 
         Newspost::insert([
             'category_id' => $request->category_id,

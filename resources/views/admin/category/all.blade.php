@@ -47,10 +47,10 @@
                                         <div class="flex w-[180px]">
                                             <form class="inline" action="{{ route('delete#category', $category->id) }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="rounded btnTW btnTW-success"><i class="fa-solid fa-trash"></i> Delete</button>
+                                                <button type="submit" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</button>
                                             </form>
 
-                                            <a class="ml-4 rounded btnTW btnTW-danger text-decoration-none edit-button" href="#editCategoryId" data-toggle="modal" data-category-id="{{ $category->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                            <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="#editCategoryId" data-toggle="modal" data-category-id="{{ $category->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
                                         </div>
                                     </td>
                                 </tr>

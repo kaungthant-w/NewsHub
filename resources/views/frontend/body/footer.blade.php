@@ -77,15 +77,9 @@
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --}}
 {{-- <script src="{{asset('frontend/assets/js/jquery.lbt-lightbox.min.js')}}"></script> --}}
 <script src="{{asset('frontend/assets/js/jquery.lightbox.js')}}"></script>
-
+<script src="{{ asset('frontend/assets/js/KBmodal.js') }}"></script>
+{{-- <script src="{{ asset('frontend/assets/js/gulpfile.js') }}"></script> --}}
 <script>
-
-// $(document).ready(function() {
-//     $instance = $('#gallery').lbtLightBox({
-//         db:true,
-//     });
-//     $instance.update();
-// });
 
     (function($){
         $(document).ready(function(){

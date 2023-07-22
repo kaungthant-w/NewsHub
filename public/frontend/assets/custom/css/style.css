@@ -187,14 +187,38 @@ nav#navHeader{
     padding: 5px;
 }
 
-@media (max-width: 799px) {
-    .gallery_img a img {
-        width: 45%;
-    }
+.travel_news {
+    height:7rem;
+    width:10rem;
 }
+
 
 @media (max-width: 600px) {
     .gallery_img a img {
         width: 100%;
+    }
+
+    .travel_news {
+        height:3rem;
+        width:3rem;
+        line-height: 3rem;
+
+    }
+}
+
+/* @media (max-width: 799px) {
+    .gallery_img a img {
+        width: 45%;
+    }
+} */
+
+@media (max-width: 922px) {
+    .gallery_img a img {
+        width: 49%;
+    }
+
+    .travel_news {
+        height:5rem;
+        width:6rem;
     }
 }

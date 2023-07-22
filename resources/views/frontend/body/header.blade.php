@@ -15,6 +15,7 @@
     {{-- <link rel="stylesheet" href="{{asset('frontend/assets/css/jquery.lbt-lightbox.min.css')}}"/> --}}
     {{-- <script src="{{asset('frontend/assets/js/jquery.lbt-lightbox.min.js')}}"></script> --}}
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/lightbox.css') }}"/>
-
+    {{-- <link rel="stylesheet" href="{{ asset('frontend/assets/css/KBmodal.css') }}"/> --}}
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/KBmodal.css') }}"/>
 
 </head>

@@ -1,5 +1,4 @@
 @php
-    use Illuminate\Support\Str;
     $gallerylist = App\Models\Admin\PhotoGallery::latest()->get();
 @endphp
 

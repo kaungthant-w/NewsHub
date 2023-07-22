@@ -108,7 +108,6 @@
             </a>
             <ul class="treeview-menu">
                 <li class="active"><a href="{{ route('gallery#list') }}"><i class="fa fa-circle-o"></i> All Photo Setting</a></li>
-                <li class=""><a href="#"><i class="fa fa-circle-o"></i> Add Photo Setting</a></li>
             </ul>
             </li>
 
@@ -121,8 +120,7 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li class="active"><a href="#"><i class="fa fa-circle-o"></i> All Video Setting</a></li>
-                <li class=""><a href="#"><i class="fa fa-circle-o"></i> Add Video Setting</a></li>
+                <li class="active"><a href="{{ route('video#gallery#list') }}"><i class="fa fa-circle-o"></i> All Video Setting</a></li>
             </ul>
             </li>
 

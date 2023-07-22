@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewspostController;
 use App\Http\Controllers\Admin\photoGalleryController;
+use App\Http\Controllers\Admin\VideoGalleryController;
 use App\Http\Controllers\User\UserController;
 
 require __DIR__.'/auth.php';
@@ -68,6 +69,15 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('gallery/edit/{id}', [photoGalleryController::class, 'galleryEdit'])->name('gallery#edit');
     Route::post('gallery/update', [photoGalleryController::class, 'galleryUpdate'])->name('gallery#update');
     Route::post('gallery/delete/{id}', [photoGalleryController::class, 'galleryDelete'])->name('gallery#delete');
+
+
+    //video gallery
+    Route::get('video/gallery/list', [VideoGalleryController::class, 'videoGalleryList'])->name('video#gallery#list');
+    Route::get('video/gallery/add', [VideoGalleryController::class, 'videoGalleryAdd'])->name('video#gallery#add');
+    Route::post('video/gallery/save', [VideoGalleryController::class, 'videoGallerySave'])->name('video#gallery#save');
+    Route::get('video/gallery/edit/{id}', [VideoGalleryController::class, 'videoGalleryEdit'])->name('video#gallery#edit');
+    Route::post('video/gallery/update', [VideoGalleryController::class, 'videoGalleryUpdate'])->name('video#gallery#update');
+    Route::post('video/gallery/delete/{id}', [VideoGalleryController::class, 'videoGalleryDelete'])->name('video#gallery#delete');
 
     //manage role and news post settings
     Route::get('admin/list', [AdminController::class, 'adminList'])->name("admin#list");
