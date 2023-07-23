@@ -27,11 +27,16 @@
 
                                 <div class="grid grid-cols-4 mt-10 mb-3">
                                     <div class="col-span-4 md:col-span-2 ">
-                                        <input type="file" name="image" id="multiImg" class="TWform-file">
+                                        <input type="file" name="image" id="image" class="TWform-file">
                                     </div>
                                 </div>
                                 <div class="my-3">
-                                    <img src="{{ asset($videoEdit->image) }}" id="preview_img" class="flex gap-4 profile-img" alt="{{ $videoEdit->image }}">
+                                    <img src="{{ (!empty(asset($videoEdit->image))) ? asset($videoEdit->image):url('backend/assets/dist/img/video/no_image.jpg') }}" class="mt-5" onclick="showFullSize()" id="showImage">
+
+                                    <div class="image-overlay">
+                                        <span class="close-btn" onclick="closeFullSize()">&times;</span>
+                                        <img src="{{ (!empty($videoEdit->image)) ? asset($videoEdit->image):url('backend/assets/dist/img/video/no_image.jpg') }}" alt="{{ $videoEdit->image }}" class="clickable-img" style="width: 80%;height:80%">
+                                    </div>
                                 </div>
 
                                 <div>

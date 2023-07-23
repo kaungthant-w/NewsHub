@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Permissions-Policy" content="autoplay 'none'; camera 'none'; encrypted-media 'none'; fullscreen 'self'; geolocation 'none'; microphone 'none'; payment 'none'; usb 'none';">
     <title>News Application</title>
     <link rel="icon" href="{{ asset('backend/assets/dist/img/credit/paypal.png') }}">
 

@@ -2,8 +2,8 @@
 @section("admin")
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-xs-12">
-                <h1 class="h3">All Photo Gallery  <span class="text-white bg-blue-900 status">{{ count($video) }}</span></h1>
+            <div class="col-md-11 col-xs-12">
+                <h1 class="h3">All Video Gallery  <span class="text-white bg-blue-900 status">{{ count($video) }}</span></h1>
 
                 <div class="md:justify-between md:flex">
                     <a href="{{ route('video#gallery#add') }}" class="h-12 mt-5 rounded btnTW btnTW-info">Add Video Gallery</a>
@@ -55,7 +55,6 @@
                                     </td>
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
                     </div>

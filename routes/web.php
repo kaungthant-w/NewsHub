@@ -79,6 +79,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::post('video/gallery/update', [VideoGalleryController::class, 'videoGalleryUpdate'])->name('video#gallery#update');
     Route::post('video/gallery/delete/{id}', [VideoGalleryController::class, 'videoGalleryDelete'])->name('video#gallery#delete');
 
+    // live tv
+    Route::get('live/tiv/update/page', [VideoGalleryController::class, 'liveTvUpdatePage'])->name("live#tv#update#page");
+    Route::post('live/tiv/update', [VideoGalleryController::class, 'liveTvUpdate'])->name("live#tv#update");
+
     //manage role and news post settings
     Route::get('admin/list', [AdminController::class, 'adminList'])->name("admin#list");
     Route::post('admin/profile/store', [AdminController::class, 'adminProfileStore'])->name("admin#profile#store");

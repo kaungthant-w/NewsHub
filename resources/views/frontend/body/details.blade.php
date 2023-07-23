@@ -108,7 +108,7 @@
 
     @include("frontend.body.travel")
     @include("frontend.body.gallery")
-
+    @include("frontend.body.video")
     @include("frontend.body.footer")
 
     @include("frontend.body.modal")

@@ -78,6 +78,10 @@
 {{-- <script src="{{asset('frontend/assets/js/jquery.lbt-lightbox.min.js')}}"></script> --}}
 <script src="{{asset('frontend/assets/js/jquery.lightbox.js')}}"></script>
 <script src="{{ asset('frontend/assets/js/KBmodal.js') }}"></script>
+
+<script src="https://unpkg.com/draggabilly/dist/draggabilly.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/draggabilly/draggabilly.min.js"></script>
+
 {{-- <script src="{{ asset('frontend/assets/js/gulpfile.js') }}"></script> --}}
 <script>
 
@@ -89,6 +93,9 @@
     });
 
     })(jQuery);
+
+    var draggable =new Draggabilly('.draggable');
+
 
 </script>
 
@@ -114,8 +121,6 @@
         break;
         }
     @endif
-
-
 </script>
 </body>
 </html>

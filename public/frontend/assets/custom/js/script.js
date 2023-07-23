@@ -88,3 +88,13 @@ togglePasswords.forEach(function (togglePassword) {
         this.classList.toggle('fa-eye-slash');
     });
 });
+
+
+//live
+$(document).ready(function() {
+    $(".closeLive").on("click", function() {
+      $(this).closest(".card").hide();
+    });
+  });
+
+

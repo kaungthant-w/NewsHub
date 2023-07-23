@@ -1,5 +1,5 @@
 @php
-    $videoGalleryList = App\Models\Admin\VideoGallery::latest()->get();
+    $videoGalleryList = App\Models\Admin\VideoGallery::inRandomOrder()->get();
 @endphp
 
 <div class="mt-5 container-fluid">
@@ -12,7 +12,8 @@
 
                     <div  class=" position-absolute top-50 start-50">
                         <i class="text-white fa-solid fa-play fs-3"></i>
-                        </div>
+                    </div>
+                    <p class="mt-2 ms-2">{{ $gallery->title }}</p>
 
                 </div>
 

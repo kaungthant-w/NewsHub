@@ -177,10 +177,6 @@ nav#navHeader{
 }
 
 
-/* .gallery {
-
-} */
-
 .gallery_img a img {
     width: 33%;
     margin: 0;
@@ -192,6 +188,11 @@ nav#navHeader{
     width:10rem;
 }
 
+.LiveTV {
+    position:fixed;
+    top: 60px;
+    right:20px;
+}
 
 @media (max-width: 600px) {
     .gallery_img a img {

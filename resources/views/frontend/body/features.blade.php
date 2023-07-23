@@ -5,6 +5,7 @@
     $breakingNewsTop = App\Models\Admin\Newspost::where('status', '1')->where("breaking_news", '1')->inRandomOrder()->first();
     $breakingNewsList = App\Models\Admin\Newspost::where('status', '1')->where("breaking_news", '1')->inRandomOrder()->skip(1)->take(2)->get();
     $newsThreePosts = App\Models\Admin\Newspost::where('status', '1')->where("first_section_three", '1')->get();
+    $live = App\Models\Admin\LiveTv::findOrFail(1);
 
 @endphp
 
@@ -38,7 +39,29 @@
             </div>
         </div>
 
-        <div class="my-3 col-12 col-md-6 my-md-0">
+        <div class="my-3 col-12 col-md-6 my-md-0 position-relative">
+            {{-- <div class="live-item position-absolute top-2 end-3 z-3">
+                <div class="live_title">
+                    <a href=" ">LIVE TV </a>
+                    <div class="themesBazar"></div>
+                </div>
+                <div class="popup-wrpp">
+                    <div class="live_image">
+                        <img width="700" height="400" src="{{ asset($live->image) }}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy">
+                        <div data-mfp-src="#mymodal" class="live-icon modal-live"> <i class="las la-play"></i> </div>
+                    </div>
+                    <div class="live-popup">
+                        <div id="mymodal" class="mfp-hide" role="dialog" aria-labelledby="modal-titles" aria-describedby="modal-contents">
+                            <div id="modal-contents">
+                                <div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
+                                <iframe class="" src=" " allowfullscreen="allowfullscreen" width="100%" height="400px"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div> --}}
+
             <div class="row g-1">
                 <a href="{{ url('newspost/details/'.$breakingNewsTop->id."/".$breakingNewsTop->news_title_slug) }}" class="mb-4 mb-md-0 col-12 position-relative" style="height:150px">
                     <div class="image-frontendoverlay">
@@ -62,6 +85,12 @@
                 </a>
                 @endforeach
             </div>
+
         </div>
     </div>
+
 </section>
+
+
+
+
