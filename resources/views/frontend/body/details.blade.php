@@ -72,6 +72,9 @@
                                     <p class="text-danger">There are no comments yet.</p>
                                 @else
                                     @foreach ( $reviews as $review )
+                                        @if ($review->status == 0)
+
+                                        @else
                                         <div class="my-3 border-bottom ">
                                             <div class="row">
                                                 <div class="col-12 col-md-1">
@@ -96,11 +99,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @endif
                                     @endforeach
                                 @endif
 
                                 @guest
-                                    <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> For Add Product Review. You Need to Login First. <a href="#loginId" data-bs-toggle="modal" class="text-decoration-none text-info"> Login</a></p>
+                                    <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> For Add Post Review. You Need to Login First. <a href="#loginId" data-bs-toggle="modal" class="text-decoration-none text-info"> Login</a></p>
                                 @else
 
                                     <div class="mt-5">

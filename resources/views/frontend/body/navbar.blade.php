@@ -5,7 +5,7 @@
     $adminData = $user && $user->isAdmin() ? $userData : null;
 @endphp
 
-<nav class="shadow-sm opacity-75 navbar navbar-expand-lg navbar-light z-3" id="navHeader">
+<nav class="shadow-sm opacity-75 navbar navbar-expand-lg navbar-light z-2" id="navHeader">
     <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,7 +49,6 @@
                             <img src="{{ (!empty(Auth::user()->photo)) ? url('frontend/assets/images/userprofile/'.Auth::user()->photo):url('frontend/assets/images/userprofile/no_image.jpg') }}" class=" rounded-circle profile-img" style="width: 25px;height:25px" alt="Auth::user()->photo">
                             {{ Auth::user()->name }}
                             <div class="dropdown-menu me-md-4">
-                                <a class="dropdown-item" href="#">Your Dashboard</a>
                                 <a class="dropdown-item" href="{{ route('user#frontend#dashboard') }}">Your Profile</a>
                                 <a class="dropdown-item" href="{{ route('user#change#password') }}">Change Password</a>
                             </div>

@@ -46,8 +46,8 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-        $this->redirectToAdmin('User Logout successfully', 'success');
-        return redirect('/');
+        $this->redirectToAdmin('Logout successfully', 'success');
+        return redirect()->back();
     }
 
     private function redirectToAdmin($message, $alertType) {

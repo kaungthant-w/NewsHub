@@ -25,10 +25,34 @@ class ReviewController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
-        $this->redirectToReview("have added your comment.", 'success');
+        $this->redirectToReview("Admin will Approve your comment.", 'success');
         return redirect()->back();
     }
 
+
+    public function reviewSytem() {
+        $reviews = Review::orderBy('id', 'DESC')->paginate(5);
+        return view('admin.review.index', compact('reviews'));
+    }
+
+    public function reviewInactive($id) {
+        Review::findOrFail($id)->update(['status' => 0]);
+        $this->redirectToReview("Not Approve review successfully.", 'warning');
+        return redirect()->route("review#system");
+    }
+
+    public function reviewActive($id) {
+        Review::findOrFail($id)->update(['status' => 1]);
+        $this->redirectToReview("Approve review successfully.", 'success');
+        return redirect()->route("review#system");
+    }
+
+
+    public function reviewDelete($id) {
+        Review::findOrFail($id)->delete();
+        $this->redirectToReview("Deleted review successfully.", 'warning');
+        return redirect()->route("review#system");
+    }
 
     private function redirectToReview($message, $alertType) {
         $notification = array(

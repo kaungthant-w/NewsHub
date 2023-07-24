@@ -9,12 +9,14 @@
             </span>
             <span>Live TV</span>
         </div>
-        <div class="closeLive btn">
-            X
+        <div class="closeLive">
+            <button class=" btn btn-default">
+                X
+            </button>
         </div>
     </div>
-    <div class="card-body position-relative">
-        <div class=" position-absolute top-50 end-50 translate-middle"   data-bs-toggle="modal" data-bs-target="#liveModal">
+    <div class="card-body position-relative" data-bs-toggle="modal" data-bs-target="#liveModal">
+        <div class=" position-absolute top-50 end-50 translate-middle">
             <i class="text-white fa-solid fa-play fs-2"></i>
         </div>
         <img src="{{ $live->image }}" class="img-thumbnail" alt="">

@@ -146,8 +146,7 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li class="active"><a href="#"><i class="fa fa-circle-o"></i> All Review Setting</a></li>
-                <li class=""><a href="#"><i class="fa fa-circle-o"></i> Add Review Setting</a></li>
+                <li class="active"><a href="{{ route('review#system') }}"><i class="fa fa-circle-o"></i>  Review Setting</a></li>
             </ul>
             </li>
 

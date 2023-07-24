@@ -36,7 +36,7 @@ class AdminController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         $this->redirectToAdmin('Admin Logout Successfully.', 'success');
-        return redirect("/");
+        return redirect()->back();
     }
 
     public function AdminProfile() {
