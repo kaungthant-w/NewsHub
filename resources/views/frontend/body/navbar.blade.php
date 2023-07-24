@@ -11,20 +11,22 @@
     </button>
     <div class="collapse navbar-collapse justify-content-around ms-2 ms-md-0" id="navbarSupportedContent">
         <ul class="mt-4 d-flex mt-md-2">
+            <li class="list-unstyled"> <a href="{{ url('/') }}"><img src="{{ asset('logo.png') }}" class="nav-link text-decoration-none me-2" alt="" style="width:20px;height:20px;"></a> </li>
             <li class="list-unstyled"> <a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="facebook"><i class="text-white fa-brands fa-facebook"></i> </a> </li>
             <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="twitter"><i class="text-white fa-brands fa-twitter"></i></a> </li>
             <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="instagram"><i class="text-white fa-brands fa-instagram"></i></a> </li>
         </ul>
         <div class="nav-item col-8 col-md-3 ms-3 ms-md-0">
-            <form action="#">
+            <form action="{{ route('news#search') }}" method="POST">
+                @csrf
                 <div class="input-group">
-                    <input type="text" name="post" class="form-control" placeholder="Enter your post title">
+                    <input type="text" name="search" class="form-control" placeholder="Enter your post title">
                     <button class="ml-0 btn btn-danger ml-md-3"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 </div>
             </form>
         </div>
-        <ul class="navbar-nav">
-            <li class="nav-item ms-3 ms-md-0 me-md-2"><a href="#" id="dark-mode-toggle" class="nav-link text-dark text-decoration-none" > <i class="fa-solid fa-moon fw-bold"></i> </a> </li>
+        <ul class="navbar-nav ms-3">
+            <li class="nav-item ms-md-0 me-md-2"><a href="#" id="dark-mode-toggle" class="nav-link text-dark text-decoration-none" > <i class="fa-solid fa-moon fw-bold"></i> </a> </li>
 
             @guest
                 <li class="nav-item me-md-2"><a class="px-3 text-white nav-link text-decoration-none" href="#loginId" data-bs-toggle="modal">Login</a> </li>
@@ -45,7 +47,7 @@
                         </a>
 
                     @else
-                        <a href="#" class="text-white nav-link text-decoration-none fw-bold"    id="dropdownMenuButton" data-bs-toggle="dropdown">
+                        <a href="#" class="text-white nav-link text-decoration-none fw-bold" id="dropdownMenuButton" data-bs-toggle="dropdown">
                             <img src="{{ (!empty(Auth::user()->photo)) ? url('frontend/assets/images/userprofile/'.Auth::user()->photo):url('frontend/assets/images/userprofile/no_image.jpg') }}" class=" rounded-circle profile-img" style="width: 25px;height:25px" alt="Auth::user()->photo">
                             {{ Auth::user()->name }}
                             <div class="dropdown-menu me-md-4">

@@ -2,7 +2,6 @@
     $categories = App\Models\Admin\Category::inRandomOrder()->take(6)->get();
     $subcategories = App\Models\Admin\Subcategory::inRandomOrder()->take(6)->get();
     $newsList = App\Models\Admin\Newspost::inRandomOrder()->take(6)->get();
-    // $categorySport = App\Models\Admin\Category::where('category_name', 'SPORTS')->get();
     $categoryEntertament = App\Models\Admin\Category::where('category_name', 'ENTERTAINMENT')->get();
 @endphp
 <div class="container pt-4 my-5 border-spacing-8 border-top">
@@ -51,38 +50,17 @@
     </p>
 </div>
 
-{{-- <script src={{ asset("backend/assets/bower_components/jquery/dist/jquery.min.js" )}}></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.slim.min.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-{{-- <script src={{ asset("backend/assets/bower_components/jquery-ui/jquery-ui.min.js") }}></script> --}}
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="{{ asset("frontend/assets/custom/js/script.js") }}"></script>
-{{-- <script src="{{ asset('frontend/assets/js/index.js ') }}" id="contact-form-7-js"></script> --}}
-{{-- <script src="{{asset('frontend/assets/js/jquery-3.5.1.min.js')}}" id="newsflash-jquery-js"></script> --}}
-{{-- <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}" id="newsflash-bootstrap-js"></script> --}}
-{{-- <script src="{{asset('frontend/assets/js/bootstrap.bundle.min.js')}}" id="newsflash-bootstrapbundle-js"></script> --}}
-{{-- <script src="{{asset('frontend/assets/js/stellarnav.min.js')}}" id="newsflash-stellarnav-js"></script>
-<script src="{{asset('frontend/assets/js/owl.carousel.min.js')}}" id="newsflash-carousel-js"></script>
-<script src="{{asset('frontend/assets/js/jquery.magnific-popup.min.js')}}" id="newsflash-magnific-js"></script>
-<script src="{{asset('frontend/assets/js/jquery-ui.js')}}" id="newsflash-jqueryui-js"></script>
-<script src="{{asset('frontend/assets/js/lazyload.min.js')}}" id="newsflash-lazyload-js"></script> --}}
-{{-- <script src="{{asset('frontend/assets/js/main.js')}}" id="newsflash-main-js"></script> --}}
-{{-- <script src="{{asset('frontend/assets/js/bootstrap.bundle.min.js')}}" id="newsflash-main-js"></script> --}}
-
-{{-- for fotorama effect --}}
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script> --}}
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --}}
-{{-- <script src="{{asset('frontend/assets/js/jquery.lbt-lightbox.min.js')}}"></script> --}}
 <script src="{{asset('frontend/assets/js/jquery.lightbox.js')}}"></script>
 <script src="{{ asset('frontend/assets/js/KBmodal.js') }}"></script>
 
 <script src="https://unpkg.com/draggabilly/dist/draggabilly.pkgd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/draggabilly/draggabilly.min.js"></script>
 
-{{-- <script src="{{ asset('frontend/assets/js/gulpfile.js') }}"></script> --}}
 <script>
 
     (function($){

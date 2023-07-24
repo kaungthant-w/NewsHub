@@ -10,13 +10,12 @@
                 <div class="KBmodal" data-content-url="{{ asset($gallery->url) }}" data-content-type="yt">
                     <img src="{{ asset($gallery->image) }}" class="img-thumbnail">
 
-                    <div  class=" position-absolute top-50 start-50">
+                    <div  class=" position-absolute top-50 start-50 translate-middle">
                         <i class="text-white fa-solid fa-play fs-3"></i>
                     </div>
                     <p class="mt-2 ms-2">{{ $gallery->title }}</p>
 
                 </div>
-
             </div>
         @endforeach
     </div>

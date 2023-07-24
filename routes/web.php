@@ -18,7 +18,6 @@ Route::fallback(function () {
 });
 
 Route::get('/', function () {
-    // return view('welcome');
     return view('frontend/frontend');
 });
 
@@ -123,3 +122,4 @@ Route::middleware(['auth', 'role:user'])->group(function() {
 Route::get('newspost/details/{id}/{slug}', [NewspostController::class, 'newspostDetails'])->name('newspost#details');
 Route::get('newspost/category/{id}/{slug}', [NewspostController::class, 'newspostCategory'])->name('newspost#category');
 Route::get('newspost/subcategory/{id}/{slug}', [NewspostController::class, 'newspostSubcategory'])->name('newspost#subcategory');
+Route::post('news/search', [NewspostController::class, 'newsSearch'])->name('news#search');

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>News Web Application</title>
-  <link rel="icon" href="{{ asset('backend/assets/dist/img/credit/paypal.png') }}">
+  <link rel="icon" href="{{ asset('logo.png') }}">
   @vite('resources/css/app.css')
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">

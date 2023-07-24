@@ -1,4 +1,8 @@
+@section('title')
+    {{ $news->news_title }}
+@endsection
 @include("frontend.body.header")
+
 <body class="p-0 m-0 container-fluid">
 
     @include("frontend.body.navbar")

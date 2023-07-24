@@ -194,6 +194,20 @@ class NewspostController extends Controller
         return view('front');
     }
 
+    // search news
+    public function newsSearch (Request $request) {
+        $request->validate(['search' => "required"]);
+
+        $item = $request->search;
+
+        $news = NewsPost::where('news_title','LIKE',"%$item%")->get();
+        $newnewspost = NewsPost::orderBy('id','DESC')->limit(8)->get();
+        $newspopular = NewsPost::orderBy('view_count','DESC')->limit(8)->get();
+
+        return view('frontend.body.search',compact('news','newnewspost','newspopular','item'));
+
+    }
+
     private function redirectTonewspost($message, $alertType) {
         $notification = array(
             'message' => $message,

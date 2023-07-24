@@ -19,10 +19,9 @@
         <div class=" position-absolute top-50 end-50 translate-middle">
             <i class="text-white fa-solid fa-play fs-2"></i>
         </div>
-        <img src="{{ $live->image }}" class="img-thumbnail" alt="">
+        <img src="{{ $live->image }}" class="w-100 img-thumbnail" style="height: 200px" alt="">
     </div>
 </div>
-
 
 <!--Live TV Modal -->
 <div class=" modal fade" id="liveModal">
@@ -42,21 +41,15 @@
 
 @include("frontend.body.header")
 <body class="p-0 m-0 container-fluid">
-
     @include("frontend.body.navbar")
-
-
     @include("frontend.body.banner")
-
     @include("frontend.body.menu")
-
     @include("frontend.body.features")
     @include("frontend.body.latest")
     @include("frontend.body.travel")
     @include("frontend.body.gallery")
     @include("frontend.body.video")
     @include("frontend.body.footer")
-
     @include("frontend.body.modal")
 
 
