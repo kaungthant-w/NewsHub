@@ -25,22 +25,23 @@
             <div class="gap-1 p-2 col-12 col-md-8 col-lg-9">
                 <div class="row">
                     @if ($news->isEmpty())
-                        @foreach ($news as $newsList )
-                        <div class="my-3 col-12 col-md-4">
-                            <div class="card">
-                                <img class="card-img-top" src="{{asset($newsList->image)}}" alt="{{ $newsList->image }}">
-                                <div class="card-body">
-                                    <p class="card-text ">{!! Str::limit($newsList->news_details, 80) !!}</p>
-                                    <p>{{ $newsList->created_at->diffForHumans()}}</p>
-                                    <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">ReadMore</a>
+                        <div class="col-12">
+                            <h3 class="mt-3 text-center text-danger">There is no search post</h3>
+                        </div>
+                    @else
+                        @foreach ($news as $newsList)
+                            <div class="my-3 col-12 col-md-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="{{asset($newsList->image)}}" alt="{{ $newsList->image }}">
+                                    <div class="card-body">
+                                        <p class="card-text ">{!! Str::limit($newsList->news_details, 80) !!}</p>
+                                        <p>{{ $newsList->created_at->diffForHumans()}}</p>
+                                        <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">ReadMore</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
-                    @else
-                        <h3 class="mt-3 text-center text-danger">There is no search post.</h3>
                     @endif
-
                 </div>
             </div>
             <div class="p-2 pt-0 mt-5 col-md-12 mt-lg-0 col-lg-3">
