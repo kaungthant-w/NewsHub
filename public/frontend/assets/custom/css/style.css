@@ -194,6 +194,10 @@ nav#navHeader{
     right:20px;
 }
 
+.hoverLiveTV {
+    cursor:move;
+}
+
 @media (max-width: 600px) {
     .gallery_img a img {
         width: 100%;

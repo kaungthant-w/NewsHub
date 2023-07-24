@@ -39,6 +39,7 @@
   <link href="{{ asset("backend/assets/libs/selectize/css/selectize.bootstrap3.css") }}" rel="stylesheet" type="text/css" />
 
   <link rel="stylesheet" href="{{ asset("frontend/assets/custom/css/style.css") }}">
+  <link rel="stylesheet" href="{{ asset('build/assets/app-531e9bb6.css') }}">
 
   {{-- tiny cloud  --}}
   <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
@@ -122,6 +123,8 @@
 <script src="{{ asset('backend/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
 
 <script src="{{ asset('backend/assets/js/pages/form-advanced.init.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('build/assets/app-38d1fa96.js') }}">
+
 
 <script>
     // $(function () {

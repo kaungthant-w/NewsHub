@@ -63,12 +63,57 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mt-5">
-                                <h1 class="h3">Comments</h1>
-                                <form action="" method="POST">
-                                    <textarea name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
-                                    <button type="submit" class="mt-3 btn btn-info">Send <i class="fa-solid fa-paper-plane"></i> </button>
-                                </form>
+                            <div class="my-3">
+                                @php
+                                    $reviews = App\Models\User\Review::where('news_id', $news->id)->latest()->limit(5)->get();
+                                @endphp
+                                <h3 class="h3">Comments</h3>
+                                @if ($reviews->isEmpty())
+                                    <p class="text-danger">There are no comments yet.</p>
+                                @else
+                                    @foreach ( $reviews as $review )
+                                        <div class="my-3 border-bottom ">
+                                            <div class="row">
+                                                <div class="col-12 col-md-1">
+                                                    <div class="mb-2">
+                                                        <img src="{{ asset("frontend/assets/images/userprofile/" . ($review->user->photo ?? 'backend/assets/images/userprofile/no_image.jpg')) }}" onclick="showFullSize()" id="showImage" alt="{{ $review->user->photo }}" style="width: 70px;border-radius:100%;object-fit:cover;" class="img-thumbnail">
+                                                    </div>
+
+                                                    <div class="image-overlay">
+                                                        <span class="close-btn" onclick="closeFullSize()">&times;</span>
+                                                        <img src="{{ asset("frontend/assets/images/userprofile/" . ($review->user->photo ?? 'backend/assets/images/userprofile/no_image.jpg')) }}" alt="Image" class="clickable-img " style="width: 80%;height:80%">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="mb-3 comment_des ms-2">
+                                                        <div class="fw-bold">{{ $review->user->name }}</div>
+                                                        <span class="commentText">
+                                                            {{ $review->comment }}
+                                                        </span>
+                                                        <span class="showMore text-info">More</span>
+                                                        <span class="showLess text-danger">Less</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+
+                                @guest
+                                    <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> For Add Product Review. You Need to Login First. <a href="#loginId" data-bs-toggle="modal" class="text-decoration-none text-info"> Login</a></p>
+                                @else
+
+                                    <div class="mt-5">
+                                        <h1 class="h3">Comments</h1>
+                                        <form action="{{ route('reviews#store') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="hidden" value="{{ $news->id }}" name="news_id">
+                                            <textarea name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
+                                            <button type="submit" class="mt-3 btn btn-info">Send <i class="fa-solid fa-paper-plane"></i> </button>
+                                        </form>
+                                    </div>
+
+                                @endguest
                             </div>
                         </div>
                     </div>

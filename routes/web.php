@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewspostController;
 use App\Http\Controllers\Admin\photoGalleryController;
 use App\Http\Controllers\Admin\VideoGalleryController;
+use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\User\UserController;
 
 require __DIR__.'/auth.php';
@@ -105,6 +106,9 @@ Route::middleware(['auth', 'role:user'])->group(function() {
     Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])->name('user#profile#store');
     Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user#change#password');
     Route::post('/user/update/password', [UserController::class, 'UserUpdatePassword'])->name('user#update#password');
+
+    //review
+    Route::post('reviews/store', [ReviewController::class, 'reviewsStore'])->name("reviews#store");
 
 });
 

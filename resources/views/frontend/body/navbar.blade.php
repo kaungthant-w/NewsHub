@@ -5,7 +5,7 @@
     $adminData = $user && $user->isAdmin() ? $userData : null;
 @endphp
 
-<nav class="shadow-sm opacity-75 navbar navbar-expand-lg navbar-light" id="navHeader">
+<nav class="shadow-sm opacity-75 navbar navbar-expand-lg navbar-light z-3" id="navHeader">
     <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +27,7 @@
             <li class="nav-item ms-3 ms-md-0 me-md-2"><a href="#" id="dark-mode-toggle" class="nav-link text-dark text-decoration-none" > <i class="fa-solid fa-moon fw-bold"></i> </a> </li>
 
             @guest
-                <li class="nav-item me-md-2"><a class="px-3 text-white nav-link text-decoration-none" href="#loginId" data-bs-toggle="modal"><i class="fa-thin fa-arrow-right-from-bracket"></i> Login</a> </li>
+                <li class="nav-item me-md-2"><a class="px-3 text-white nav-link text-decoration-none" href="#loginId" data-bs-toggle="modal">Login</a> </li>
                 <li class="nav-item"><a class="px-3 text-white nav-link text-decoration-none"  href="#registerId" data-bs-toggle="modal"></i>Register</a> </li>
             @endguest
 
