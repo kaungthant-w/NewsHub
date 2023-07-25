@@ -31,7 +31,7 @@
                             <h1 class=" h4 ms-2">{{ $news->news_title }}</h1>
                             <p style="font-size: 14px;color:gray" class="ms-2">{{ $news->created_at->diffForHumans()}}</p>
                             <div class="">
-                                <span style="font-size: 14px;color:gray" class="ms-2">Posted By <i class="fa fa-user"></i> <a href="#" class="text-decoration-none text-secondary">{{ $news['user']['name'] }}</a></span>
+                                <span style="font-size: 14px;color:gray" class="ms-2">Posted By <i class="fa fa-user"></i> <a href="{{ route('news#reporter#profile', $news->user_id) }}" class="text-decoration-none text-secondary">{{ $news['user']['name'] }}</a></span>
                             </div>
                             <p class="card-text" style="color:gray">{!! $news->news_details !!}</p>
 
@@ -97,8 +97,8 @@
                                                         <span class="commentText">
                                                             {{ $review->comment }}
                                                         </span>
-                                                        <span class="showMore text-info">More</span>
-                                                        <span class="showLess text-danger">Less</span>
+                                                        <span class="showMore text-info"><a href="#">More</a></span>
+                                                        <span class="showLess text-danger"><a href="#">Less</a></span>
                                                     </div>
                                                 </div>
                                             </div>

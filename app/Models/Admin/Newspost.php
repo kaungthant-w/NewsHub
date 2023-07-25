@@ -3,6 +3,8 @@
 namespace App\Models\Admin;
 
 use App\Models\User;
+use App\Models\Admin\Category;
+use App\Models\Admin\Subcategory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

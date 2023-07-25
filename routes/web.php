@@ -123,3 +123,4 @@ Route::get('newspost/details/{id}/{slug}', [NewspostController::class, 'newspost
 Route::get('newspost/category/{id}/{slug}', [NewspostController::class, 'newspostCategory'])->name('newspost#category');
 Route::get('newspost/subcategory/{id}/{slug}', [NewspostController::class, 'newspostSubcategory'])->name('newspost#subcategory');
 Route::post('news/search', [NewspostController::class, 'newsSearch'])->name('news#search');
+Route::get('news/reporter/profile/{id}', [NewspostController::class, 'newsReporterProfile'])->name('news#reporter#profile');

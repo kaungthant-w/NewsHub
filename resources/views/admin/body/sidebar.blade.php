@@ -164,7 +164,7 @@
             </ul>
             </li>
 
-            <li class="treeview">
+            {{-- <li class="treeview">
             <a href="#">
                 <i class="fa-solid fa-shield-halved"></i>
                 <span>Role & Permission</span>
@@ -176,7 +176,7 @@
                 <li class="active"><a href="#"><i class="fa fa-circle-o"></i> All Role & Permission</a></li>
                 <li class=""><a href="#"><i class="fa fa-circle-o"></i> Add Role & Permission</a></li>
             </ul>
-            </li>
+            </li> --}}
         @endif
       </ul>
     </section>

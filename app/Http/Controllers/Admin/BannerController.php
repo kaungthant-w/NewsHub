@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Validator;
 
 class BannerController extends Controller
 {
@@ -20,6 +21,7 @@ class BannerController extends Controller
     public function bannerUpdate(Request $request) {
         $bannerId = $request->id;
         $banner = Banner::findOrFail($bannerId);
+        $this->bannerValidationCheck($request);
 
         // Delete old images if new ones are provided
         if ($request->hasFile('slide_one')) {
@@ -50,6 +52,19 @@ class BannerController extends Controller
         $banner->update(['description' => $request->description]);
 
         return $this->redirectToBanner('Banner updated successfully', 'success');
+    }
+
+    // private function
+    private function bannerValidationCheck($request) {
+        $validationRules =  [
+            'description' => 'required',
+        ];
+
+        $validationMessage = [
+            'description.required' => "Fill your description",
+        ];
+
+        Validator::make($request->all(),$validationRules, $validationMessage)->validate();
     }
 
     private function uploadImage($image) {

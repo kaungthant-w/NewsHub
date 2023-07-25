@@ -69,7 +69,6 @@ class NewspostController extends Controller
         return view('admin.newspost.edit', compact('categories', 'subcategories', 'adminuser', 'newspost'));
     }
 
-
     public function newspostUpdate(Request $request) {
         $newspost_id = $request->id;
         $newspost_edit = Newspost::findOrFail($newspost_id);
@@ -205,6 +204,15 @@ class NewspostController extends Controller
         $newspopular = NewsPost::orderBy('view_count','DESC')->limit(8)->get();
 
         return view('frontend.body.search',compact('news','newnewspost','newspopular','item'));
+
+    }
+
+    // news reporter profile
+    public function newsReporterProfile($id) {
+        $newsreporter = User::findOrFail($id);
+        $news = Newspost::where('user_id', $id)->get();
+
+        return view('frontend.body.news_reporter_profile', compact('newsreporter', 'news'));
 
     }
 
