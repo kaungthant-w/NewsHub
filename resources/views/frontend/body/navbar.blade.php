@@ -12,9 +12,8 @@
     <div class="collapse navbar-collapse justify-content-around ms-2 ms-md-0" id="navbarSupportedContent">
         <ul class="mt-4 d-flex justify-content-center mt-md-2 align-items-center ">
             <li class="list-unstyled"> <a href="{{ url('/') }}"><img src="{{ asset('logo.png') }}" class="nav-link text-decoration-none me-2" alt="" style="width:35px;height:35px;"></a> </li>
-            <li class="list-unstyled"> <a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="facebook"><i class="text-white fa-brands fa-facebook"></i> </a> </li>
-            <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="twitter"><i class="text-white fa-brands fa-twitter"></i></a> </li>
-            <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="instagram"><i class="text-white fa-brands fa-instagram"></i></a> </li>
+            <li class="list-unstyled"> <a class="nav-link text-decoration-none me-2" href="https://www.facebook.com/profile.php?id=100077645595500&mibextid=ZbWKwL" target="_blank" title="facebook"><i class="text-white fa-brands fa-facebook"></i> </a> </li>
+            <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="https://twitter.com/ForbesEDU?s=09" target="_blank" title="twitter"><i class="text-white fa-brands fa-twitter"></i></a> </li>
         </ul>
         <div class="nav-item col-8 col-md-3 ms-3 ms-md-0">
             <form action="{{ route('news#search') }}" method="POST">

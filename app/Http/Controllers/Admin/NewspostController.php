@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 // use Intervention\Image\ImageManagerStatic as Image;
 
@@ -32,6 +33,7 @@ class NewspostController extends Controller
     }
 
     public function newspostStore(Request $request) {
+        $this->postNewsValidationCheck($request);
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(621, 300)->save('backend/assets/dist/img/newspost/news_img/' . $name_gen);
@@ -70,6 +72,7 @@ class NewspostController extends Controller
     }
 
     public function newspostUpdate(Request $request) {
+        $this->postNewsValidationCheck($request);
         $newspost_id = $request->id;
         $newspost_edit = Newspost::findOrFail($newspost_id);
         $img = $newspost_edit->image;
@@ -214,6 +217,29 @@ class NewspostController extends Controller
 
         return view('frontend.body.news_reporter_profile', compact('newsreporter', 'news'));
 
+    }
+
+    //policy page
+    public function newsPolicy() {
+        return view("frontend.body.policy");
+    }
+
+    // private function
+    private function postNewsValidationCheck($request) {
+        $validationRules =  [
+            'user_id' => 'required',
+            'news_title' => 'required',
+            'news_details' => 'required',
+
+        ];
+
+        $validationMessage = [
+            'user_id.required' => 'Choose your name',
+            'news_title.required' => "Fill news title",
+            'news_details' => "Fill news details",
+        ];
+
+        Validator::make($request->all(),$validationRules, $validationMessage)->validate();
     }
 
     private function redirectTonewspost($message, $alertType) {

@@ -61,6 +61,10 @@ body.dark-mode #comment {
     color: #817f7f;
 }
 
+body.dark-mode #nav-home-tab, body.dark-mode #nav-profile-tab {
+    background-color: #333;
+    color: #817f7f;
+}
 
 /* body.dark-mode table tr {
     background-color: #222;

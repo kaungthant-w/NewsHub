@@ -36,7 +36,6 @@
                 $user = Auth::user();
                 // $user = User::where('role', 'admin')->get();
                 $reviewCount = session('reviewCount', $user->unreadNotifications()->count());
-                // dd($user->toArray());
             @endphp
 
             <ul class="dropdown-menu">

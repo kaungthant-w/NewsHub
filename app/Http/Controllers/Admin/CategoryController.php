@@ -86,7 +86,7 @@ class CategoryController extends Controller
     }
 
 
-    /// subcategory
+    // subcategory
 
     // read data from table
     public function subcategoryList() {
@@ -161,7 +161,7 @@ class CategoryController extends Controller
         return json_encode($subcat);
     }
 
-    // private function
+    // private validate function
     private function postSubValidationCheck($request) {
         $validationRules =  [
             'subcategory_name' => 'required|max:50|unique:subcategories,subcategory_name,'.$request -> subcategoryId,
@@ -176,6 +176,7 @@ class CategoryController extends Controller
         Validator::make($request->all(),$validationRules, $validationMessage)->validate();
     }
 
+    // private get data function
     private function getSubcategoryData($request) {
         return [
             'category_id' => $request->category_id,

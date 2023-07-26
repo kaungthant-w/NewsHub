@@ -48,6 +48,7 @@
         </script>
         Created By <a href="https://www.kyawmyothant.com" class="text-decoration-none" target="_blank">Kyaw Myo Thant</a> | All Rights Reserved
     </p>
+    <p class="my-3 text-center"><a class="text-decoration-none " href="{{ route('news#policy') }}">Privacy Policy</a> for News Media Website </p>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>

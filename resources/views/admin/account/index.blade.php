@@ -55,6 +55,16 @@
                             @enderror
                         </div>
 
+                        <div class="my-6">
+                            <label class="TWlabel">Asign Roles</label>
+                            <select name="roles" id="role_id" class="TWform-control">
+                                <option value="">Select One Role</option>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="mt-12">
                             <button class="rounded btnTW btnTW-info">Add Account</button>
                         </div>

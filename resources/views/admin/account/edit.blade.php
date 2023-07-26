@@ -56,6 +56,16 @@
                             @enderror
                         </div>
 
+                        <div class="my-6">
+                            <label class="TWlabel">Asign Roles</label>
+                            <select name="roles" id="role_id" class="TWform-control">
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+
                         <div class="grid grid-cols-4 mt-10 mb-3">
                             <div class="col-span-4 md:col-span-2 ">
                                 <input type="file" name="photo" id="image" class="TWform-file">

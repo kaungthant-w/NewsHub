@@ -29,8 +29,6 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-  {{-- <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}"> --}}
-  {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 
   <!-- Plugins css -->
   <link href="{{ asset("backend/assets/libs/mohithg-switchery/switchery.min.css") }}" rel="stylesheet" type="text/css" />
@@ -65,11 +63,9 @@
 
 <!-- jQuery 3 -->
 <script src="{{ asset('backend/assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
-{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('backend/assets/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
@@ -98,15 +94,11 @@
 <script src="{{ asset('backend/assets/bower_components/fastclick/lib/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('backend/assets/dist/js/adminlte.min.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-{{-- <script src="{{ asset('backend/assets/dist/js/pages/dashboard.js') }}"></script> --}}
-<!-- AdminLTE for demo purposes -->
+
 <script src="{{ asset('backend/assets/dist/js/demo.js') }}"></script>
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-{{-- <script src="{{ asset('backend/assets/dist/js/code.js') }}"></script> --}}
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -127,18 +119,6 @@
 
 
 <script>
-    // $(function () {
-    //     $('#example1').DataTable()
-    //     $('#example2').DataTable({
-    //     'paging'      : true,
-    //     'lengthChange': false,
-    //     'searching'   : false,
-    //     'ordering'    : true,
-    //     'info'        : true,
-    //     'autoWidth'   : false
-    //     })
-    // })
-
     @if(Session::has('message'))
         var type = "{{ Session::get('alert-type','info') }}"
         switch(type){
@@ -159,7 +139,6 @@
         break;
         }
     @endif
-
 
     // category js code
     $(document).ready(function() {

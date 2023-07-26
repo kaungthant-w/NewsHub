@@ -22,8 +22,12 @@
                                 <th class="thTW">User</th>
                                 <th class="thTW">Viewers</th>
                                 <th class="thTW">Date</th>
-                                <th class="thTW">Status</th>
-                                <th style="thTW">Actions</th>
+                                @if (Auth::user()->can('news.active'))
+                                    <th class="thTW">Status</th>
+                                @endif
+                                @if (Auth::user()->can('news.delete') || Auth::user()->can('news.edit'))
+                                    <th style="thTW">Actions</th>
+                                @endif
                             </tr>
                         </thead>
                         @foreach ($allNewsPost as $key => $newspost)
@@ -34,14 +38,9 @@
                                         <div class="image-block">
                                             <img src="{{ (!empty(asset($newspost->image))) ? asset($newspost->image):url('backend/assets/dist/img/newspost/news_img/no_image.jpg') }}" class="image" >
                                         </div>
-                                        {{-- <div class="image-block">
-                                            <img src="public/backend/assets/dist/img/newspost/news_img/background.jpg" alt="">
-                                        </div> --}}
                                     </td>
                                     <td class=""> {{ Str::limit($newspost->news_title, 10) }}</td>
                                     <td class=""> {{ Str::limit($newspost->news_details, 20) }}</td>
-                                    {{-- <td class="td">{{ $newspost->category_id }}</td> --}}
-                                    {{-- <td class="td">{{ $newspost->user_id }}</td> --}}
                                     <td class="td">{{ $newspost['category']['category_name'] }}</td>
                                     <td class="td">{{ $newspost['user']['name'] }}</td>
                                     <td class="td">{{ $newspost['view_count'] }} <i class="fa-solid fa-eye"></i></td>
@@ -52,33 +51,35 @@
                                             <span class="text-sm">{{ $newspost->created_at->diffForHumans() }}</span>
                                         @endif
                                     </td>
-                                    <td class="td">
-                                        @if ($newspost->status == 1)
-                                            <a href="{{ route('newspost#inactive', $newspost->id) }}">
-                                                <span class="text-green-900 bg-green-300 cursor-pointer status">Active</span>
-                                            </a>
-                                            {{-- <a href="#">
-                                                <span class="text-green-900 bg-green-300 cursor-pointer status">Active</span>
-                                            </a> --}}
-                                            @elseif ($newspost->status == 0)
-                                            <a href="{{ route('newspost#active', $newspost->id) }}">
-                                                <span class="text-red-900 bg-red-300 cursor-pointer status">inactive</span>
-                                            </a>
-
-                                            {{-- <a href="#">
-                                                <span class="text-red-900 bg-red-300 cursor-pointer status">inactive</span>
-                                            </a> --}}
-                                        @endif
-                                    </td>
+                                    @if (Auth::user()->can('news.active'))
                                         <td class="td">
-                                        <div class="flex w-[180px]">
-                                            <a href="{{ route("newspost#delete",$newspost->id) }}" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</a>
-                                            {{-- <a href="#" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</a> --}}
+                                            @if ($newspost->status == 1)
+                                                <a href="{{ route('newspost#inactive', $newspost->id) }}">
+                                                    <span class="text-green-900 bg-green-300 cursor-pointer status">Active</span>
+                                                </a>
 
-                                            <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="{{ route("newspost#edit", $newspost->id) }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
-                                            {{-- <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="#"><i class="fa-regular fa-pen-to-square"></i> Edit</a> --}}
-                                        </div>
-                                    </td>
+                                            @elseif ($newspost->status == 0)
+                                                <a href="{{ route('newspost#active', $newspost->id) }}">
+                                                    <span class="text-red-900 bg-red-300 cursor-pointer status">inactive</span>
+                                                </a>
+                                            @endif
+                                        </td>
+                                    @endif
+
+                                    @if (Auth::user()->can('news.delete') || Auth::user()->can('news.edit'))
+                                        <td class="td">
+                                            <div class="flex w-[180px]">
+                                                @if (Auth::user()->can('news.delete'))
+                                                    <a href="{{ route("newspost#delete",$newspost->id) }}" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</a>
+                                                @endif
+
+                                                @if (Auth::user()->can('news.edit'))
+                                                    <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="{{ route("newspost#edit", $newspost->id) }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                                @endif
+                                            </div>
+                                        </td>
+                                    @endif
+
                                 </tr>
                             </tbody>
                         @endforeach

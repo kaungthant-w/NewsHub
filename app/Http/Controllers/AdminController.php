@@ -11,12 +11,13 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class AdminController extends Controller
 {
     public function AdminDashboard(Request $request) {
         if ($request->user()->role == 'admin') {
-            // dd($request->user()->role);
             return view('admin.index');
         }
         $this->redirectToAdmin('page not found.', 'error');
@@ -42,13 +43,15 @@ class AdminController extends Controller
     public function AdminProfile() {
         $id = Auth::user()->id;
         $adminData = User::find($id);
-        return view('admin.adminlist.profile', compact('adminData'));
+        $roles = Role::all();
+        return view('admin.adminlist.profile', compact('adminData', 'roles'));
     }
 
     public function adminProfileStore(Request $request)
     {
         $id = Auth::user()->id;
         $data = User::find($id);
+        $data->status = 'active';
         $this->getAdminData($request, $data);
 
         if ($request->file('photo')) {
@@ -67,6 +70,10 @@ class AdminController extends Controller
         }
 
         $data->save();
+
+        if($request->roles) {
+            $data->assignRole($request->roles);
+        }
         return $this->redirectToAdmin('admin Updated successfully', 'success');
     }
 
@@ -96,12 +103,12 @@ class AdminController extends Controller
     }
 
     public function adminAdd() {
-        return view('admin.account.index');
+        $roles = Role::all();
+        return view('admin.account.index', compact('roles'));
     }
 
     public function adminStore(Request $request) {
         $this->admintValidationCheck($request);
-        // dd("add admin account");
         $data = new User();
         $this->getAdminData($request, $data);
         $data->password = Hash::make($request->password);
@@ -109,19 +116,22 @@ class AdminController extends Controller
         $data->status = 'inactive';
         $data->save();
 
+        if($request->roles) {
+            $data->assignRole($request->roles);
+        }
+
         $this->redirectToAdmin("Admin Account add successfully.But it is need to active.", 'success');
         return redirect()->route('admin#list');
     }
 
-    public function adminEdit($id) {
+    public function adminEdit(Request $request, $id) {
         $data = User::findOrFail($id);
-        return view('admin.account.edit', compact('data'));
+        $roles = Role::all();
+        return view('admin.account.edit', compact('data', 'roles'));
     }
 
     public function adminUpdate(Request $request) {
         $adminId = $request->id;
-        // $this->admintValidationCheck($request);
-        // dd("check input");
         $data = User::findOrFail($adminId);
         $this->getAdminData($request, $data);
         $file = $request->file("photo");
@@ -133,10 +143,8 @@ class AdminController extends Controller
             $data->password = Hash::make($request->password);
         }
 
-        // dd($request->hasFile('photo'));
         if ($request->hasFile('photo')) {
             $oldImage = User::where('id', $adminId)->first();
-            // dd($oldImage);
             $oldImage = $oldImage->photo;
             $photoPath = "backend/assets/dist/img/admin_profile/";
 
@@ -151,6 +159,10 @@ class AdminController extends Controller
 
         $data->save();
 
+        if($request->roles) {
+            $data->assignRole($request->roles);
+        }
+
         $this->redirectToAdmin("Account Update successfully.", 'success');
         return redirect()->route('admin#list');
     }
@@ -159,7 +171,6 @@ class AdminController extends Controller
     public function adminDelete($id) {
         $data = User::find($id);
         $oldPhoto = $data->photo;
-        // dd($oldPhoto);
         unlink("backend/assets/dist/img/admin_profile/".$oldPhoto);
         $data->delete();
         $this->redirectToAdmin("Account Delete successfully.", 'warning');

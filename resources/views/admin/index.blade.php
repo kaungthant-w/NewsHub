@@ -5,6 +5,7 @@
     $user = App\Models\User::where('role', 'user')->get();
     $admin = App\Models\User::where('role', 'admin')->get();
     $newspost = App\Models\Admin\Newspost::get();
+    $reviews = App\Models\User\Review::get();
     $status = $userid->status;
 
 @endphp
@@ -35,7 +36,7 @@
   <!-- Main content -->
   <section class="content">
     <div class="row">
-      <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-4 col-xs-6">
         <div class="small-box bg-aqua">
           <div class="inner">
             <h3>{{ count($newspost) }} </h3>
@@ -47,7 +48,7 @@
           <a href="{{ route('newspost#list') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
-      <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-4 col-xs-6">
         <div class="small-box bg-green">
           <div class="inner">
             <h3>{{ count($admin) }} </h3>
@@ -60,7 +61,7 @@
           <a href="{{ route('admin#list') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
-      <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-4 col-xs-6">
         <div class="small-box bg-yellow">
           <div class="inner">
             <h3>{{ count($user) }}</h3>
@@ -73,7 +74,7 @@
           <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
-      <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-4 col-xs-6">
         <div class="small-box bg-red">
           <div class="inner">
               @php
@@ -96,6 +97,32 @@
             <i class="ion ion-pie-graph"></i>
           </div>
           <a href="{{ route('newspost#list') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-xs-6">
+        <div class="small-box bg-red">
+          <div class="inner">
+              @php
+                $sum = 0;
+            @endphp
+
+            @foreach ($reviews as $newsView)
+                @php
+                    $sum += $newsView->status;
+                @endphp
+            @endforeach
+
+            <h3>
+                {{ $sum }}
+            </h3>
+
+            <p>Reviews</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+          <a href="{{ route('review#system') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
     </div>

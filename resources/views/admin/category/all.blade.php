@@ -2,8 +2,9 @@
 @section("admin")
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-xs-12">
-                <h1 class="h3">Add Category</h1>
+            @if (Auth::user()->can('category.add'))
+                <div class="col-md-3 col-xs-12">
+                    <h1 class="h3">Add Category</h1>
                     <form action="{{ route('store#category') }}" method="POST">
                         @csrf
                         <div class="form-floating">
@@ -16,7 +17,9 @@
                         </div>
                         <button type="submit" class="rounded btnTW btnTW-info" style="margin-top: 6px"><i class="fa-regular fa-floppy-disk"></i> Create</button>
                     </form>
-            </div>
+                </div>
+            @endif
+
             <div class="col-md-8 col-xs-12">
                 <h1 class="h3">All Category  <span class="text-white bg-blue-900 status">{{ count($categories) }}</span></h1>
 
@@ -45,12 +48,18 @@
                                     </td>
                                     <td class="td">
                                         <div class="flex w-[180px]">
-                                            <form class="inline" action="{{ route('delete#category', $category->id) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</button>
-                                            </form>
+                                            @if (Auth::user()->can('category.delete'))
+                                                <form class="inline" action="{{ route('delete#category', $category->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</button>
+                                                </form>
+                                            @endif
 
-                                            <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="#editCategoryId" data-toggle="modal" data-category-id="{{ $category->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+
+                                            @if (Auth::user()->can('category.edit'))
+                                                <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="#editCategoryId" data-toggle="modal" data-category-id="{{ $category->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                            @endif
+
                                         </div>
                                     </td>
                                 </tr>

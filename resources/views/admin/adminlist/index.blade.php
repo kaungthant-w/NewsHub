@@ -44,12 +44,15 @@
                                     <td class="td">{{ $admin->phone }}</td>
                                     <td class="td">{{ $admin->address }}</td>
                                     <td class="td">
-                                        {{ $admin->role}}
+                                        {{-- {{ $admin->role}} --}}
+                                        @foreach ($admin->roles as $role )
+                                            {{ $role -> name }}
+                                        @endforeach
 
                                     </td>
                                     <td class="td">
                                         @if (Auth::user()->id == $admin->id)
-                                        
+
                                         @else
                                         @if ($admin->status == 'active')
                                             <a href="{{ route('admin#inactive', $admin->id) }}">

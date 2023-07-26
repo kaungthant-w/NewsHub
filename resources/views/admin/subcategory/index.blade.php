@@ -2,36 +2,40 @@
 @section("admin")
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-xs-12">
-                <h1 class="h3">Add Subcategory</h1>
-                    <form action="{{ route('store#subcategory') }}" method="POST">
-                        @csrf
-                        <div class="form-floating">
-                            <input type="text" name="subcategory_name" id="floatingsubcategory" class="form-control @error('subcategory_name') is-invalid @enderror mb-3" placeholder="Enter your Subcategory">
-                            @error('subcategory_name')
-                                <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
-                                    {{$message}}
-                                </div>
-                            @endif
-                        </div>
+            @if (Auth::user()->can('subcategory.add'))
+                <div class="col-md-3 col-xs-12">
+                    <h1 class="h3">Add Subcategory</h1>
+                        <form action="{{ route('store#subcategory') }}" method="POST">
+                            @csrf
+                            <div class="form-floating">
+                                <input type="text" name="subcategory_name" id="floatingsubcategory" class="form-control @error('subcategory_name') is-invalid @enderror mb-3" placeholder="Enter your Subcategory">
+                                @error('subcategory_name')
+                                    <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                        {{$message}}
+                                    </div>
+                                @endif
+                            </div>
 
-                        <div>
-                            <select name="category_id" class="form-control @error('category_id') is-invalid @enderror" id="">
-                                <option value="">Choose Category...</option>
-                                @foreach ($categories as $category )
-                                 <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                                @endforeach
-                            </select>
-                            @error('category_id')
-                                <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
-                                    {{$message}}
-                                </div>
-                            @endif
-                        </div>
+                            <div>
+                                <select name="category_id" class="form-control @error('category_id') is-invalid @enderror" id="">
+                                    <option value="">Choose Category...</option>
+                                    @foreach ($categories as $category )
+                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                    <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                        {{$message}}
+                                    </div>
+                                @endif
+                            </div>
 
-                        <input type="submit" class="rounded btnTW btnTW-info" style="margin-top: 6px" value="Create">
-                    </form>
-            </div>
+                            <input type="submit" class="rounded btnTW btnTW-info" style="margin-top: 6px" value="Create">
+                        </form>
+                </div>
+            @endif
+
+
             <div class="col-md-8 col-xs-12">
                 <h1 class="h3">All Subcategory <span class="text-white bg-blue-900 status">{{ count($subcategories) }}</span></h1>
                 <div class="max-w-screen-xl px-5 mx-auto">
@@ -65,14 +69,23 @@
                                             </td>
                                             <td class="td">
                                                 <div class="flex w-[180px]">
-                                                    <form class="inline" action="{{ route('delete#subcategory', $subcategory->id) }}" method="POST">
-                                                        @csrf
-                                                        <button type="submit" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</button>
-                                                    </form>
+                                                    @if (Auth::user()->can('subcategory.delete'))
+                                                        <form class="inline" action="{{ route('delete#subcategory', $subcategory->id) }}" method="POST">
+                                                            @csrf
+                                                            <button type="submit" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</button>
+                                                        </form>
+                                                    @endif
 
-                                                    <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button"
+
+                                                    @if (Auth::user()->can('subcategory.edit'))
+                                                        <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button"
                                                     href="#editSubcategoryId" data-toggle="modal"
-                                                    data-subcategory-id="{{ $subcategory->id }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                                    data-subcategory-id="{{ $subcategory->id }}">
+                                                            <i class="fa-regular fa-pen-to-square"></i>
+                                                            Edit
+                                                        </a>
+                                                    @endif
+
                                                 </div>
                                             </td>
                                         </tr>

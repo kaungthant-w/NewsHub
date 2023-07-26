@@ -59,11 +59,21 @@
 
 
                                 <div class="my-5 lg:w-10/12">
-                                    <input type="text" name="news_title" value="{{ $newspost->news_title }}" class="TWform-control"  placeholder="Enter News Title">
+                                    <input type="text" name="news_title" value="{{ $newspost->news_title }}" class="TWform-control @error('news_title') is-invalid @enderror"  placeholder="Enter News Title">
+                                    @error('news_title')
+                                        <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                            {{$message}}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="my-5 lg:w-10/12">
-                                    <textarea name="news_details" class="TWform-control" id="" cols="30" rows="5" placeholder="Enter News details">{{ $newspost->news_details }}</textarea>
+                                    <textarea name="news_details" class="TWform-control @error('news_details') is-invalid @enderror" id="" cols="30" rows="5" placeholder="Enter News details">{{ $newspost->news_details }}</textarea>
+                                    @error('news_details')
+                                        <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                            {{$message}}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="my-8 lg:w-10/12">

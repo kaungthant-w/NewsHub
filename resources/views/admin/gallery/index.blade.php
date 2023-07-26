@@ -37,12 +37,17 @@
                                     </td>
                                     <td class="td">
                                         <div class="flex w-[180px]">
-                                            <form class="inline" action="{{ route('gallery#delete', $gallery->id) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</button>
-                                            </form>
+                                            @if (Auth::user()->can('photo.delete'))
+                                                <form class="inline" action="{{ route('gallery#delete', $gallery->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="rounded btnTW btnTW-danger"><i class="fa-solid fa-trash"></i> Delete</button>
+                                                </form>
+                                            @endif
 
-                                            <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="{{ route('gallery#edit', $gallery->id) }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                            @if (Auth::user()->can('photo.edit'))
+                                                <a class="ml-4 rounded btnTW btnTW-success text-decoration-none edit-button" href="{{ route('gallery#edit', $gallery->id) }}"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                                            @endif
+
                                         </div>
                                     </td>
                                 </tr>
