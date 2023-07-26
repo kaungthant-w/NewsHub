@@ -48,15 +48,17 @@
                         @else
                         @foreach ($news as $newsList )
                             <div class="my-3 col-12 col-md-4">
-                                <div class="card">
-                                    <img class="card-img-top" src="{{asset($newsList->image)}}" alt="{{ $newsList->image }}">
-                                    <div class="card-body">
-                                        <h1 class="h5">{{ Str::limit($newsList->news_title, 15) }}</h1>
-                                        <p class="card-text ">{!! Str::limit($newsList->news_details, 80) !!}</p>
-                                        <p>{{ $newsList->created_at->diffForHumans()}}</p>
-                                        <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">ReadMore</a>
+                                <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-secondary">
+                                    <div class="card">
+                                        <img class="card-img-top" src="{{asset($newsList->image)}}" alt="{{ $newsList->image }}">
+                                        <div class="card-body">
+                                            <h1 class="h5">{{ Str::limit($newsList->news_title, 15) }}</h1>
+                                            <p class="card-text ">{!! Str::limit($newsList->news_details, 80) !!}</p>
+                                            <p>{{ $newsList->created_at->diffForHumans()}}</p>
+                                            <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">ReadMore</a>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         @endforeach
                     @endif

@@ -109,7 +109,7 @@ class AdminController extends Controller
         $data->status = 'inactive';
         $data->save();
 
-        $this->redirectToAdmin("Admin Account add successfully.", 'success');
+        $this->redirectToAdmin("Admin Account add successfully.But it is need to active.", 'success');
         return redirect()->route('admin#list');
     }
 

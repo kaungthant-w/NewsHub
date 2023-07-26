@@ -10,17 +10,19 @@
                 @foreach ($relativeNews as $newsList )
                 <div class="my-3 col-12 col-md-4">
                     @if ($newsList->news_details > 0)
-                        <div class="card">
-                            <img class="card-img-top" src="{{asset($newsList->image)}}" alt="{{ $newsList->image }}">
-                            <div class="card-body">
-                                <p class="card-text ">{!! Str::limit($newsList->news_details, 80) !!}</p>
-                                <p>{{ $newsList->created_at->diffForHumans()}}</p>
-                                <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">ReadMore</a>
+                        <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-secondary">
+                            <div class="card">
+                                <img class="card-img-top" src="{{asset($newsList->image)}}" alt="{{ $newsList->image }}">
+                                <div class="card-body">
+                                    <p class="card-text ">{!! Str::limit($newsList->news_details, 80) !!}</p>
+                                    <p>{{ $newsList->created_at->diffForHumans()}}</p>
+                                    <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">ReadMore</a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
 
                     @else
-                        <h1>There is no relative post.</h1>
+                        <h4 class="mt-5 text-center text-danger">There is no relative post.</h4>
                     @endif
                 </div>
 

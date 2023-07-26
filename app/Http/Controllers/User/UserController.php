@@ -22,7 +22,7 @@ class UserController extends Controller
 
     public function UserProfileStore(Request $request) {
 
-        $this->userProfileValidationCheck($request);
+        // $this->userProfileValidationCheck($request);
         $id = Auth::user()->id;
         $data = User::find($id);
         $data->username = $request->username;

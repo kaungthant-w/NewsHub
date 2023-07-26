@@ -10,8 +10,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-around ms-2 ms-md-0" id="navbarSupportedContent">
-        <ul class="mt-4 d-flex mt-md-2">
-            <li class="list-unstyled"> <a href="{{ url('/') }}"><img src="{{ asset('logo.png') }}" class="nav-link text-decoration-none me-2" alt="" style="width:20px;height:20px;"></a> </li>
+        <ul class="mt-4 d-flex justify-content-center mt-md-2 align-items-center ">
+            <li class="list-unstyled"> <a href="{{ url('/') }}"><img src="{{ asset('logo.png') }}" class="nav-link text-decoration-none me-2" alt="" style="width:35px;height:35px;"></a> </li>
             <li class="list-unstyled"> <a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="facebook"><i class="text-white fa-brands fa-facebook"></i> </a> </li>
             <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="twitter"><i class="text-white fa-brands fa-twitter"></i></a> </li>
             <li class="list-unstyled"><a class="nav-link text-decoration-none me-2" href="#" target="_blank" title="instagram"><i class="text-white fa-brands fa-instagram"></i></a> </li>

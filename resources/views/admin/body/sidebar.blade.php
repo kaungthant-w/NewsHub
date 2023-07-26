@@ -164,7 +164,7 @@
             </ul>
             </li>
 
-            {{-- <li class="treeview">
+            <li class="treeview">
             <a href="#">
                 <i class="fa-solid fa-shield-halved"></i>
                 <span>Role & Permission</span>
@@ -173,10 +173,14 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-                <li class="active"><a href="#"><i class="fa fa-circle-o"></i> All Role & Permission</a></li>
-                <li class=""><a href="#"><i class="fa fa-circle-o"></i> Add Role & Permission</a></li>
+
+                <li class=""><a href="{{route('permission#role#all')}}"><i class="fa fa-circle-o"></i> all role & Permission </a></li>
+                <li class=""><a href="{{route('permission#role#add')}}"><i class="fa fa-circle-o"></i> Role in Permission </a></li>
+                <li class="active"><a href="{{ route('permission#all') }}"><i class="fa fa-circle-o"></i> All Permission</a></li>
+                <li class=""><a href="{{route('role#list')}}"><i class="fa fa-circle-o"></i> All Role </a></li>
+
             </ul>
-            </li> --}}
+            </li>
         @endif
       </ul>
     </section>

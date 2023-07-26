@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewspostController;
 use App\Http\Controllers\Admin\photoGalleryController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\VideoGalleryController;
 use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\User\UserController;
@@ -88,7 +89,6 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('review/active/{id}', [ReviewController::class, 'reviewActive'])->name('review#active');
     Route::get('review/delete/{id}', [ReviewController::class, 'reviewDelete'])->name('review#delete');
 
-
     //manage role and news post settings
     Route::get('admin/list', [AdminController::class, 'adminList'])->name("admin#list");
     Route::post('admin/profile/store', [AdminController::class, 'adminProfileStore'])->name("admin#profile#store");
@@ -100,6 +100,32 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('admin/edit/{id}', [AdminController::class, 'adminEdit'])->name("admin#edit");
     Route::post('admin/update', [AdminController::class, 'adminUpdate'])->name("admin#update");
     Route::get("admin/delete/{id}", [AdminController::class, 'adminDelete'])->name("admin#delete");
+
+    // permission
+    Route::get('permission/all', [RoleController::class, 'permissionAll'])->name("permission#all");
+    Route::get('permission/add', [RoleController::class, 'permissionAdd'])->name("permission#add");
+    Route::post('permission/store', [RoleController::class, 'permissionStore'])->name("permission#store");
+    Route::get('permission/delete/{id}', [RoleController::class, 'permissionDelete'])->name("permission#delete");
+    Route::get('permission/edit/{id}', [RoleController::class, 'permissionEdit'])->name("permission#edit");
+    Route::post('permission/update', [RoleController::class, 'permissionUpdate'])->name("permission#update");
+
+
+    //role
+    Route::get('role/list', [RoleController::class, 'roleList'])->name("role#list");
+    Route::get('role/add', [RoleController::class, 'roleAdd'])->name("role#add");
+    Route::post('role/store', [RoleController::class, 'roleStore'])->name("role#store");
+    Route::get('role/edit/{id}', [RoleController::class, 'roleEdit'])->name("role#edit");
+    Route::post('role/update', [RoleController::class, 'roleUpdate'])->name("role#update");
+    Route::get('role/delete/{id}', [RoleController::class, 'roleDelete'])->name("role#delete");
+
+    // role and permission
+    Route::get('permission/role/all', [RoleController::class, 'permissionRoleAll'])->name("permission#role#all");
+    Route::get('permission/role/add', [RoleController::class, 'permissionRoleAdd'])->name("permission#role#add");
+    Route::post('permission/role/store', [RoleController::class, 'permissionRoleStore'])->name("role#permission#store");
+    Route::get('permission/role/edit/{id}', [RoleController::class, 'permissionRoleEdit'])->name("permission#role#edit");
+    Route::post('permission/role/update/{id}', [RoleController::class, 'permissionRoleUpdate'])->name("role#permission#update");
+    Route::get('permission/role/delete/{id}', [RoleController::class, 'permissionRoleDelete'])->name("permission#role#delete");
+
 
 });
 
