@@ -2,7 +2,7 @@
     $live = App\Models\Admin\LiveTv::findOrFail(1);
 @endphp
 
-<div class=" card LiveTV col-6 col-md-4 z-3 draggable">
+<div class=" card LiveTV col-8 col-md-3 z-3 draggable">
     <div class="justify-content-between d-flex card-header hoverLiveTV">
         <div>
             <span class="text-sm spinner-grow text-danger spinner-grow-sm">
@@ -53,4 +53,27 @@
     @include("frontend.body.modal")
 
 
+<script src="https://unpkg.com/draggabilly/dist/draggabilly.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/draggabilly/draggabilly.min.js"></script>
 
+<script>
+
+    (function($){
+        $(document).ready(function(){
+        var galLink = $("a.gal_link");
+        galLink.lightbox();
+
+    });
+
+    })(jQuery);
+
+    var draggable =new Draggabilly('.draggable');
+
+    //live
+    $(document).ready(function() {
+        $(".closeLive").on("click", function() {
+        $(this).closest(".card").hide();
+        });
+    });
+
+</script>

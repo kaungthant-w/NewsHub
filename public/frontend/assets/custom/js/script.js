@@ -89,14 +89,6 @@ togglePasswords.forEach(function (togglePassword) {
     });
 });
 
-
-//live
-$(document).ready(function() {
-    $(".closeLive").on("click", function() {
-      $(this).closest(".card").hide();
-    });
-  });
-
 // comment
 document.addEventListener("DOMContentLoaded", function () {
     const commentSections = document.querySelectorAll(".comment_des");

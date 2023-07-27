@@ -10,7 +10,7 @@
                 <div class="my-12 overflow-x-auto border rounded-lg ">
 
                     <div class="col-span-6 mt-12 md:col-span-3 md:mt-0">
-                        <form id="myForm" action="{{ route('video#gallery#save') }}" method="POST" enctype="multipart/form-data">
+                        <form id="myForm" action="{{ route('gallery#save') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                             <div class="p-3">
                                 <h4 class="text-3xl font-bold text-blue-400">Add Photo Gallery</h4>

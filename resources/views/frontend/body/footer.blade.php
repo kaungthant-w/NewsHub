@@ -59,26 +59,6 @@
 <script src="{{asset('frontend/assets/js/jquery.lightbox.js')}}"></script>
 <script src="{{ asset('frontend/assets/js/KBmodal.js') }}"></script>
 
-<script src="https://unpkg.com/draggabilly/dist/draggabilly.pkgd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/draggabilly/draggabilly.min.js"></script>
-
-<script>
-
-    (function($){
-        $(document).ready(function(){
-        var galLink = $("a.gal_link");
-        galLink.lightbox();
-
-    });
-
-    })(jQuery);
-
-    var draggable =new Draggabilly('.draggable');
-
-
-</script>
-
-
 <script>
     @if(Session::has('message'))
         var type = "{{ Session::get('alert-type','info') }}"

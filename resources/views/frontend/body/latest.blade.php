@@ -1,7 +1,7 @@
 @php
     use Illuminate\Support\Str;
     $popularNews = App\Models\Admin\Newspost::orderBy('view_count', 'desc')->limit(5)->get();
-    $latestNews = App\Models\Admin\Newspost::latest('created_at')->limit(5)->get();
+    $latestNews = App\Models\Admin\Newspost::latest('created_at')->where("status", '1')->limit(5)->get();
 @endphp
 <div class="container-fluid">
     <div class="row">
