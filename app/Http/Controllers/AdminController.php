@@ -157,11 +157,12 @@ class AdminController extends Controller
             $data->photo = $filename;
         }
 
-        $data->save();
-
         if($request->roles) {
+            $data->roles()->detach();
             $data->assignRole($request->roles);
         }
+
+        $data->save();
 
         $this->redirectToAdmin("Account Update successfully.", 'success');
         return redirect()->route('admin#list');
@@ -217,11 +218,13 @@ class AdminController extends Controller
     }
 
     private function getAdminData($request, $data) {
+        // dd($data);
         $data->username = $request->username;
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
         $data->address = $request->address;
+        $data->role = $request->role;
         $data->created_at = Carbon::now();
         $data->updated_at = Carbon::now();
     }

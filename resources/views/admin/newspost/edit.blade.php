@@ -31,12 +31,17 @@
                                 </div>
 
                                 <div class="mb-5 lg:w-10/12">
-                                    <select name="category_id" id="category_id" class="TWform-control">
+                                    <select name="category_id" id="category_id" class="TWform-control  @error('subcategory_id') is-invalid @enderror">
                                         <option value="">Select Category</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}" {{ $category->id == $newspost->category_id ? 'selected':'' }} >{{ $category->category_name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('category_id')
+                                        <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                            {{$message}}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="mb-5 lg:w-10/12">
@@ -46,6 +51,7 @@
                                             <option value="{{ $subcategory->id }}" {{ $subcategory->id == $newspost->subcategory_id ? 'selected':'' }} >{{ $subcategory->subcategory_name }}</option>
                                         @endforeach
                                     </select>
+
                                 </div>
 
                                 <div class="mb-5 lg:w-10/12 ">

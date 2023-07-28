@@ -230,13 +230,15 @@ class NewspostController extends Controller
             'user_id' => 'required',
             'news_title' => 'required',
             'news_details' => 'required',
+            'category_id' => 'required',
 
         ];
 
         $validationMessage = [
             'user_id.required' => 'Choose your name',
             'news_title.required' => "Fill news title",
-            'news_details' => "Fill news details",
+            'news_details.required' => "Fill news details",
+            'category_id.required' => "Choose category news",
         ];
 
         Validator::make($request->all(),$validationRules, $validationMessage)->validate();

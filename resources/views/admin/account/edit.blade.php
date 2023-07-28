@@ -40,29 +40,43 @@
                             @enderror
                         </div>
 
-                        <div class="my-6">
-                            <label class="TWlabel">phone</label>
-                            <input type="text" name="phone" class="TWform-control" value="{{ $data->phone }}">
-                            @error('phone')
-                                <div class="TWalert">{{ $message }}</div>
-                            @enderror
+                        <div class="flex">
+                            <div class="w-6/12 my-6">
+                                <label class="TWlabel">phone</label>
+                                <input type="text" name="phone" class="TWform-control" value="{{ $data->phone }}">
+                                @error('phone')
+                                    <div class="TWalert">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="w-6/12 my-6">
+                                <label class="TWlabel">address</label>
+                                <input type="text" name="address" class="TWform-control" value="{{ $data->address }}">
+                                @error('address')
+                                    <div class="TWalert">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="my-6">
-                            <label class="TWlabel">address</label>
-                            <input type="text" name="address" class="TWform-control" value="{{ $data->address }}">
-                            @error('address')
-                                <div class="TWalert">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="my-6">
-                            <label class="TWlabel">Asign Roles</label>
-                            <select name="roles" id="role_id" class="TWform-control">
-                                @foreach ($roles as $role)
-                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
-                                @endforeach
-                            </select>
+                        <div class="flex gap-3">
+                            <div class="w-6/12 ">
+                                <div class="my-6">
+                                    <label class="TWlabel">Roles</label>
+                                    <select name="role" id="role_id" class="TWform-control">
+                                            <option value="{{ $data->role }}">{{ $data->role }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w-6/12 ">
+                                <div class="my-6">
+                                    <label class="TWlabel">Asign Roles</label>
+                                    <select name="roles" id="assign_role_id" class="TWform-control">
+                                        @foreach ($roles as $role)
+                                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
 

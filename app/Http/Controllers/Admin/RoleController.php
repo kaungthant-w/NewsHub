@@ -89,7 +89,10 @@ class RoleController extends Controller
    }
 
    public function roleDelete($id) {
-        Role::findOrFail($id)->delete();
+        $role = Role::findOrFail($id);
+        if(!is_null($role)) {
+            $role -> delete();
+        }
         $this->redirectToPermission('Deleted role successfully', 'warning');
         return redirect()->route('role#list');
    }
