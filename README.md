@@ -34,58 +34,58 @@ Welcome to our `NewsHub` website (https://newsapp.kyawmyothant.com/), your ultim
 ## Screenshots
 
 ### Navbar ,Banner ,Breaking News and Trend news
-![banner image](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/Group%201.png)
+![banner image](public/screenshoot/Group%201.png)
 
 ### Latest News
-![latest news image](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/Group%202.png)
+![latest news image](public/screenshoot/Group%202.png)
 
 ### Travel News && Photo Gallery
-![travel news and photo gallery image](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/Group%203.png)
+![travel news and photo gallery image](public/screenshoot/Group%203.png)
 
 ### Video Gallery
-![video gallery](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/Group%204.png)
+![video gallery](public/screenshoot/Group%204.png)
 
 
-# Admin dashboard Setting
+## Admin dashboard Setting
 
-## Admin Dashobard Setting
-![video gallery](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/admindashboard.png)
+### Admin Dashobard Setting
+![video gallery](public/screenshoot/admindashboard.png)
 
-## Category Setting
-![category](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/category.png)
+### Category Setting
+![category](public/screenshoot/category.png)
 
-## Subcategory Setting
-![category](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/subcategory.png)
+### Subcategory Setting
+![category](public/screenshoot/subcategory.png)
 
-## News Post Setting
-![News Post Setting](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/news%20post.png)
+### News Post Setting
+![News Post Setting](public/screenshoot/news%20post.png)
 
-## Banner Setting
-![category](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/banner.png)
+### Banner Setting
+![category](public/screenshoot/banner.png)
 
-## Photo Gallery Setting
-![Photo Gallery Setting](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/photo%20gallery.png)
+### Photo Gallery Setting
+![Photo Gallery Setting](public/screenshoot/photo%20gallery.png)
 
-## Video Gallery Setting
-![Video Gallery Setting](https://github.com/kaungthant-w/NewsHub/tree/master/public/screenshoot/video%20gallery.png)
+### Video Gallery Setting
+![Video Gallery Setting](public/screenshoot/video%20gallery.png)
 
-## LiveTV Setting
-![LiveTV Setting](https://github.com/kaungthant-w/NewsHub/tree/master/public/Live.png)
+### LiveTV Setting
+![LiveTV Setting](public/screenshoot/Live.png)
 
-## Review Setting
-![Review Setting](https://github.com/kaungthant-w/NewsHub/tree/master/public/review.png)
+### Review Setting
+![Review Setting](public/screenshoot/review.png)
 
-## Admin List Setting
-![Admin List Setting](https://github.com/kaungthant-w/NewsHub/tree/master/public/admin%20list.png)
+### Admin List Setting
+![Admin List Setting](public/screenshoot/admin%20list.png)
 
-## All Role Setting
-![All Role Setting](https://github.com/kaungthant-w/NewsHub/tree/master/public/role.png)
+### All Role Setting
+![All Role Setting](public/screenshoot/role.png)
 
-## All Permission Setting
-![All Role Setting](https://github.com/kaungthant-w/NewsHub/tree/master/public/permission.png)
+### All Permission Setting
+![All Role Setting](public/screenshoot/permission.png)
 
-## All Role & Permisson Setting
-![All Role Setting](https://github.com/kaungthant-w/NewsHub/tree/master/public/role%20and%20permission.png)
+### All Role & Permisson Setting
+![All Role Setting](public/screenshoot/role%20and%20permission.png)
 
 
 
@@ -121,10 +121,15 @@ Welcome to our `NewsHub` website (https://newsapp.kyawmyothant.com/), your ultim
    ```
 9. Visit  http://127.0.0.1:8000/ in your favorite browser.
 10. if you want to access the NewsHub super admin dashboard:
-   email : admin@gmail.com
-   password : password
+    ```
+    email : admin@gmail.com
+    password : password
+    ```
+
 
 ## Contact
+```
 Gmail : kyawmyothant.dev@gmail.com
 profile website : kyawmyothant.com
 phone No : +959977246328
+```
