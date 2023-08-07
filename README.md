@@ -130,4 +130,4 @@ Welcome to our `NewsHub` website (https://newsapp.kyawmyothant.com/), your ultim
 ## Contact
 ### Gmail : kyawmyothant.dev@gmail.com
 ### phone No : +959977246328
-### profile website :  [kyawmyothant.com](kyawmyothant.com)
+### profile website :  (http://kyawmyothant.com)
