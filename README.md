@@ -23,17 +23,21 @@ Welcome to our `NewsHub` website (https://newsapp.kyawmyothant.com/), your ultim
 
 
 ## Features
+* Multivendor Role (SuperAdmin, Admin, editor, reporter and user )
+* Permission
+* Review System
 * Banner
 * Categories menu
-* Latest news
 * Breaking news
+* Latest news
+* Popular News
 * Travel News
 * Photo Gallery
 * Video Gallery
 
 ## Screenshots
 
-### Navbar ,Banner ,Breaking News and Trend news
+### Navbar ,Banner ,Breaking News and Popular news
 ![banner image](public/screenshoot/Group%201.png)
 
 ### Latest News
