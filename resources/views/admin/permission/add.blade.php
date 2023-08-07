@@ -16,11 +16,16 @@
                                 <h4 class="text-3xl font-bold text-blue-400">Add Permission</h4>
 
                                 <div class="my-5 lg:w-6/12">
-                                    <input type="text" name="name" class="TWform-control"  placeholder="Enter permission name">
+                                    <input type="text" name="name" class="TWform-control @error('name') is-invalid @enderror" placeholder="Enter permission name">
+                                    @error('name')
+                                        <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                            {{$message}}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="mb-5 lg:w-6/12">
-                                    <select name="group_name" id="group_nae" class="TWform-control">
+                                    <select name="group_name @error('group_name') is-invalid @enderror" id="group_name" class="TWform-control">
                                         <option value="">Group Name</option>
                                         <option value="category">Category</option>
                                         <option value="subcategory">Subcategory</option>
@@ -33,6 +38,12 @@
                                         <option value="admin">Admin Setting</option>
                                         <option value="role">Role & Permission</option>
                                     </select>
+
+                                    @error('group_name')
+                                    <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                        {{$message}}
+                                    </div>
+                                @endif
                                 </div>
 
                                 <div>

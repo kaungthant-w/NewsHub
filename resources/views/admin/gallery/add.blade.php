@@ -17,7 +17,12 @@
 
                                 <div class="grid grid-cols-4 mt-10 mb-3">
                                     <div class="col-span-4 md:col-span-2 ">
-                                        <input type="file" name="image_multiple[]" id="multiImg" class="TWform-file" multiple>
+                                        <input type="file" name="image_multiple[]" id="multiImg" class="TWform-file  @error('image_multiple[]') is-invalid @enderror" multiple>
+                                        @error('image_multiple[]')
+                                            <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                                {{$message}}
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="mt-10 mb-3 ">

@@ -8,6 +8,7 @@ use App\Models\Admin\PhotoGallery;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Validator;
 
 class photoGalleryController extends Controller
 {
@@ -43,6 +44,7 @@ class photoGalleryController extends Controller
     }
 
     public function galleryUpdate(Request $request) {
+        $this -> validatePhotoGallery($request);
         $photo_id = $request->id;
         $gallery_img = PhotoGallery::findOrFail($photo_id);
         $img = $gallery_img->photo_gallery;
@@ -71,6 +73,19 @@ class photoGalleryController extends Controller
         PhotoGallery::findOrFail($id)->delete();
         $this->redirectToGallery("deleted image successfully.", 'warning');
         return redirect()->route("gallery#list");
+    }
+
+    private function validatePhotoGallery($request) {
+        $validationRules =  [
+            'image_multiple' => 'required',
+        ];
+
+        $validationMessage = [
+            'image_multiple.required' => "upload your photo gallery",
+
+        ];
+
+        Validator::make($request->all(),$validationRules, $validationMessage)->validate();
     }
 
     private function redirectToGallery($message, $alertType) {

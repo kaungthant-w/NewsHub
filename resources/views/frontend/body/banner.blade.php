@@ -9,7 +9,7 @@
                 <div id="bannerSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active" data-bs-interval="3000">
-                        <img src="{{ asset($bannerlist->slide_one) }}" class="d-block w-100" alt="https://prod-upp-image-read.ft.com/75e8de86-49b1-11ea-aeb3-955839e06441">
+                        <img src="{{ asset($bannerlist->slide_one) }}" class="d-block w-100" alt="">
                       </div>
                       <div class="carousel-item" data-bs-interval="2000">
                         <img src="{{ asset($bannerlist->slide_two) }}" class="d-block w-100" alt="{{ asset($bannerlist->slide_two) }}">

@@ -16,16 +16,36 @@
                                 <h4 class="text-3xl font-bold text-blue-400">Add Video Gallery</h4>
 
                                 <div class="my-5 lg:w-6/12">
-                                    <input type="text" name="title" class="TWform-control"  placeholder="Enter Video Title">
+                                    <input type="text" name="title" class="TWform-control @error('title') is-invalid @enderror"  placeholder="Enter Video Title">
+                                    @error('title')
+                                        <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                            {{$message}}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="my-5 lg:w-6/12">
-                                    <input type="text" name="url" class="TWform-control"  placeholder="Enter Video URL">
+                                    <input type="text" name="url" class="TWform-control @error('url') is-invalid @enderror"  placeholder="Enter Video URL">
+                                    @error('url')
+                                        <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                            {{$message}}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="grid grid-cols-4 mt-10 mb-3">
                                     <div class="col-span-4 md:col-span-2 ">
-                                        <input type="file" name="image" id="multiImg" class="TWform-file">
+                                        @error('image')
+                                            <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                                {{$message}}
+                                            </div>
+                                        @endif
+                                        <input type="file" name="image" id="multiImg" class="TWform-file @error('image') is-invalid @enderror">
+                                        @error('image')
+                                            <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                                {{$message}}
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
 

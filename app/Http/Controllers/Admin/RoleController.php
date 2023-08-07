@@ -6,8 +6,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Validator;
 
 class RoleController extends Controller
 {
@@ -21,6 +22,7 @@ class RoleController extends Controller
    }
 
    public function permissionStore(Request $request) {
+    $this->validatePermission($request);
     $role = Permission::create([
         'name' => $request->name,
         'group_name' => $request->group_name,
@@ -43,6 +45,7 @@ class RoleController extends Controller
 
    public function permissionUpdate(Request $request) {
 
+        $this->validatePermission($request);
         $id = $request->id;
         Permission::findOrFail($id)->update([
             'name' => $request->name,
@@ -63,6 +66,7 @@ class RoleController extends Controller
    }
 
    public function roleStore(Request $request) {
+    $this->validateRole($request);
     $role = Role::create([
         'name' => $request->name,
 
@@ -79,6 +83,7 @@ class RoleController extends Controller
 
 
    public function roleUpdate(Request $request) {
+        $this->validateRole($request);
         $id = $request->id;
         Role::findOrFail($id)->update([
             'name' => $request->name,
@@ -155,6 +160,33 @@ class RoleController extends Controller
         }
         $this->redirectToPermission('Deleted role permission successfully', 'warning');
         return redirect()->back();
+    }
+
+    private function validatePermission($request) {
+        $validationRules =  [
+            'name' => 'required',
+            'group_name' => 'required',
+        ];
+
+        $validationMessage = [
+            'name.required' => "Fill permission name",
+            'group_name.required' => 'Fill permission group name'
+
+        ];
+
+        Validator::make($request->all(),$validationRules, $validationMessage)->validate();
+    }
+
+    private function validateRole($request) {
+        $validationRules =  [
+            'name' => 'required',
+        ];
+
+        $validationMessage = [
+            'name.required' => "Fill permission name",
+        ];
+
+        Validator::make($request->all(),$validationRules, $validationMessage)->validate();
     }
 
 

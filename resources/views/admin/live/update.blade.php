@@ -18,6 +18,11 @@
 
                                 <div class="my-5 lg:w-6/12">
                                     <input type="text" name="url" class="TWform-control" value="{{ $live->url }}"  placeholder="Enter Live URL">
+                                    @error('url')
+                                        <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                            {{$message}}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="grid grid-cols-4 mt-10 mb-3">

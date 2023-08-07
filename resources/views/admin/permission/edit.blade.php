@@ -18,11 +18,16 @@
                                 <h4 class="text-3xl font-bold text-blue-400">Edit Permission</h4>
 
                                 <div class="my-5 lg:w-6/12">
-                                    <input type="text" name="name" class="TWform-control"  placeholder="Enter permission name" value="{{ $permissions->name }}">
+                                    <input type="text" name="name" class="TWform-control  @error('name') is-invalid @enderror" placeholder="Enter permission name" value="{{ $permissions->name }}">
+                                    @error('name')
+                                        <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                            {{$message}}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="mb-5 lg:w-6/12">
-                                    <select name="group_name" id="group_nae" class="TWform-control">
+                                    <select name="group_name @error('group_name') is-invalid @enderror" id="group_name" class="TWform-control">
                                         <option value="">Group Name</option>
                                         <option value="category" {{ $permissions->group_name == 'category' ?'selected':'' }}>Category</option>
                                         <option value="subcategory"  {{ $permissions->group_name == 'subcategory' ?'selected':'' }}>Subcategory</option>
@@ -35,6 +40,12 @@
                                         <option value="admin" {{ $permissions->group_name == 'admin' ?'selected':'' }}>Admin Setting</option>
                                         <option value="role" {{ $permissions->group_name == 'role' ?'selected':'' }}>Role & Permission</option>
                                     </select>
+
+                                    @error('group_name')
+                                        <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                            {{$message}}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div>
                                     <button type="submit" class="rounded btnTW btnTW-primary"><i class="fa-regular fa-pen-to-square"></i> Update</button>

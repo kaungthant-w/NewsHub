@@ -23,30 +23,10 @@ class BannerController extends Controller
         $banner = Banner::findOrFail($bannerId);
         $this->bannerValidationCheck($request);
 
-        // Delete old images if new ones are provided
-        if ($request->hasFile('slide_one')) {
-            File::delete($banner->slide_one);
-            $slide_one = $this->uploadImage($request->file('slide_one'));
-            $banner->update(['slide_one' => $slide_one]);
-        }
-
-        if ($request->hasFile('slide_two')) {
-            File::delete($banner->slide_two);
-            $slide_two = $this->uploadImage($request->file('slide_two'));
-            $banner->update(['slide_two' => $slide_two]);
-        }
-
-        if ($request->hasFile('slide_three')) {
-            File::delete($banner->slide_three);
-            $slide_three = $this->uploadImage($request->file('slide_three'));
-            $banner->update(['slide_three' => $slide_three]);
-        }
-
-        if ($request->hasFile('slide_four')) {
-            File::delete($banner->slide_four);
-            $slide_four = $this->uploadImage($request->file('slide_four'));
-            $banner->update(['slide_four' => $slide_four]);
-        }
+        $this->updateImageIfExists($banner, $request, 'slide_one');
+        $this->updateImageIfExists($banner, $request, 'slide_two');
+        $this->updateImageIfExists($banner, $request, 'slide_three');
+        $this->updateImageIfExists($banner, $request, 'slide_four');
 
         // Update banner description
         $banner->update(['description' => $request->description]);
@@ -54,14 +34,34 @@ class BannerController extends Controller
         return $this->redirectToBanner('Banner updated successfully', 'success');
     }
 
+    private function updateImageIfExists(Banner $banner, Request $request, $fieldName) {
+        if ($request->hasFile($fieldName)) {
+            $oldImage = $banner->{$fieldName};
+            if ($oldImage) {
+                File::delete($oldImage);
+            }
+
+            $newImage = $this->uploadImage($request->file($fieldName));
+            $banner->update([$fieldName => $newImage]);
+        }
+    }
+
     // private function
     private function bannerValidationCheck($request) {
         $validationRules =  [
             'description' => 'required',
+            // 'slide_one' => 'required|image|size:1024',
+            // 'slide_two' => 'required|image|size:1024',
+            // 'slide_three' => 'required|image|size:1024',
+            // 'slide_four' => 'required|image|size:1024',
         ];
 
         $validationMessage = [
             'description.required' => "Fill your description",
+            // 'slide_one.required' => "Upload image for slide one",
+            // 'slide_two.required' => "Upload image for slide two",
+            // 'slide_three.required' => "Upload image for slide three",
+            // 'slide_four.required' => "Upload image for slide four",
         ];
 
         Validator::make($request->all(),$validationRules, $validationMessage)->validate();

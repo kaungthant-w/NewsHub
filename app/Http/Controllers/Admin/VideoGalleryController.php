@@ -9,6 +9,7 @@ use App\Models\Admin\VideoGallery;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Validator;
 
 class VideoGalleryController extends Controller
 {
@@ -22,6 +23,7 @@ class VideoGalleryController extends Controller
    }
 
    public function videoGallerySave(Request $request) {
+    $this -> validateVideoGallery($request);
     $image = $request->file('image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(621, 300)->save('backend/assets/dist/img/video/' . $name_gen);
@@ -47,6 +49,7 @@ class VideoGalleryController extends Controller
 
 
     public function videoGalleryUpdate(Request $request) {
+        $this->validateVideoGallery($request);
         $video_id = $request->id;
         $video_edit = VideoGallery::findOrFail($video_id);
         $img = $video_edit->image;
@@ -60,6 +63,7 @@ class VideoGalleryController extends Controller
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(621, 300)->save('backend/assets/dist/img/video/'. $name_gen);
             $save_url = 'backend/assets/dist/img/video/'. $name_gen;
+
 
         VideoGallery::findOrFail($video_id)->update([
             'title' => $request->title,
@@ -84,7 +88,6 @@ class VideoGalleryController extends Controller
         }
     }
 
-
     // live tv
 
     public function liveTvUpdatePage() {
@@ -94,6 +97,7 @@ class VideoGalleryController extends Controller
 
 
     public function liveTvUpdate(Request $request) {
+        $this->validateLiveTV($request);
         $live_id = $request->id;
         $live_edit = LiveTv::findOrFail($live_id);
         $img = $live_edit->image;
@@ -136,6 +140,32 @@ class VideoGalleryController extends Controller
         LiveTv::findOrFail($id)->delete();
         $this->redirectToVideoGallery("Video Gallery Delete successfully.", 'warning');
         return redirect()->route("video#gallery#list");
+    }
+
+    private function validateVideoGallery($request) {
+        $validationRules =  [
+            'title' => 'required',
+            'url' => 'required',
+        ];
+
+        $validationMessage = [
+            'title.required' => "Fill title",
+            'url.required' => "Fill url link",
+        ];
+
+        Validator::make($request->all(),$validationRules, $validationMessage)->validate();
+    }
+
+    private function validateLiveTV($request) {
+        $validationRules =  [
+            'url' => 'required',
+        ];
+
+        $validationMessage = [
+            'url.required' => "Fill url link",
+        ];
+
+        Validator::make($request->all(),$validationRules, $validationMessage)->validate();
     }
 
     private function redirectToVideoGallery($message, $alertType) {

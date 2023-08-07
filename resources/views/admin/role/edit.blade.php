@@ -18,7 +18,12 @@
                                 <h4 class="text-3xl font-bold text-blue-400">Edit Role</h4>
 
                                 <div class="my-5 lg:w-6/12">
-                                    <input type="text" name="name" class="TWform-control"  placeholder="Enter Role name" value="{{ $roles->name }}">
+                                    <input type="text" name="name" class="TWform-control @error('name') is-invalid @enderror"  placeholder="Enter Role name" value="{{ $roles->name }}">
+                                    @error('name')
+                                        <div class="invalid-feedback text-danger" style="margin-bottom: 10px">
+                                            {{$message}}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div>
