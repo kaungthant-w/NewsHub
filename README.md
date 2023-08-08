@@ -1,4 +1,5 @@
 # NewsHub
+![video gallery](public/screenshoot/Group%201.png)
 
 ## Table of Contents
 * [General Information](#general-information)
@@ -37,59 +38,8 @@ Welcome to our `NewsHub` website (https://newsapp.kyawmyothant.com/), your ultim
 
 ## Screenshots
 
-### Navbar ,Banner ,Breaking News and Popular news
-![banner image](public/screenshoot/Group%201.png)
-
-### Latest News
-![latest news image](public/screenshoot/Group%202.png)
-
-### Travel News && Photo Gallery
-![travel news and photo gallery image](public/screenshoot/Group%203.png)
-
-### Video Gallery
-![video gallery](public/screenshoot/Group%204.png)
-
-
-## Admin dashboard Setting
-
 ### Admin Dashobard Setting
 ![video gallery](public/screenshoot/admindashboard.png)
-
-### Category Setting
-![category](public/screenshoot/category.png)
-
-### Subcategory Setting
-![category](public/screenshoot/subcategory.png)
-
-### News Post Setting
-![News Post Setting](public/screenshoot/news%20post.png)
-
-### Banner Setting
-![category](public/screenshoot/banner.png)
-
-### Photo Gallery Setting
-![Photo Gallery Setting](public/screenshoot/photo%20gallery.png)
-
-### Video Gallery Setting
-![Video Gallery Setting](public/screenshoot/video%20gallery.png)
-
-### LiveTV Setting
-![LiveTV Setting](public/screenshoot/Live.png)
-
-### Review Setting
-![Review Setting](public/screenshoot/review.png)
-
-### Admin List Setting
-![Admin List Setting](public/screenshoot/admin%20list.png)
-
-### All Role Setting
-![All Role Setting](public/screenshoot/role.png)
-
-### All Permission Setting
-![All Role Setting](public/screenshoot/permission.png)
-
-### All Role & Permisson Setting
-![All Role Setting](public/screenshoot/role%20and%20permission.png)
 
 
 
@@ -129,9 +79,3 @@ Welcome to our `NewsHub` website (https://newsapp.kyawmyothant.com/), your ultim
     email : admin@gmail.com
     password : password
     ```
-
-
-## Contact
-### Gmail : kyawmyothant.dev@gmail.com
-### phone No : +959977246328
-### profile website :  (http://kyawmyothant.com)
