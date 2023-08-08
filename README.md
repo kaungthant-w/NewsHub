@@ -86,7 +86,7 @@ Welcome to our `NewsHub` website (https://newshub.kyawmyothant.com/), your ultim
 NewsHub is a project aimed at providing users with a centralized platform to access news articles from different sources. It is developed and maintained by [Kyaw Myo Thant](https://www.newshub.kyawmyothant.com).
 
 
-### License
+## License
 
 Copyright (c) [2023] [Kyaw Myo Thant]
 
