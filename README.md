@@ -1,6 +1,9 @@
 # NewsHub
 ![video gallery](public/screenshoot/Group%201.png)
 
+## About
+NewsHub is a project aimed at providing users with a centralized platform to access news articles from different sources. It is developed and maintained by [Kyaw Myo Thant](https://www.newshub.kyawmyothant.com).
+
 ## Table of Contents
 * [General Information](#general-information)
 * [Technologies](#technologies)
@@ -45,28 +48,29 @@ Welcome to our `NewsHub` website (https://newshub.kyawmyothant.com/), your ultim
 
 ## Setup
 1. Install XAMPP or WAMPP
-2. Open XAMPP Control panal and start [apache] and [mysql] .
+2. Open XAMPP Control Panel and start both Apache and MySQL services.
    ```
    cd C:\xampp\htdocs\
    ```
-4. Clone project from github
+4. Clone the project from GitHub.
    ```
     > git clone https://github.com/kaungthant-w/NewsHub.git
    ```
-5. Install package dependency
+5. Install package dependencies.
    ```
      cd NewsHub
     > npm install
     > composer install
     > composer update
    ```
-6. Set the basic config
+6. Configure the basic settings.
    ```
    > cp .env.example .env
    > php artisan key.generate
    ```
    
-7. databasename - NewsHub
+7. Set up the database.
+   Create a database named "NewsHub".
    ```
    > php artisan storage:link
    > php artisan migrate:fresh --seed
@@ -74,36 +78,20 @@ Welcome to our `NewsHub` website (https://newshub.kyawmyothant.com/), your ultim
    > npm run dev
    ```
 9. Visit  http://127.0.0.1:8000/ in your favorite browser.
-10. if you want to access the NewsHub super admin dashboard:
+10. To access the NewsHub super admin dashboard:
     ```
     email : admin@gmail.com
     password : password
     ```
     
 
-## About
 
-NewsHub is a project aimed at providing users with a centralized platform to access news articles from different sources. It is developed and maintained by [Kyaw Myo Thant](https://www.newshub.kyawmyothant.com).
+## MIT License
 
+Copyright (c) 2023 Kyaw Myo Thant
 
-## License
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-Copyright (c) [2023] [Kyaw Myo Thant]
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE, OR OTHER DEALINGS IN THE SOFTWARE.
