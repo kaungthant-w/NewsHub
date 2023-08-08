@@ -10,7 +10,7 @@
 * [Contact](#contact)
 
 ## General Information
-Welcome to our `NewsHub` website (https://newsapp.kyawmyothant.com/), your ultimate source for comprehensive news coverage. Our platform features a dynamic banner highlighting top stories, categorized sections for easy navigation, constantly updated latest and breaking news, dedicated segments for travel, captivating photo and video galleries, all managed through a robust admin panel with varying user roles. Join us to stay informed and engaged with a diverse range of current events and topics from around the globe.
+Welcome to our `NewsHub` website (https://newshub.kyawmyothant.com/), your ultimate source for comprehensive news coverage. Our platform features a dynamic banner highlighting top stories, categorized sections for easy navigation, constantly updated latest and breaking news, dedicated segments for travel, captivating photo and video galleries, all managed through a robust admin panel with varying user roles. Join us to stay informed and engaged with a diverse range of current events and topics from around the globe.
 
 
 ## Technologies
@@ -38,7 +38,7 @@ Welcome to our `NewsHub` website (https://newsapp.kyawmyothant.com/), your ultim
 
 ## Screenshots
 
-### Admin Dashobard Setting
+### Admin Dashboard
 ![video gallery](public/screenshoot/admindashboard.png)
 
 
