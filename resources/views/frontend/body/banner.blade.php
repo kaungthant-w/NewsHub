@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 d-none d-md-block ">
-                <p class="text-secondary"> {!! $bannerlist->description !!} </p>
+                <p class="text-secondary"> {!! GoogleTranslate::trans($bannerlist->description, app()->getLocale()) !!} </p>
             </div>
         </div>
     </div>

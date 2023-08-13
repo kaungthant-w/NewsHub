@@ -161,6 +161,7 @@ class CategoryController extends Controller
         return json_encode($subcat);
     }
 
+
     // private validate function
     private function postSubValidationCheck($request) {
         $validationRules =  [

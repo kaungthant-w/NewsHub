@@ -4,7 +4,7 @@
 @endphp --}}
 <div class="mt-4 container-fluid">
     <div class="row">
-        <h1 class="h3">Relative News</h1>
+        <h1 class="h3">{{ GoogleTranslate::trans("Relative News ", app()->getLocale()) }}</h1>
         <div class="gap-1 p-2 col-12 col-md-9">
             <div class="row">
                 @foreach ($relativeNews as $newsList )
@@ -14,9 +14,9 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{asset($newsList->image)}}" alt="{{ $newsList->image }}">
                                 <div class="card-body">
-                                    <p class="card-text ">{!! Str::limit($newsList->news_details, 80) !!}</p>
+                                    <p class="card-text ">{!! Str::limit(GoogleTranslate::trans($newsList->news_details, app()->getLocale()), 80) !!}</p>
                                     <p>{{ $newsList->created_at->diffForHumans()}}</p>
-                                    <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">ReadMore</a>
+                                    <a href="{{ url('newspost/details/'.$newsList->id."/".$newsList->news_title_slug) }}" class="text-decoration-none text-primary">{{ GoogleTranslate::trans("ReadMore", app()->getLocale()) }}</a>
                                 </div>
                             </div>
                         </a>

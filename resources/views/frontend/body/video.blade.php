@@ -3,7 +3,7 @@
 @endphp
 
 <div class="mt-5 container-fluid">
-    <h1 class="h3">Video Gallery</h1>
+    <h1 class="h3">{{ GoogleTranslate::trans("Video Gallery", app()->getLocale()) }}</h1>
     <div class="row">
         @foreach ( $videoGalleryList as $gallery)
             <div class="mb-3 col-12 col-md-4 position-relative">
@@ -13,7 +13,7 @@
                     <div  class=" position-absolute top-50 start-50 translate-middle">
                         <i class="text-white fa-solid fa-play fs-3"></i>
                     </div>
-                    <p class="mt-2 ms-2">{{ $gallery->title }}</p>
+                    <p class="mt-2 ms-2">{{ GoogleTranslate::trans($gallery->title , app()->getLocale())}}</p>
 
                 </div>
             </div>

@@ -150,3 +150,4 @@ Route::get('newspost/subcategory/{id}/{slug}', [NewspostController::class, 'news
 Route::post('news/search', [NewspostController::class, 'newsSearch'])->name('news#search');
 Route::get('news/reporter/profile/{id}', [NewspostController::class, 'newsReporterProfile'])->name('news#reporter#profile');
 Route::get('news/policy', [NewspostController::class, 'newsPolicy'])->name('news#policy');
+Route::get('lang/change', [NewspostController::class, 'change'])->name('changeLang');

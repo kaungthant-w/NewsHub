@@ -9,6 +9,7 @@ use Psy\Readline\Hoa\Console;
 use App\Models\Admin\Category;
 use App\Models\Admin\Newspost;
 use App\Models\Admin\Subcategory;
+use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -222,6 +223,14 @@ class NewspostController extends Controller
     //policy page
     public function newsPolicy() {
         return view("frontend.body.policy");
+    }
+
+    //translate langauge
+    public function change(Request $request) {
+        App::setLocale($request->lang);
+        session()->put('locale', $request->lang);
+
+        return redirect()->back();
     }
 
     // private function

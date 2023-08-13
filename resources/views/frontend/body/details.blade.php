@@ -1,5 +1,5 @@
 @section('title')
-    {{ $news->news_title }}
+    {{ GoogleTranslate::trans( $news->news_title , app()->getLocale())  }}
 @endsection
 @include("frontend.body.header")
 
@@ -25,21 +25,21 @@
                     <div class="my-3 col-12">
                         <div class="position-relative">
                             <img class="card-img-top" src="{{asset($news->image)}}" alt="{{ $news->image }}">
-                            <p class="top-0 mt-3 position-absolute end-0 me-3" style="color: gray; font-size:12px; "><i class="fa fa-eye"></i> {{ $news -> view_count }}</p>
+                            <p class="top-0 mt-3 position-absolute end-0 me-3" style="color: gray; font-size:12px; "><i class="fa fa-eye"></i> {{ GoogleTranslate::trans($news -> view_count, app()->getLocale()) }} </p>
                         </div>
                         <div class="p-3">
-                            <h1 class=" h4 ms-2">{{ $news->news_title }}</h1>
+                            <h1 class=" h4 ms-2">{{ GoogleTranslate::trans( $news->news_title, app()->getLocale()) }}</h1>
                             <p style="font-size: 14px;color:gray" class="ms-2">{{ $news->created_at->diffForHumans()}}</p>
                             <div class="">
-                                <span style="font-size: 14px;color:gray" class="ms-2">Posted By <i class="fa fa-user"></i> <a href="{{ route('news#reporter#profile', $news->user_id) }}" class="text-decoration-none text-secondary">{{ $news['user']['name'] }}</a></span>
+                                <span style="font-size: 14px;color:gray" class="ms-2"> {{ GoogleTranslate::trans("Posted By ", app()->getLocale()) }}<i class="fa fa-user"></i> <a href="{{ route('news#reporter#profile', $news->user_id) }}" class="text-decoration-none text-secondary">{{ GoogleTranslate::trans($news['user']['name'] , app()->getLocale()) }}</a></span>
                             </div>
-                            <p class="card-text" style="color:gray">{!! $news->news_details !!}</p>
+                            <p class="card-text" style="color:gray">{!! GoogleTranslate::trans($news->news_details , app()->getLocale()) !!}</p>
 
                             <div class="mt-3">
                                 <div class="row">
                                     <div class="col-12 col-md-3">
-                                        <span class="me-3">Category:
-                                            <a href="" class="badge brounded-pill bg-secondary text-decoration-none">{{ $news['category']['category_name'] }}</a>
+                                        <span class="me-3">{{ GoogleTranslate::trans("Category", app()->getLocale()) }}:
+                                            <a href="" class="badge brounded-pill bg-secondary text-decoration-none">{{ GoogleTranslate::trans($news['category']['category_name'] , app()->getLocale()) }}</a>
                                         </span>
 
                                         {{-- @foreach ($categories as $category)
@@ -54,14 +54,14 @@
                                         @if ($news->subcategory_id === NULL)
 
                                         @else
-                                            <span class="me-3">Subcategory: <a href="#" class="badge rounded-pill bg-secondary text-decoration-none">{{ $news['subcategory']['subcategory_name'] }}</a></span>
+                                            <span class="me-3">{{  GoogleTranslate::trans("Subcategory", app()->getLocale())  }}: <a href="#" class="badge rounded-pill bg-secondary text-decoration-none">{{ GoogleTranslate::trans($news['subcategory']['subcategory_name'] , app()->getLocale()) }}</a></span>
                                         @endif
                                     </div>
                                     <div class="col-12 col-md-3">
                                         <span>
                                             Tags:
                                             @foreach ($tagsall as $tag)
-                                                <a href="#" class="text-decoration-none badge rounded-pill bg-secondary">{{ ucwords($tag) }}</a>
+                                                <a href="#" class="text-decoration-none badge rounded-pill bg-secondary">{{ ucwords(GoogleTranslate::trans($tag, app()->getLocale())) }}</a>
                                             @endforeach
                                         </span>
                                     </div>
@@ -71,9 +71,9 @@
                                 @php
                                     $reviews = App\Models\User\Review::where('news_id', $news->id)->latest()->limit(5)->get();
                                 @endphp
-                                <h3 class="h3">Comments</h3>
+                                <h3 class="h3">{{ GoogleTranslate::trans("Comments" , app()->getLocale()) }}</h3>
                                 @if ($reviews->isEmpty())
-                                    <p class="text-danger">There are no comments yet.</p>
+                                    <p class="text-danger">{{ GoogleTranslate::trans("There are no comments yet. " , app()->getLocale()) }}</p>
                                 @else
                                     @foreach ( $reviews as $review )
                                         @if ($review->status == 0)
@@ -97,8 +97,8 @@
                                                         <span class="commentText">
                                                             {{ $review->comment }}
                                                         </span>
-                                                        <span class="showMore text-info"><a href="#">More</a></span>
-                                                        <span class="showLess text-danger"><a href="#">Less</a></span>
+                                                        <span class="showMore text-info"><a href="#"> {{ GoogleTranslate::trans("More", app()->getLocale()) }}</a></span>
+                                                        <span class="showLess text-danger"><a href="#">{{ GoogleTranslate::trans("Less", app()->getLocale()) }}</a></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,7 +108,7 @@
                                 @endif
 
                                 @guest
-                                    <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> For Add Post Review. You Need to Login First. <a href="#loginId" data-bs-toggle="modal" class="text-decoration-none text-info"> Login</a></p>
+                                    <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> {{ GoogleTranslate::trans("For Add Post Review. You Need to Login First.", app()->getLocale()) }}<a href="#loginId" data-bs-toggle="modal" class="text-decoration-none text-info"> {{ GoogleTranslate::trans("Login", app()->getLocale()) }}</a></p>
                                 @else
 
                                     <div class="mt-5">
@@ -117,7 +117,7 @@
                                             @csrf
                                             <input type="hidden" value="{{ $news->id }}" name="news_id">
                                             <textarea name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
-                                            <button type="submit" class="mt-3 btn btn-info">Send <i class="fa-solid fa-paper-plane"></i> </button>
+                                            <button type="submit" class="mt-3 btn btn-info"> {{ GoogleTranslate::trans("Send", app()->getLocale()) }}<i class="fa-solid fa-paper-plane"></i> </button>
                                         </form>
                                     </div>
 
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                         <div class="col-12 d-none d-md-block" style="font-size: 14px;">
-                            <p>{!! $bannerlist->description !!}</p>
+                            <p>{!! GoogleTranslate::trans($bannerlist->description , app()->getLocale()) !!}</p>
                         </div>
                     </div>
                 </div>

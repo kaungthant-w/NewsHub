@@ -3,7 +3,7 @@
 @endphp
 
 <div class="mt-3 container-fluid">
-    <h1 class="mb-3 h3">Photo Gallery</h1>
+    <h1 class="mb-3 h3">{{ GoogleTranslate::trans("Photo Gallery", app()->getLocale()) }}</h1>
     <div class="row">
         <div id="gallery" class="gallery_img">
             @foreach ($gallerylist as $newsList)

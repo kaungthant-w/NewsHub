@@ -7,7 +7,7 @@
         <div>
             <span class="text-sm spinner-grow text-danger spinner-grow-sm">
             </span>
-            <span>Live TV</span>
+            <span>{{ GoogleTranslate::trans("Live TV", app()->getLocale()) }}</span>
         </div>
         <div class="closeLive">
             <button class=" btn btn-default">
@@ -19,7 +19,7 @@
         <div class=" position-absolute top-50 end-50 translate-middle">
             <i class="text-white fa-solid fa-play fs-2"></i>
         </div>
-        <img src="{{ $live->image }}" class="w-100 img-thumbnail" style="height: 200px" alt="">
+        <img src="{{ $live->image }}" class="w-100 img-thumbnail" style="height: 200px" alt="{{ $live->image }}">
     </div>
 </div>
 
@@ -28,7 +28,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Live TV</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{ GoogleTranslate::trans("Live TV", app()->getLocale()) }}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
