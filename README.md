@@ -9,8 +9,9 @@ NewsHub is a project aimed at providing users with a centralized platform to acc
 * [Technologies](#technologies)
 * [Features](#features)
 * [Screenshots](#screenshots)
+* [Upcomping Features Roadmap](#upcoming-features-roadmap)
 * [Setup](#setup)
-* [Contact](#contact)
+* [MIT License](#mit-license)
 
 ## General Information
 Welcome to our `NewsHub` website (https://newshub.kyawmyothant.com/), your ultimate source for comprehensive news coverage. Our platform features a dynamic banner highlighting top stories, categorized sections for easy navigation, constantly updated latest and breaking news, dedicated segments for travel, captivating photo and video galleries, all managed through a robust admin panel with varying user roles. Join us to stay informed and engaged with a diverse range of current events and topics from around the globe.
@@ -39,12 +40,21 @@ Welcome to our `NewsHub` website (https://newshub.kyawmyothant.com/), your ultim
 * Photo Gallery
 * Video Gallery
 
+## Upcoming Features Roadmap
+* Implement API integration
+* Transition to VueJS (Eliminate JS & jQuery)
+* Replace Bootstrap with TailwindCSS for streamlined styling (CSS code reduction)
+* Enable Multi-Language Support (Korean, Japanese, etc.)
+* Introduce Post Reactions (happy, sad, angry...)
+* Integrate Multiple Commenting Systems
+* Add Banner Viewer
+* Resolve existing bugs
+* Enhance UI/UX
+
 ## Screenshots
 
 ### Admin Dashboard
 ![video gallery](public/screenshoot/admindashboard.png)
-
-
 
 ## Setup
 1. Install XAMPP or WAMPP
