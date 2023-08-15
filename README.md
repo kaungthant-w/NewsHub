@@ -8,8 +8,8 @@ NewsHub is a project aimed at providing users with a centralized platform to acc
 * [General Information](#general-information)
 * [Technologies](#technologies)
 * [Features](#features)
-* [Screenshots](#screenshots)
 * [Upcomping Features Roadmap](#upcoming-features-roadmap)
+* [Screenshots](#screenshots)
 * [Setup](#setup)
 * [MIT License](#mit-license)
 
